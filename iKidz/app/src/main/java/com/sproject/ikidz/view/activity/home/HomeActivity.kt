@@ -2,6 +2,8 @@ package com.sproject.ikidz.view.activity.home
 
 import android.Manifest
 import android.os.Bundle
+import android.support.design.widget.AppBarLayout
+import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.view.ViewPager
@@ -64,7 +66,34 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
         })
 
+        tablayoutMain.enableAnimation(false)
+        tablayoutMain.enableShiftingMode(false)
+        tablayoutMain.enableItemShiftingMode(false)
+        tablayoutMain.setupWithViewPager(viewPagerMain)
+        initBottomNavListener()
+    }
 
+    private fun initBottomNavListener() {
+        tablayoutMain.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_news -> {
+
+                }
+                R.id.nav_school -> {
+
+                }
+                R.id.nav_contacts -> {
+
+                }
+                R.id.nav_phonebooks -> {
+
+                }
+                R.id.nav_message -> {
+
+                }
+            }
+            true
+        })
     }
 
     override fun onBackPressed() {

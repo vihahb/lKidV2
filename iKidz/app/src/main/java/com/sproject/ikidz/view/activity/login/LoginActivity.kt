@@ -49,6 +49,7 @@ class LoginActivity : BaseActivity(), ILogin {
     }
 
     private fun initView() {
+        initToolbar(R.id.toolbar, R.id.toolbar_text, "Đăng nhập", false)
         provinceAdapter = AdapterSpinnerProvince(this, provinceData)
         sp_province.adapter = provinceAdapter
 

@@ -23,6 +23,9 @@
     <string name="action_select_province">Chọn tỉnh thành</string>
     <string name="action_select_district">Chọn quận huyện</string>
     <string name="action_select_school">Chọn trường</string>
+    <string name="tv_user_name">Tài khoản...</string>
+    <string name="tv_user_pass">Mật khẩu...</string>
+    <string name="tv_forgot_pass">Quên mật khẩu?</string>
 
 
 </resources>

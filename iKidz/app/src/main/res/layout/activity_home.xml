@@ -26,11 +26,14 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
 
-            <android.support.design.widget.TabLayout
+            <com.sproject.ikidz.sdk.Utils.BottomNavigationViewEx
                 android:id="@+id/tablayoutMain"
-                android:layout_gravity="bottom"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="57dp"
+                android:background="@color/bottom_bar_color"
+                app:itemIconTint="@drawable/selector_bottom_navigation"
+                app:itemTextColor="@drawable/selector_bottom_navigation"
+                app:menu="@menu/menu_navigation_with_view_pager"/>
         </LinearLayout>
     </LinearLayout>
 

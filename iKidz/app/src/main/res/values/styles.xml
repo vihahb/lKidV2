@@ -39,4 +39,17 @@
         <item name="android:windowExitAnimation">@anim/animation_slide_down</item>
     </style>
 
+    <style name="StyleEditTextLogin">
+        <item name="android:theme">@style/CustomEditText</item>
+        <item name="android:textColorHint">@color/white_85</item>
+        <item name="android:textColor">@color/white_100</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">@dimen/font_14</item>
+    </style>
+
+    <style name="CustomEditText" parent="Widget.AppCompat.EditText">
+        <item name="colorControlActivated">@color/white_85</item>
+        <item name="colorControlNormal">@color/white_85</item>
+    </style>
+
 </resources>
