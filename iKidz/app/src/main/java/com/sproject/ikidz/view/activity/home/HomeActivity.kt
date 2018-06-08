@@ -27,7 +27,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        initToolbar(R.id.toolbar, R.id.toolbar_text, resources.getString(R.string.title_newsfeed), false)
+        initToolbar(R.id.toolbar, resources.getString(R.string.title_newsfeed), false)
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -38,6 +38,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
         initFragment()
         checkPermission()
+        setTitleToolbar(resources.getString(R.string.title_newsfeed))
     }
 
     private fun checkPermission() {
@@ -60,8 +61,8 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
 
             override fun onPageSelected(position: Int) {
-                if (toolbar_text != null && viewpagerAdapter != null)
-                    toolbar_text.text = viewpagerAdapter!!.getPageTitle(position)
+                if (viewpagerAdapter != null)
+                    setTitleToolbar(viewpagerAdapter!!.getPageTitle(position).toString())
             }
 
         })
@@ -74,7 +75,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     private fun initBottomNavListener() {
-        tablayoutMain.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        tablayoutMain.onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_news -> {
 
@@ -93,7 +94,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 }
             }
             true
-        })
+        }
     }
 
     override fun onBackPressed() {

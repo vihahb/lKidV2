@@ -20,12 +20,18 @@
     <string name="message_loading">Loading…</string>
     <string name="mesage_loading_data">Đang tải dữ liệu...</string>
     <string name="message_can_not_request">Không thể request tới server. Vui lòng thử lại sau!</string>
+    <string name="action_select_non_data_province">Không có dữ liệu tỉnh thành</string>
+    <string name="action_select_non_data_district">Không có dữ liệu quận huyện</string>
+    <string name="action_select_non_data_school">Không có dữ liệu trường học</string>
     <string name="action_select_province">Chọn tỉnh thành</string>
     <string name="action_select_district">Chọn quận huyện</string>
     <string name="action_select_school">Chọn trường</string>
-    <string name="tv_user_name">Tài khoản...</string>
-    <string name="tv_user_pass">Mật khẩu...</string>
+    <string name="tv_user_name">Tài khoản…</string>
+    <string name="tv_user_pass">Mật khẩu…</string>
     <string name="tv_forgot_pass">Quên mật khẩu?</string>
+    <string name="validate_field_province">Vui lòng chọn tỉnh thành.</string>
+    <string name="validate_field_district">Vui lòng chọn quận huyện</string>
+    <string name="validate_field_user_name_pass">Vui lòng không để trống tài khoản và mật khẩu.</string>
 
 
 </resources>

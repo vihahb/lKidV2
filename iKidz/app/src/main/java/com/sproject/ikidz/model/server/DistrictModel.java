@@ -25,7 +25,7 @@ public abstract class DistrictModel extends AbsICmd {
 
     @Override
     protected void invoke() {
-        String url = basicModel.LINK_API + basicModel.VERSION_API + basicModel.DISTRICT_API;
+        String url = basicModel.MANAGER_LINK_API + basicModel.VERSION_API + basicModel.DISTRICT_API;
         iKidApplications.log("DistrictModel", url);
         String json = "{\"pid\":" + pid + "}";
         iKidApplications.log("DistrictModel", json);

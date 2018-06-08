@@ -9,7 +9,7 @@
         android:paddingBottom="@dimen/size_8"
         android:paddingLeft="@dimen/size_12"
         android:paddingRight="@dimen/size_12"
-        android:id="@+id/tv_province_name"
+        android:id="@+id/tv_school_name"
         android:text="TP. HoChiMinh"
         android:textStyle="italic"
         android:textColor="@color/black_75"

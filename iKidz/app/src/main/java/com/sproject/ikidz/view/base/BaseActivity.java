@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ravikoradiya.library.CenterTitle;
+import com.ravikoradiya.library.CenterTitleKt;
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.iKidApplications;
 import com.sproject.ikidz.sdk.Utils.DisplayUtils;
@@ -23,25 +25,30 @@ public abstract class BaseActivity extends AppCompatActivity implements IBasicAc
 
     boolean isWaitingForExit = false;
     private Dialog progressDialog;
+    Toolbar toolbar;
 
-    public void initToolbar(int id, int id_title, String title, boolean showBack) {
-        Toolbar toolbar = (Toolbar) findViewById(id);
+    public void initToolbar(int id, String title, boolean showBack) {
+        toolbar = (Toolbar) findViewById(id);
         setSupportActionBar(toolbar);
-
-        TextView textView = findViewById(id_title);
+        CenterTitle.centerTitle(toolbar, true);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar == null) return;
         actionBar.setDisplayShowHomeEnabled(true);
         if (showBack) {
-            toolbar.setPadding(0, 0, DisplayUtils.DpToPx(64, BaseActivity.this), 0);
+//            toolbar.setPadding(0, 0, DisplayUtils.DpToPx(64, BaseActivity.this), 0);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
         toolbar.setNavigationIcon(R.drawable.ic_action_back);
 
         if (title != null)
-            textView.setText(title);
+            toolbar.setTitle(title);
+    }
+
+    public void setTitleToolbar(String title) {
+        if (title != null)
+            toolbar.setTitle(title);
     }
 
     /*

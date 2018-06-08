@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:theme="@style/AppTheme.AppBarOverlay"
-    tools:showIn="@layout/activity_home">
+    tools:showIn="@layout/activity_home"
+    app:elevation="0dp">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -13,18 +14,6 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:popupTheme="@style/AppTheme.PopupOverlay"
-        tools:ignore="RtlSymmetry">
-
-        <TextView
-            android:id="@+id/toolbar_text"
-            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/font_16"
-            tools:text="Toolbar" />
-    </android.support.v7.widget.Toolbar>
+        tools:ignore="RtlSymmetry"/>
 
 </android.support.design.widget.AppBarLayout>

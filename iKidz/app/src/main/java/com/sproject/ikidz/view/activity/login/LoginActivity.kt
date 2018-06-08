@@ -4,19 +4,27 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import com.sproject.ikidz.R
+import com.sproject.ikidz.model.RESP.RESP_GetSchoolByDistrict
 import com.sproject.ikidz.model.entity.ProvinceOrDistrict
+import com.sproject.ikidz.model.entity.SchoolByDistrict
 import com.sproject.ikidz.presenter.Login.LoginPresenter
+import com.sproject.ikidz.sdk.Commons.Constants
+import com.sproject.ikidz.sdk.Utils.Base64Helper
+import com.sproject.ikidz.sdk.Utils.SharedUtils
+import com.sproject.ikidz.sdk.Utils.TextUtils
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
 
 class LoginActivity : BaseActivity(), ILogin {
 
-
     lateinit var provinceAdapter: AdapterSpinnerProvince
     lateinit var districtAdapter: AdapterSpinnerProvince
+    lateinit var schoolByDistrictAdapter: AdapterSpinnerSchoolByDistrict
     private lateinit var provinceData: ArrayList<ProvinceOrDistrict>
     private lateinit var districtData: ArrayList<ProvinceOrDistrict>
+    private lateinit var schoolByDistrictData: ArrayList<SchoolByDistrict>
+    private lateinit var link_api: String
 
     override fun getDistrictSuccess(data: List<ProvinceOrDistrict>) {
         if (districtData.size > 0)
@@ -36,6 +44,31 @@ class LoginActivity : BaseActivity(), ILogin {
         provinceAdapter.notifyDataSetChanged()
     }
 
+    override fun getSchoolByDistrictSuccess(schools: RESP_GetSchoolByDistrict) {
+        if (schoolByDistrictData.size > 0)
+            schoolByDistrictData.clear()
+
+        schoolByDistrictData.addAll(schools.data)
+//        schoolByDistrictData.add(0, SchoolByDistrict(-1, this.resources.getString(R.string.action_select_school)))
+        schoolByDistrictAdapter.notifyDataSetChanged()
+    }
+
+    override fun getSchoolsError(err: String) {
+        districtData.add(0, ProvinceOrDistrict(-1, this.resources.getString(R.string.action_select_non_data_school)))
+        districtAdapter.notifyDataSetChanged()
+    }
+
+    override fun getProvincesError() {
+        provinceData.add(0, ProvinceOrDistrict(-1, this.resources.getString(R.string.action_select_non_data_province)))
+        provinceAdapter.notifyDataSetChanged()
+    }
+
+    override fun getDistrictError() {
+        districtData.add(0, ProvinceOrDistrict(-1, this.resources.getString(R.string.action_select_non_data_district)))
+        districtAdapter.notifyDataSetChanged()
+    }
+
+
     private lateinit var presenter: LoginPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,17 +77,22 @@ class LoginActivity : BaseActivity(), ILogin {
         presenter = LoginPresenter(this)
         provinceData = ArrayList()
         districtData = ArrayList()
+        schoolByDistrictData = ArrayList()
         initView()
 
     }
 
     private fun initView() {
-        initToolbar(R.id.toolbar, R.id.toolbar_text, "Đăng nhập", false)
+        initForm()
+        initToolbar(R.id.toolbar, "Đăng nhập", false)
         provinceAdapter = AdapterSpinnerProvince(this, provinceData)
         sp_province.adapter = provinceAdapter
 
         districtAdapter = AdapterSpinnerProvince(this, districtData)
         sp_district.adapter = districtAdapter
+
+        schoolByDistrictAdapter = AdapterSpinnerSchoolByDistrict(this, schoolByDistrictData)
+        sp_school.adapter = schoolByDistrictAdapter
 
         sp_province.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -69,6 +107,66 @@ class LoginActivity : BaseActivity(), ILogin {
 
         }
 
+        sp_district.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (districtAdapter.getItemId(position) > -1) {
+                    presenter.GetSchoolByDistrict((districtAdapter.getItem(position) as ProvinceOrDistrict).id)
+                }
+            }
+        }
+
+        sp_school.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (schoolByDistrictAdapter.getItemId(position) > -1) {
+                    link_api = (schoolByDistrictAdapter.getItem(position) as SchoolByDistrict).linkApi
+                }
+            }
+
+        }
+
         presenter.GetProvince()
+
+        fun onLogin() {
+            if ((provinceAdapter.getItem(sp_district.selectedItemPosition) as ProvinceOrDistrict).id == -1) {
+                showLongToast(resources.getString(R.string.validate_field_province))
+                return
+            }
+
+            if ((provinceAdapter.getItem(sp_district.selectedItemPosition) as ProvinceOrDistrict).id == -1) {
+                showLongToast(resources.getString(R.string.validate_field_district))
+                return
+            }
+            if (!TextUtils.isEmpty(edtUserName.text.toString()) && !TextUtils.isEmpty(edtPassword.text.toString())) {
+                if (chk_remember.isChecked) {
+                    var key = Base64Helper.getEncode(edtPassword.text.toString())
+                    SharedUtils.getInstance().putStringValue(Constants.USER_NAME, edtUserName.text.toString())
+                    SharedUtils.getInstance().putStringValue(Constants.USER_PASS, key)
+                    presenter.onLogin(edtUserName.text.toString(), edtPassword.text.toString(), link_api)
+                }
+            } else {
+                showLongToast(resources.getString(R.string.validate_field_user_name_pass))
+                return
+            }
+        }
+    }
+
+    private fun initForm() {
+        if (!TextUtils.isEmpty(SharedUtils.getInstance().getStringValue(Constants.USER_NAME)))
+            edtUserName.setText(SharedUtils.getInstance().getStringValue(Constants.USER_NAME))
+
+        if (!TextUtils.isEmpty(SharedUtils.getInstance().getStringValue(Constants.USER_PASS))) {
+            var key = Base64Helper.getEncode(SharedUtils.getInstance().getStringValue(Constants.USER_PASS))
+            edtPassword.setText(key)
+        }
     }
 }
+
+

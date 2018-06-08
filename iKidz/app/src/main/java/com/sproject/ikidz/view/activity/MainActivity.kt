@@ -13,7 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Handler().postDelayed({
-            this.startActivity(Intent(this, com.sproject.ikidz.view.activity.home.HomeActivity::class.java))
+            this.startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }, 3000)
     }
 }

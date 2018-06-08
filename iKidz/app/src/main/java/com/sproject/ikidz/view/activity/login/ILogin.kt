@@ -1,5 +1,6 @@
 package com.sproject.ikidz.view.activity.login
 
+import com.sproject.ikidz.model.RESP.RESP_GetSchoolByDistrict
 import com.sproject.ikidz.model.entity.ProvinceOrDistrict
 import com.sproject.ikidz.view.base.IBasicActivity
 
@@ -10,7 +11,11 @@ import com.sproject.ikidz.view.base.IBasicActivity
  * Time: 10:58 PM
  * Email: vihahb@gmail.com
  */
-interface ILogin: IBasicActivity {
+interface ILogin : IBasicActivity {
     fun getProvincesSuccess(data: List<ProvinceOrDistrict>)
     fun getDistrictSuccess(data: List<ProvinceOrDistrict>)
+    fun getDistrictError()
+    fun getProvincesError()
+    fun getSchoolByDistrictSuccess(schools: RESP_GetSchoolByDistrict)
+    fun getSchoolsError(err: String)
 }

@@ -2,8 +2,10 @@ package com.sproject.ikidz.presenter.Login
 
 import com.sproject.ikidz.R
 import com.sproject.ikidz.iKidApplications
+import com.sproject.ikidz.model.RESP.RESP_GetSchoolByDistrict
 import com.sproject.ikidz.model.RESP.RESP_Province
 import com.sproject.ikidz.model.server.DistrictModel
+import com.sproject.ikidz.model.server.GetSchoolByDistrictModel
 import com.sproject.ikidz.model.server.ProvinceModel
 import com.sproject.ikidz.sdk.Utils.JsonHelper
 import com.sproject.ikidz.view.activity.login.ILogin
@@ -29,6 +31,7 @@ class LoginPresenter(private val view: ILogin) {
 
             override fun onErrror(err: String?) {
                 iKidApplications.log(TAG, err!!)
+                view.getProvincesError()
                 view.closeProgressBar()
             }
         }
@@ -45,8 +48,31 @@ class LoginPresenter(private val view: ILogin) {
 
             override fun onErrror(err: String?) {
                 iKidApplications.log(TAG, err!!)
+                view.getDistrictError()
                 view.closeProgressBar()
             }
         }
+    }
+
+    fun GetSchoolByDistrict(distrcId: Int) {
+        view.showProgressBar(false, true, view.activity.getString(R.string.mesage_loading_data))
+        object : GetSchoolByDistrictModel(distrcId) {
+            override fun onSuccess(schools: RESP_GetSchoolByDistrict) {
+                iKidApplications.log(TAG, JsonHelper.toJson(schools))
+                view.getSchoolByDistrictSuccess(schools)
+                view.closeProgressBar()
+            }
+
+            override fun onErrror(err: String) {
+                iKidApplications.log(TAG, err!!)
+                view.getSchoolsError(err)
+                view.closeProgressBar()
+            }
+
+        }
+    }
+
+    fun onLogin(username: String, pass: String, link_api: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

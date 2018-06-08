@@ -60,22 +60,24 @@
                     android:layout_marginBottom="@dimen/size_16" />
 
                 <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/edtUserName"
+                    style="@style/StyleEditTextLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_16"
+                    android:background="@drawable/round_edittext_login"
                     android:hint="@string/tv_user_name"
                     android:textSize="@dimen/font_14"
-                    android:textColor="@color/white_100"
-                    android:textStyle="italic"
-                    style="@style/StyleEditTextLogin"/>
+                    android:textStyle="italic" />
 
                 <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_16"
                     android:hint="@string/tv_user_pass"
                     android:textSize="@dimen/font_14"
-                    android:textColor="@color/white_100"
+                    android:background="@drawable/round_edittext_login"
                     android:textStyle="italic"
                     style="@style/StyleEditTextLogin"/>
 

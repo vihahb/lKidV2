@@ -54,7 +54,7 @@ public class AdapterSpinnerProvince extends BaseAdapter {
 
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_province, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_province_dropdown_view, parent, false);
         TextView tv_provinceName = view.findViewById(R.id.tv_province_name);
         tv_provinceName.setText(provincesList.get(position).getTitle());
         return view;
