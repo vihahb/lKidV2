@@ -65,4 +65,5 @@
     <dimen name="font_20">20sp</dimen>
     <dimen name="font_24">24sp</dimen>
     <dimen name="size_250">250dp</dimen>
+    <dimen name="size_1_5">1.5dp</dimen>
 </resources>

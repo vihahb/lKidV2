@@ -2,10 +2,16 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
-    <TextView
-        android:textSize="@dimen/font_24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_newsfeed"/>
+    android:orientation="vertical"
+    android:gravity="center"
+    android:animateLayoutChanges="true">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcl_feature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcl_news"
+        android:layoutAnimation="@anim/layout_animation_fall_down"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

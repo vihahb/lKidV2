@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.sproject.ikidz.R
-import com.sproject.ikidz.view.activity.login.LoginActivity
+import com.sproject.ikidz.view.activity.home.HomeActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Handler().postDelayed({
-            this.startActivity(Intent(this, LoginActivity::class.java))
+            this.startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }, 3000)
     }

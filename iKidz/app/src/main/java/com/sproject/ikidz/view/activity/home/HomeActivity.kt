@@ -12,6 +12,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.sproject.ikidz.R
 import com.sproject.ikidz.sdk.Utils.PermissionHelper
+import com.sproject.ikidz.view.activity.home.main_feature.AdapterMainFeature
 import com.sproject.ikidz.view.adapter.viewpager.ViewPagerMainAdapter
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
@@ -21,7 +22,6 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     var viewpagerAdapter: ViewPagerMainAdapter? = null
     private val permissions = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

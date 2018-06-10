@@ -24,8 +24,8 @@
         </activity>
         <activity
             android:name=".view.activity.home.HomeActivity"
-            android:label="@string/title_activity_home" />
-        <activity android:name=".view.activity.login.LoginActivity"></activity>
+            android:label="@string/title_newsfeed" />
+        <activity android:name=".view.activity.login.LoginActivity"/>
     </application>
 
 </manifest>
