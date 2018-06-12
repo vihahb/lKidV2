@@ -1,6 +1,7 @@
 package com.sproject.ikidz.view.activity.login
 
 import com.sproject.ikidz.model.RESP.RESP_GetSchoolByDistrict
+import com.sproject.ikidz.model.RESP.RESP_Login
 import com.sproject.ikidz.model.entity.ProvinceOrDistrict
 import com.sproject.ikidz.view.base.IBasicActivity
 
@@ -18,4 +19,8 @@ interface ILogin : IBasicActivity {
     fun getProvincesError()
     fun getSchoolByDistrictSuccess(schools: RESP_GetSchoolByDistrict)
     fun getSchoolsError(err: String)
+    fun onLoginError(error: String?)
+    fun onLoginSuccess(login: RESP_Login)
+    fun onSaveUserSuccess()
+    fun onSaveUserError()
 }

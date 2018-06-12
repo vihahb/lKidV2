@@ -43,8 +43,8 @@
 
     <style name="StyleEditTextLogin">
         <item name="android:theme">@style/CustomEditText</item>
-        <item name="android:textColorHint">@color/black_55</item>
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColorHint">@color/white_85</item>
+        <item name="android:textColor">@color/white_100</item>
         <item name="android:textStyle">italic</item>
         <item name="android:paddingLeft">@dimen/size_12</item>
         <item name="android:paddingRight">@dimen/size_12</item>

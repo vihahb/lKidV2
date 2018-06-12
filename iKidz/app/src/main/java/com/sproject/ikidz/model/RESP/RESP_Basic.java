@@ -17,6 +17,8 @@ public class RESP_Basic implements Serializable {
     private int errorCode;
     @Expose
     private String errorDesc;
+    @Expose
+    private String errorMessage;
 
     public int getErrorCode() {
         return errorCode;
@@ -34,11 +36,20 @@ public class RESP_Basic implements Serializable {
         this.errorDesc = errorDesc;
     }
 
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
     @Override
     public String toString() {
         return "RESP_Basic{" +
                 "errorCode=" + errorCode +
                 ", errorDesc='" + errorDesc + '\'' +
+                ", errorMessage='" + errorMessage + '\'' +
                 '}';
     }
 }

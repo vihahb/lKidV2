@@ -61,7 +61,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBasicAc
                 progressDialog = null;
             }
 
-            progressDialog = new Dialog(iKidApplications.context, R.style.Theme_Transparent);
+            progressDialog = new Dialog(this, R.style.Theme_Transparent);
             progressDialog.setContentView(R.layout.dialog_progressbar);
             Objects.requireNonNull(progressDialog.getWindow()).getAttributes().windowAnimations = R.style.DialogAnim;
             //noinspection ConstantConditions
@@ -104,7 +104,13 @@ public abstract class BaseActivity extends AppCompatActivity implements IBasicAc
         }
     }
 
-    protected void startActivity(Class clazz, String key, Object object, String key1, Object object1) {
+    protected void startActivityAndFinish(Class clazz) {
+        Intent intent = new Intent(this, clazz);
+        startActivity(intent);
+        finish();
+        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_2_left);
+    }
+protected void startActivity(Class clazz, String key, Object object, String key1, Object object1) {
         Intent intent = new Intent(this, clazz);
         intent.putExtra(key, (Serializable) object);
         intent.putExtra(key1, (Serializable) object1);

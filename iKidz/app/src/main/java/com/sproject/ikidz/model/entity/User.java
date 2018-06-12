@@ -6,6 +6,10 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by User: Vi-PC
  * Author: Vũ Hà Vi
@@ -13,8 +17,9 @@ import java.util.List;
  * Time: 11:29 PM
  * Email: vihahb@gmail.com
  */
-public class User implements Serializable {
+public class User extends RealmObject {
 
+    @PrimaryKey
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -41,7 +46,7 @@ public class User implements Serializable {
     private String tokenFirebase;
     @SerializedName("school_code")
     @Expose
-    private List<String> schoolCode;
+    private RealmList<String> schoolCode;
     @SerializedName("teachers")
     @Expose
     private Teachers teachers;
@@ -51,7 +56,6 @@ public class User implements Serializable {
     @SerializedName("roles")
     @Expose
     private Roles roles;
-    private final static long serialVersionUID = 2125638287204992163L;
 
     /**
      * No args constructor for use in serialization
@@ -75,7 +79,7 @@ public class User implements Serializable {
      */
 
 
-    public User(Integer id, String username, String userType, String avatar, String roleId, String email, String fullName, String tokenFirebase, List<String> schoolCode, Teachers teachers, Parents parents, Roles roles) {
+    public User(Integer id, String username, String userType, String avatar, String roleId, String email, String fullName, String tokenFirebase, RealmList<String> schoolCode, Teachers teachers, Parents parents, Roles roles) {
         super();
         this.id = id;
         this.username = username;
@@ -159,7 +163,7 @@ public class User implements Serializable {
         return schoolCode;
     }
 
-    public void setSchoolCode(List<String> schoolCode) {
+    public void setSchoolCode(RealmList<String> schoolCode) {
         this.schoolCode = schoolCode;
     }
 

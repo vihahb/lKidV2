@@ -29,7 +29,7 @@ public abstract class ResponseHandle<T extends RESP_Basic> {
             } else {
                 T t = JsonHelper.getObjectNoException(result, tClass);
                 if (t!= null & t.getErrorDesc() != null && t.getErrorCode() != 0) {
-                    onError(t.getErrorDesc());
+                    onError(t.getErrorMessage());
                 } else {
                     onSuccess(t);
                 }

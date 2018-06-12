@@ -8,17 +8,36 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.view.ViewPager
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.TextView
 import com.sproject.ikidz.R
+import com.sproject.ikidz.model.entity.DataUser
+import com.sproject.ikidz.presenter.HomePresenter
 import com.sproject.ikidz.sdk.Utils.PermissionHelper
+import com.sproject.ikidz.sdk.Utils.TextUtils
+import com.sproject.ikidz.sdk.Utils.WidgetUtils
 import com.sproject.ikidz.view.activity.home.main_feature.AdapterMainFeature
 import com.sproject.ikidz.view.adapter.viewpager.ViewPagerMainAdapter
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
 
-class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+    override fun setDataUser(dataUser: DataUser) {
+        if (!TextUtils.isEmpty(dataUser.user.fullName))
+            tv_user_name.text = dataUser.user.fullName
+
+        WidgetUtils.setImageURL(imgAvatar, dataUser.user.avatar, R.mipmap.ic_launcher_round)
+    }
+
+    lateinit var imgAvatar: ImageView
+    lateinit var tv_user_name: TextView
+    lateinit var rcl_drawer: RecyclerView
+
+    lateinit var presenter: HomePresenter
 
     var viewpagerAdapter: ViewPagerMainAdapter? = null
     private val permissions = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -26,7 +45,7 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
+        presenter = HomePresenter(this)
         initToolbar(R.id.toolbar, resources.getString(R.string.title_newsfeed), false)
 
         val toggle = ActionBarDrawerToggle(
@@ -39,6 +58,16 @@ class HomeActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         initFragment()
         checkPermission()
         setTitleToolbar(resources.getString(R.string.title_newsfeed))
+        initHeaderView()
+        presenter.getUser()
+    }
+
+    private fun initHeaderView() {
+        var headerView = nav_view.getHeaderView(0)
+
+        imgAvatar = headerView.findViewById(R.id.img_avatar)
+        tv_user_name = headerView.findViewById(R.id.tv_user_name)
+        rcl_drawer = headerView.findViewById(R.id.rcl_drawer)
     }
 
     private fun checkPermission() {

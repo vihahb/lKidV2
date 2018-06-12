@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.AdapterView
 import com.sproject.ikidz.R
 import com.sproject.ikidz.model.RESP.RESP_GetSchoolByDistrict
+import com.sproject.ikidz.model.RESP.RESP_Login
 import com.sproject.ikidz.model.entity.ProvinceOrDistrict
 import com.sproject.ikidz.model.entity.SchoolByDistrict
 import com.sproject.ikidz.presenter.Login.LoginPresenter
@@ -12,11 +13,13 @@ import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.Base64Helper
 import com.sproject.ikidz.sdk.Utils.SharedUtils
 import com.sproject.ikidz.sdk.Utils.TextUtils
+import com.sproject.ikidz.view.activity.home.HomeActivity
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
 
 class LoginActivity : BaseActivity(), ILogin {
+
 
     lateinit var provinceAdapter: AdapterSpinnerProvince
     lateinit var districtAdapter: AdapterSpinnerProvince
@@ -25,6 +28,32 @@ class LoginActivity : BaseActivity(), ILogin {
     private lateinit var districtData: ArrayList<ProvinceOrDistrict>
     private lateinit var schoolByDistrictData: ArrayList<SchoolByDistrict>
     private lateinit var link_api: String
+
+    override fun onSaveUserSuccess() {
+        showLongToast(resources.getString(R.string.message_login_success))
+        startActivityAndFinish(HomeActivity::class.java)
+    }
+
+    override fun onSaveUserError() {
+        showLongToast(resources.getString(R.string.message_login_success))
+        startActivityAndFinish(HomeActivity::class.java)
+    }
+
+    override fun onLoginError(error: String?) {
+        showLongToast(error)
+    }
+
+    override fun onLoginSuccess(login: RESP_Login) {
+
+        if (rememberLogin) {
+            SharedUtils.getInstance().putStringValue(Constants.TOKEN, login.data.token)
+            SharedUtils.getInstance().putStringValue(Constants.LINK_API, link_api)
+            presenter.saveUserInfo(login.data)
+        } else {
+            showLongToast(resources.getString(R.string.message_login_success))
+            startActivityAndFinish(HomeActivity::class.java)
+        }
+    }
 
     override fun getDistrictSuccess(data: List<ProvinceOrDistrict>) {
         if (districtData.size > 0)
@@ -45,16 +74,20 @@ class LoginActivity : BaseActivity(), ILogin {
     }
 
     override fun getSchoolByDistrictSuccess(schools: RESP_GetSchoolByDistrict) {
-        if (schoolByDistrictData.size > 0)
+        if (schoolByDistrictData.size > 0) {
             schoolByDistrictData.clear()
+        }
 
+        if (schools.data.size == 0) {
+            schools.data.add(0, SchoolByDistrict(-1, this.resources.getString(R.string.action_select_non_data_school)))
+        }
         schoolByDistrictData.addAll(schools.data)
 //        schoolByDistrictData.add(0, SchoolByDistrict(-1, this.resources.getString(R.string.action_select_school)))
         schoolByDistrictAdapter.notifyDataSetChanged()
     }
 
     override fun getSchoolsError(err: String) {
-        districtData.add(0, ProvinceOrDistrict(-1, this.resources.getString(R.string.action_select_non_data_school)))
+        schoolByDistrictData.add(0, SchoolByDistrict(-1, this.resources.getString(R.string.action_select_non_data_school)))
         districtAdapter.notifyDataSetChanged()
     }
 
@@ -77,7 +110,9 @@ class LoginActivity : BaseActivity(), ILogin {
         presenter = LoginPresenter(this)
         provinceData = ArrayList()
         districtData = ArrayList()
+        districtData.add(0, ProvinceOrDistrict(-1, this.resources.getString(R.string.action_select_non_data_district)))
         schoolByDistrictData = ArrayList()
+        schoolByDistrictData.add(0, SchoolByDistrict(-1, this.resources.getString(R.string.action_select_non_data_school)))
         initView()
 
     }
@@ -101,7 +136,7 @@ class LoginActivity : BaseActivity(), ILogin {
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (provinceAdapter.getItemId(position) > -1) {
-                    presenter.GetDistrict((provinceAdapter.getItem(position) as ProvinceOrDistrict).id)
+                    presenter.getDistrict((provinceAdapter.getItem(position) as ProvinceOrDistrict).id)
                 }
             }
 
@@ -114,14 +149,14 @@ class LoginActivity : BaseActivity(), ILogin {
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (districtAdapter.getItemId(position) > -1) {
-                    presenter.GetSchoolByDistrict((districtAdapter.getItem(position) as ProvinceOrDistrict).id)
+                    presenter.getSchoolByDistrict((districtAdapter.getItem(position) as ProvinceOrDistrict).id)
                 }
             }
         }
 
         sp_school.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -132,29 +167,42 @@ class LoginActivity : BaseActivity(), ILogin {
 
         }
 
-        presenter.GetProvince()
+        presenter.getProvince()
 
-        fun onLogin() {
-            if ((provinceAdapter.getItem(sp_district.selectedItemPosition) as ProvinceOrDistrict).id == -1) {
-                showLongToast(resources.getString(R.string.validate_field_province))
-                return
-            }
+        btnLogin.setOnClickListener { onLogin() }
+    }
 
-            if ((provinceAdapter.getItem(sp_district.selectedItemPosition) as ProvinceOrDistrict).id == -1) {
-                showLongToast(resources.getString(R.string.validate_field_district))
-                return
+    private var rememberLogin = false
+
+    fun onLogin() {
+        if ((provinceAdapter.getItem(sp_province.selectedItemPosition) as ProvinceOrDistrict).id == -1) {
+            showLongToast(resources.getString(R.string.validate_field_province))
+            return
+        }
+
+        if ((districtAdapter.getItem(sp_district.selectedItemPosition) as ProvinceOrDistrict).id == -1) {
+            showLongToast(resources.getString(R.string.validate_field_district))
+            return
+        }
+        if ((schoolByDistrictAdapter.getItem(sp_school.selectedItemPosition) as SchoolByDistrict).id == -1) {
+            showLongToast(resources.getString(R.string.validate_field_school))
+            return
+        }
+        if (TextUtils.isEmpty(link_api)) {
+            showLongToast(resources.getString(R.string.validate_field_school))
+            return
+        }
+        if (!TextUtils.isEmpty(edtUserName.text.toString()) && !TextUtils.isEmpty(edtPassword.text.toString())) {
+            if (chk_remember.isChecked) {
+//                var key = Base64Helper.getEncode(edtPassword.text.toString())
+//                SharedUtils.getInstance().putStringValue(Constants.USER_NAME, edtUserName.text.toString())
+//                SharedUtils.getInstance().putStringValue(Constants.USER_PASS, key)
+                rememberLogin = true;
             }
-            if (!TextUtils.isEmpty(edtUserName.text.toString()) && !TextUtils.isEmpty(edtPassword.text.toString())) {
-                if (chk_remember.isChecked) {
-                    var key = Base64Helper.getEncode(edtPassword.text.toString())
-                    SharedUtils.getInstance().putStringValue(Constants.USER_NAME, edtUserName.text.toString())
-                    SharedUtils.getInstance().putStringValue(Constants.USER_PASS, key)
-                    presenter.onLogin(edtUserName.text.toString(), edtPassword.text.toString(), link_api)
-                }
-            } else {
-                showLongToast(resources.getString(R.string.validate_field_user_name_pass))
-                return
-            }
+            presenter.onLogin(edtUserName.text.toString(), edtPassword.text.toString(), link_api)
+        } else {
+            showLongToast(resources.getString(R.string.validate_field_user_name_pass))
+            return
         }
     }
 

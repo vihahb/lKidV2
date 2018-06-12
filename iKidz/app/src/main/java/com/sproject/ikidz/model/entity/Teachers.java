@@ -3,8 +3,11 @@ package com.sproject.ikidz.model.entity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Teachers {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
+public class Teachers extends RealmObject{
+@PrimaryKey
     @SerializedName("id")
     @Expose
     private Integer id;

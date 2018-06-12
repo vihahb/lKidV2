@@ -22,7 +22,7 @@ public abstract class ProvinceModel extends AbsICmd {
 
     @Override
     protected void invoke() {
-        String url = basicModel.MANAGER_LINK_API + basicModel.VERSION_API + basicModel.PROVINCE_API;
+        String url = basicModel.MANAGER_LINK_API + basicModel.OLD_VERSION_API + basicModel.PROVINCE_API;
         iKidApplications.log("ProvinceModel", url);
 
         basicModel.requestServer.getApi(url, null, new ResponseHandle<RESP_Province>(RESP_Province.class) {

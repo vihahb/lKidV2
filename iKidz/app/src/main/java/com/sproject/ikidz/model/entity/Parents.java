@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by User: Vi-PC
  * Author: Vũ Hà Vi
@@ -12,8 +15,9 @@ import java.io.Serializable;
  * Time: 11:29 PM
  * Email: vihahb@gmail.com
  */
-public class Parents implements Serializable {
+public class Parents extends RealmObject {
 
+    @PrimaryKey
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -41,7 +45,6 @@ public class Parents implements Serializable {
     @SerializedName("birthday")
     @Expose
     private String birthday;
-    private final static long serialVersionUID = 8086190171897942048L;
 
     /**
      * No args constructor for use in serialization

@@ -29,7 +29,7 @@ public abstract class DistrictModel extends AbsICmd {
         iKidApplications.log("DistrictModel", url);
         String json = "{\"pid\":" + pid + "}";
         iKidApplications.log("DistrictModel", json);
-        basicModel.requestServer.getApi(url, json, new ResponseHandle<RESP_Province>(RESP_Province.class) {
+        basicModel.requestServer.postApi(url, json, new ResponseHandle<RESP_Province>(RESP_Province.class) {
             @Override
             protected void onSuccess(RESP_Province obj) {
                 DistrictModel.this.onSuccess(obj);

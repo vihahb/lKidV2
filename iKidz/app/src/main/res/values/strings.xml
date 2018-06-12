@@ -30,8 +30,11 @@
     <string name="tv_user_pass">Mật khẩu…</string>
     <string name="tv_forgot_pass">Quên mật khẩu?</string>
     <string name="validate_field_province">Vui lòng chọn tỉnh thành.</string>
-    <string name="validate_field_district">Vui lòng chọn quận huyện</string>
+    <string name="validate_field_district">Vui lòng chọn quận huyện.</string>
+    <string name="validate_field_school">Vui lòng chọn trường.</string>
     <string name="validate_field_user_name_pass">Vui lòng không để trống tài khoản và mật khẩu.</string>
+    <string name="mesage_login_data">Đang đăng nhập...</string>
+    <string name="message_login_success">Đăng nhập thành công!</string>
 
 
 </resources>

@@ -28,7 +28,7 @@ public abstract class GetSchoolByDistrictModel extends AbsICmd {
     protected void invoke() {
         String url = basicModel.MANAGER_LINK_API + basicModel.VERSION_API + basicModel.GET_SCHOOL_BY_DISTRICT;
         String json = "{\"d_id\":" + d_id + "}";
-        basicModel.requestServer.getApi(url, json, new ResponseHandle<RESP_GetSchoolByDistrict>(RESP_GetSchoolByDistrict.class) {
+        basicModel.requestServer.postApi(url, json, new ResponseHandle<RESP_GetSchoolByDistrict>(RESP_GetSchoolByDistrict.class) {
             @Override
             protected void onSuccess(RESP_GetSchoolByDistrict obj) {
                 GetSchoolByDistrictModel.this.onSuccess(obj);

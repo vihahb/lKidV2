@@ -5,7 +5,10 @@ import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DataUser implements Serializable {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class DataUser extends RealmObject {
 
     @SerializedName("user")
     @Expose
@@ -18,6 +21,7 @@ public class DataUser implements Serializable {
     private String token;
     @SerializedName("auth_id")
     @Expose
+    @PrimaryKey
     private Integer authId;
 
     /**
