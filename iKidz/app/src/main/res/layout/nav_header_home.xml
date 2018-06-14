@@ -30,6 +30,16 @@
             android:textSize="@dimen/font_18"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
+        <TextView
+            android:id="@+id/tv_user_acc"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:text="@string/nav_header_title"
+            android:textSize="@dimen/font_13"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
 
     </LinearLayout>
     <android.support.v7.widget.RecyclerView

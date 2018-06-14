@@ -32,6 +32,9 @@ public class RequestOkHttp {
     public void postApi(String url, String jsonObject, ResponseHandle responseHandle) {
         new PostToServer(responseHandle).execute(url, jsonObject);
     }
+public void postApi(String url, String jsonObject, String token, ResponseHandle responseHandle) {
+        new PostToServer(responseHandle).execute(url, jsonObject, token);
+    }
 
     public void getApi(String url, String jsonObject, ResponseHandle responseHandle) {
         new GetToServer(responseHandle).execute(url, jsonObject);
@@ -69,6 +72,10 @@ public class RequestOkHttp {
                 if (params[1] != null) {
                     RequestBody body = RequestBody.create(JSON, params[1]);
                     builder.post(body);
+                }
+
+                if (params[2] != null){
+                    builder.addHeader("Authorization", "Bearer " + params[2]);
                 }
                 Request request = builder.build();
 

@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#25ADC5</color>
     <color name="colorAccent">#FF4081</color>
 
+
+    <color name="feature_1">#f96848</color>
     <color name="white_10">#1AFFFFFF</color>
     <color name="white_20">#33FFFFFF</color>
     <color name="white_55">#8CFFFFFF</color>

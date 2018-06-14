@@ -29,12 +29,15 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
     override fun setDataUser(dataUser: DataUser) {
         if (!TextUtils.isEmpty(dataUser.user.fullName))
             tv_user_name.text = dataUser.user.fullName
+        if (!TextUtils.isEmpty(dataUser.user.username))
+            tv_user_name.text = "Tài khoản: " + dataUser.user.username
 
         WidgetUtils.setImageURL(imgAvatar, dataUser.user.avatar, R.mipmap.ic_launcher_round)
     }
 
     lateinit var imgAvatar: ImageView
     lateinit var tv_user_name: TextView
+    lateinit var tv_user_acc: TextView
     lateinit var rcl_drawer: RecyclerView
 
     lateinit var presenter: HomePresenter
@@ -67,6 +70,7 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
 
         imgAvatar = headerView.findViewById(R.id.img_avatar)
         tv_user_name = headerView.findViewById(R.id.tv_user_name)
+        tv_user_acc = headerView.findViewById(R.id.tv_user_acc)
         rcl_drawer = headerView.findViewById(R.id.rcl_drawer)
     }
 

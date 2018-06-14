@@ -138,9 +138,12 @@ public class NewsfeedFragment extends Fragment {
     }
 
     private void initData() {
-        for (int i = 0; i < 6; i++) {
-            featureList.add(new Feature("Item " + i, i));
-        }
+        featureList.add(new Feature("Xin nghỉ", 1, 0));
+        featureList.add(new Feature("Điểm danh đến", 2, 0));
+        featureList.add(new Feature("Dặn thuốc", 3, 0));
+        featureList.add(new Feature("Xin học thêm giờ", 4, 0));
+        featureList.add(new Feature("Điểm danh về", 5, 0));
+        featureList.add(new Feature("Tạo album", 6, 0));
         adapterMainFeature.notifyDataSetChanged();
 
         for (int i = 0; i < 16; i++) {
