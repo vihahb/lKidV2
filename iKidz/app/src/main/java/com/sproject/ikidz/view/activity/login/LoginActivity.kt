@@ -20,7 +20,7 @@ import java.util.*
 
 class LoginActivity : BaseActivity(), ILogin {
 
-
+    private var rememberLogin = false
     lateinit var provinceAdapter: AdapterSpinnerProvince
     lateinit var districtAdapter: AdapterSpinnerProvince
     lateinit var schoolByDistrictAdapter: AdapterSpinnerSchoolByDistrict
@@ -28,6 +28,8 @@ class LoginActivity : BaseActivity(), ILogin {
     private lateinit var districtData: ArrayList<ProvinceOrDistrict>
     private lateinit var schoolByDistrictData: ArrayList<SchoolByDistrict>
     private lateinit var link_api: String
+    private lateinit var presenter: LoginPresenter
+
 
     override fun onSaveUserSuccess() {
         showLongToast(resources.getString(R.string.message_login_success))
@@ -44,15 +46,17 @@ class LoginActivity : BaseActivity(), ILogin {
     }
 
     override fun onLoginSuccess(login: RESP_Login) {
-
-        if (rememberLogin) {
-            SharedUtils.getInstance().putStringValue(Constants.TOKEN, login.data.token)
-            SharedUtils.getInstance().putStringValue(Constants.LINK_API, link_api)
-            presenter.saveUserInfo(login.data)
-        } else {
-            showLongToast(resources.getString(R.string.message_login_success))
-            startActivityAndFinish(HomeActivity::class.java)
-        }
+        SharedUtils.getInstance().putStringValue(Constants.CURRENT_TOKEN, login.data.token)
+        SharedUtils.getInstance().putStringValue(Constants.LINK_API, link_api)
+        presenter.saveUserInfo(login.data)
+//        if (rememberLogin) {
+//            SharedUtils.getInstance().putStringValue(Constants.CURRENT_TOKEN, login.data.token)
+//            SharedUtils.getInstance().putStringValue(Constants.LINK_API, link_api)
+//            presenter.saveUserInfo(login.data)
+//        } else {
+//            showLongToast(resources.getString(R.string.message_login_success))
+//            startActivityAndFinish(HomeActivity::class.java)
+//        }
     }
 
     override fun getDistrictSuccess(data: List<ProvinceOrDistrict>) {
@@ -101,8 +105,6 @@ class LoginActivity : BaseActivity(), ILogin {
         districtAdapter.notifyDataSetChanged()
     }
 
-
-    private lateinit var presenter: LoginPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -172,8 +174,6 @@ class LoginActivity : BaseActivity(), ILogin {
         btnLogin.setOnClickListener { onLogin() }
     }
 
-    private var rememberLogin = false
-
     fun onLogin() {
         if ((provinceAdapter.getItem(sp_province.selectedItemPosition) as ProvinceOrDistrict).id == -1) {
             showLongToast(resources.getString(R.string.validate_field_province))
@@ -193,12 +193,12 @@ class LoginActivity : BaseActivity(), ILogin {
             return
         }
         if (!TextUtils.isEmpty(edtUserName.text.toString()) && !TextUtils.isEmpty(edtPassword.text.toString())) {
-            if (chk_remember.isChecked) {
-//                var key = Base64Helper.getEncode(edtPassword.text.toString())
-//                SharedUtils.getInstance().putStringValue(Constants.USER_NAME, edtUserName.text.toString())
-//                SharedUtils.getInstance().putStringValue(Constants.USER_PASS, key)
-                rememberLogin = true;
-            }
+//            if (chk_remember.isChecked) {
+////                var key = Base64Helper.getEncode(edtPassword.text.toString())
+////                SharedUtils.getInstance().putStringValue(Constants.USER_NAME, edtUserName.text.toString())
+////                SharedUtils.getInstance().putStringValue(Constants.USER_PASS, key)
+//                rememberLogin = true;
+//            }
             presenter.onLogin(edtUserName.text.toString(), edtPassword.text.toString(), link_api)
         } else {
             showLongToast(resources.getString(R.string.validate_field_user_name_pass))

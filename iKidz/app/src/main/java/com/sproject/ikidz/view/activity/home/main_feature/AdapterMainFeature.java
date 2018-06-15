@@ -2,11 +2,13 @@ package com.sproject.ikidz.view.activity.home.main_feature;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sproject.ikidz.R;
@@ -35,7 +37,7 @@ public class AdapterMainFeature extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof  ViewHolder){
+        if (holder instanceof ViewHolder) {
             ViewHolder viewHolder = (ViewHolder) holder;
             viewHolder.setData(featureList.get(position));
         }
@@ -46,21 +48,49 @@ public class AdapterMainFeature extends RecyclerView.Adapter<RecyclerView.ViewHo
         return featureList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    public void setShowFull(boolean b) {
+        for (int i = 0; i < featureList.size(); i++) {
+            featureList.get(i).setShowFull(b);
+            notifyItemChanged(i);
+        }
+    }
 
-        private TextView tv_feature_name;
+    class ViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView tv_feature_name, tv_notify;
         private ImageView img_icon;
+        private LinearLayout rootLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            rootLayout = itemView.findViewById(R.id.rootLayout);
             tv_feature_name = itemView.findViewById(R.id.tv_name);
+            tv_notify = itemView.findViewById(R.id.tv_notify);
             img_icon = itemView.findViewById(R.id.img_feature);
         }
 
         public void setData(Feature feature) {
-            if (!TextUtils.isEmpty(feature.getName())){
+            if (!TextUtils.isEmpty(feature.getName())) {
                 tv_feature_name.setText(feature.getName());
             }
+
+            if (feature.isShowFull()) {
+                tv_feature_name.setTextColor(context.getResources().getColor(R.color.white_100));
+                rootLayout.setBackgroundResource(feature.getResource());
+            }else {
+                rootLayout.setBackgroundResource(android.R.color.white);
+                tv_feature_name.setTextColor(context.getResources().getColor(R.color.black_75));
+            }
+            if (feature.getMipmap() != -1)
+                img_icon.setImageResource(feature.getMipmap());
+
+            if (feature.getNotifyCount() > 0) {
+                tv_notify.setText(feature.getNotifyCount() + "");
+                tv_notify.setVisibility(View.VISIBLE);
+            } else {
+                tv_notify.setVisibility(View.GONE);
+            }
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

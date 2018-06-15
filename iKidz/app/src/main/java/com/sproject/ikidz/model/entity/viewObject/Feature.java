@@ -7,6 +7,7 @@ public class Feature {
     private int notifyCount;
     int resource;
     boolean showFull;
+    int mipmap;
 
     public Feature() {
     }
@@ -20,6 +21,15 @@ public class Feature {
         this.name = name;
         this.id = id;
         this.notifyCount = notifyCount;
+    }
+
+    public Feature(String name, int id, int notifyCount, int resource, boolean showFull, int mipmap) {
+        this.name = name;
+        this.id = id;
+        this.notifyCount = notifyCount;
+        this.resource = resource;
+        this.showFull = showFull;
+        this.mipmap = mipmap;
     }
 
     public String getName() {
@@ -62,12 +72,23 @@ public class Feature {
         this.showFull = showFull;
     }
 
+    public int getMipmap() {
+        return mipmap;
+    }
+
+    public void setMipmap(int mipmap) {
+        this.mipmap = mipmap;
+    }
+
     @Override
     public String toString() {
         return "Feature{" +
                 "name='" + name + '\'' +
                 ", id=" + id +
                 ", notifyCount=" + notifyCount +
+                ", resource=" + resource +
+                ", showFull=" + showFull +
+                ", mipmap=" + mipmap +
                 '}';
     }
 }

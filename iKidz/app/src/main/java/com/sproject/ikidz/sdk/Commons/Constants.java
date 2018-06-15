@@ -14,5 +14,14 @@ public class Constants {
     public static final String USER_NAME = "user_name";
     public static final String USER_PASS = "user_pass";
     public static final String LINK_API = "LINK_API";
-    public static final String TOKEN = "token";
+    public static final String TEACHER = "teacher";
+    public static final String CURRENT_TOKEN = "token";
+    public static final String CURRENT_CLASS_TEACHER_ID = "CURRENT_CLASS_TEACHER_ID";
+    public static final Integer DRAWER_EDIT_ACC = 1;
+    public static final Integer DRAWER_CHANGEPASS = 2;
+    public static final Integer DRAWER_ABOUT = 3;
+    public static final Integer DRAWER_LOGOUT = 4;
+    public static final String ABSENT = "absent"; //Don xin nghi phep
+    public static final String ADD_DRUG = "add_drug"; //Don dan thuoc
+    public static final String register_more_time = "register_more_time"; //Dang ky hoc them
 }

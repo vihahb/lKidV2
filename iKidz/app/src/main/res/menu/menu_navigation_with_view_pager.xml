@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_news"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_nav_file"
         android:title="@string/title_newsfeed" />
 
     <item
         android:id="@+id/nav_school"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_nav_school"
         android:title="@string/title_school" />
     <item
         android:id="@+id/nav_contacts"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_nav_contact"
         android:title="@string/title_contacts" />
     <item
         android:id="@+id/nav_phonebooks"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_nav_phone_book"
         android:title="@string/title_phonebooks" />
     <item
         android:id="@+id/nav_message"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_nav_chat"
         android:title="@string/title_message" />
 </menu>

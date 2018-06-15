@@ -35,6 +35,7 @@
     <string name="validate_field_user_name_pass">Vui lòng không để trống tài khoản và mật khẩu.</string>
     <string name="mesage_login_data">Đang đăng nhập...</string>
     <string name="message_login_success">Đăng nhập thành công!</string>
+    <string name="error_network">Không có kết nối mạng. Vui lòng kiểm tra và thử lại!</string>
 
 
 </resources>

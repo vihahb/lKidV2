@@ -5,7 +5,13 @@
     <color name="colorAccent">#FF4081</color>
 
 
+    <color name="notify_feature">#FFB1002C</color>
     <color name="feature_1">#f96848</color>
+    <color name="feature_2">#5ccf4a</color>
+    <color name="feature_3">#b081f7</color>
+    <color name="feature_4">#15c5ce</color>
+    <color name="feature_5">#f474c0</color>
+    <color name="feature_6">#f8c04e</color>
     <color name="white_10">#1AFFFFFF</color>
     <color name="white_20">#33FFFFFF</color>
     <color name="white_55">#8CFFFFFF</color>

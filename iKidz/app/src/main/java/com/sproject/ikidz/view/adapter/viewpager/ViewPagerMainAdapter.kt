@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import com.sproject.ikidz.R
 import com.sproject.ikidz.view.fragment.*
+import com.sproject.ikidz.view.fragment.news.NewsfeedFragment
 
 class ViewPagerMainAdapter(fm: FragmentManager?, private val context: Context) : FragmentStatePagerAdapter(fm) {
 

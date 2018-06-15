@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkUser() {
 
-        var token = SharedUtils.getInstance().getStringValue(Constants.TOKEN)
+        var token = SharedUtils.getInstance().getStringValue(Constants.CURRENT_TOKEN)
         if (token != null){
             object : GetObjectByKeyModel<DataUser>(DataUser::class.java, "token", token) {
                 override fun onSuccess(`object`: DataUser?) {
