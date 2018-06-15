@@ -33,7 +33,7 @@ public class RequestOkHttp {
         new PostToServer(responseHandle).execute(url, jsonObject);
     }
 public void postApi(String url, String jsonObject, String token, ResponseHandle responseHandle) {
-        new PostToServer(responseHandle).execute(url, jsonObject, token);
+        new PostToServerWithToken(responseHandle).execute(url, jsonObject, token);
     }
 
     public void getApi(String url, String jsonObject, ResponseHandle responseHandle) {
@@ -54,6 +54,53 @@ public void postApi(String url, String jsonObject, String token, ResponseHandle 
         private boolean isSuccess = true;
 
         PostToServer(ResponseHandle responseHandle) {
+            this.responseHandle = responseHandle;
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                OkHttpClient client = new OkHttpClient.Builder()
+                        .connectTimeout(30, TimeUnit.SECONDS)
+                        .writeTimeout(30, TimeUnit.SECONDS)
+                        .readTimeout(30, TimeUnit.SECONDS)
+                        .build();
+
+                Request.Builder builder = new Request.Builder();
+                builder.url(params[0]);
+
+                if (params[1] != null) {
+                    RequestBody body = RequestBody.create(JSON, params[1]);
+                    builder.post(body);
+                }
+
+                Request request = builder.build();
+
+                Response response = client.newCall(request).execute();
+                return response.body().string();
+            } catch (Exception e) {
+                e.printStackTrace();
+                isSuccess = false;
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if (isSuccess)
+                responseHandle.onSuccess(s);
+            else
+                responseHandle.onError(new Exception("SYSTEM-EXCEPTION: " + iKidApplications.context.getString(R.string.message_can_not_request)));
+        }
+    }
+
+    private class PostToServerWithToken extends AsyncTask<String, Integer, String> {
+        private final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        private ResponseHandle responseHandle;
+        private boolean isSuccess = true;
+
+        PostToServerWithToken(ResponseHandle responseHandle) {
             this.responseHandle = responseHandle;
         }
 

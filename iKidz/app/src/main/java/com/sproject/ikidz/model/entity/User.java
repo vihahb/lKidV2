@@ -49,7 +49,7 @@ public class User extends RealmObject {
     private String tokenFirebase;
     @SerializedName("school_code")
     @Expose
-    private RealmList<String> schoolCode;
+    private String schoolCode;
     @SerializedName("teachers")
     @Expose
     private Teachers teachers;
@@ -82,7 +82,7 @@ public class User extends RealmObject {
      * @param userType
      */
 
-    public User(Integer id, String username, String userType, String avatar, String roleId, String email, String fullName, String base_url, String tokenFirebase, RealmList<String> schoolCode, Teachers teachers, Parents parents, Roles roles) {
+    public User(Integer id, String username, String userType, String avatar, String roleId, String email, String fullName, String base_url, String tokenFirebase,String schoolCode, Teachers teachers, Parents parents, Roles roles) {
         this.id = id;
         this.username = username;
         this.userType = userType;
@@ -163,11 +163,11 @@ public class User extends RealmObject {
         this.tokenFirebase = tokenFirebase;
     }
 
-    public List<String> getSchoolCode() {
+    public String getSchoolCode() {
         return schoolCode;
     }
 
-    public void setSchoolCode(RealmList<String> schoolCode) {
+    public void setSchoolCode(String schoolCode) {
         this.schoolCode = schoolCode;
     }
 
