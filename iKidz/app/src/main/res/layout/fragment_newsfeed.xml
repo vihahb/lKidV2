@@ -9,9 +9,22 @@
         android:id="@+id/rcl_feature"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rcl_news"
-        android:layoutAnimation="@anim/layout_animation_fall_down"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_message"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/font_16"
+            android:textColor="@color/black_65"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcl_news"
+            android:layoutAnimation="@anim/layout_animation_fall_down"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
 </LinearLayout>

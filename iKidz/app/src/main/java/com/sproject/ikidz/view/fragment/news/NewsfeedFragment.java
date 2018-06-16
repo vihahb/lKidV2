@@ -14,10 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.model.RESP.RESP_DataNews;
+import com.sproject.ikidz.model.entity.NewsEntity;
 import com.sproject.ikidz.model.entity.viewObject.Feature;
 import com.sproject.ikidz.model.entity.viewObject.News;
 import com.sproject.ikidz.presenter.news.NewsPresenter;
@@ -36,11 +38,12 @@ public class NewsfeedFragment extends Fragment implements NewsInf {
     AdapterNews adapterNews;
     AdapterMainFeature adapterMainFeature;
     List<Feature> featureList;
-    List<News> newsList;
+    List<NewsEntity> newsList;
     RecyclerView rcl_feature, rcl_news;
     LinearLayoutManager horizontaLayoutlManager;
     VegaLayoutManager verticalLayoutManager;
     GridLayoutManager gridLayoutlManager;
+    TextView tv_message;
 //    private static int firstVisibleInListview;
 
     boolean notScrolling = true;
@@ -85,6 +88,8 @@ public class NewsfeedFragment extends Fragment implements NewsInf {
     }
 
     private void initView(View view) {
+
+        tv_message = view.findViewById(R.id.tv_message);
 
         rcl_feature = view.findViewById(R.id.rcl_feature);
         rcl_feature.setLayoutManager(gridLayoutlManager);
@@ -169,11 +174,6 @@ public class NewsfeedFragment extends Fragment implements NewsInf {
         featureList.add(feature_6);
 
         adapterMainFeature.notifyDataSetChanged();
-
-        for (int i = 0; i < 16; i++) {
-            newsList.add(new News("Item " + i, "This is the content item " + i));
-        }
-        adapterNews.notifyDataSetChanged();
     }
 
     private void setShowFull(boolean b){
@@ -212,11 +212,22 @@ public class NewsfeedFragment extends Fragment implements NewsInf {
 
     @Override
     public void GetNewsSuccess(@NotNull RESP_DataNews news, int page) {
-
+        if (news.getData().getData().size() == 0 && page < 2){
+            tv_message.setVisibility(View.VISIBLE);
+            tv_message.setText(getContext().getResources().getString(R.string.mesage_no_data_news));
+        } else {
+            tv_message.setVisibility(View.GONE);
+            if (page < 2){
+                newsList.clear();
+            }
+            newsList.addAll(news.getData().getData());
+            adapterNews.notifyDataSetChanged();
+        }
     }
 
     @Override
     public void GetNewsError(@NotNull String s) {
-
+        tv_message.setVisibility(View.VISIBLE);
+        tv_message.setText(s);
     }
 }

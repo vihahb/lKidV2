@@ -122,6 +122,7 @@ class LoginPresenter(private val view: ILogin) {
 
         object : SaveObjectModel<DataUser> (data){
             override fun onSuccess() {
+                SharedUtils.getInstance().putStringValue(Constants.BASE_URL, data.user.base_url)
                 iKidApplications.log(TAG, "saveUserInfo success!")
                 view.onSaveUserSuccess()
             }

@@ -36,6 +36,7 @@
     <string name="mesage_login_data">Đang đăng nhập...</string>
     <string name="message_login_success">Đăng nhập thành công!</string>
     <string name="error_network">Không có kết nối mạng. Vui lòng kiểm tra và thử lại!</string>
+    <string name="mesage_no_data_news">Không có dữ liệu tin tức!</string>
 
 
 </resources>

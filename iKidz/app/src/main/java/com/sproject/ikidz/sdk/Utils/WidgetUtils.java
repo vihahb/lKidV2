@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sproject.ikidz.iKidApplications;
+import com.sproject.ikidz.sdk.Commons.Constants;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -20,6 +21,8 @@ import java.io.File;
  * Created by Vũ Hà Vi on 11/4/2016
  */
 public class WidgetUtils {
+    private static final String TAG = "WidgetUtils";
+    
     /**
      * Image
      */
@@ -29,7 +32,7 @@ public class WidgetUtils {
                 view.setImageResource(resource);
             return;
         } else {
-            String urls = "http://v3.ikidz.edu.vn" + url;
+            String urls = SharedUtils.getInstance().getStringValue(Constants.BASE_URL) + url;
             Picasso.with(iKidApplications.context)
                     .load(urls)
                     .noPlaceholder()
@@ -79,6 +82,28 @@ public class WidgetUtils {
             callback.onError();
             return;
         }
+
+        String urls = SharedUtils.getInstance().getStringValue(Constants.BASE_URL) + url;
+
+        iKidApplications.log(TAG, "url = " + url);
+        
+        Picasso.with(iKidApplications.context)
+                .load(urls)
+                .noPlaceholder()
+                .error(resource)
+                .fit()
+                .centerCrop()
+                .into(view, callback);
+    }
+public static void setImageNotBaseURL(ImageView view, final String url, int resource, Callback callback) {
+        if (TextUtils.isEmpty(url)) {
+            view.setImageResource(resource);
+            callback.onError();
+            return;
+        }
+
+        iKidApplications.log(TAG, "url = " + url);
+
         Picasso.with(iKidApplications.context)
                 .load(url)
                 .noPlaceholder()

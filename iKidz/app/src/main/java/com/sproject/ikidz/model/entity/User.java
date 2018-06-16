@@ -195,6 +195,14 @@ public class User extends RealmObject {
         this.roles = roles;
     }
 
+    public String getBase_url() {
+        return base_url;
+    }
+
+    public void setBase_url(String base_url) {
+        this.base_url = base_url;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -205,8 +213,9 @@ public class User extends RealmObject {
                 ", roleId='" + roleId + '\'' +
                 ", email='" + email + '\'' +
                 ", fullName='" + fullName + '\'' +
+                ", base_url='" + base_url + '\'' +
                 ", tokenFirebase='" + tokenFirebase + '\'' +
-                ", schoolCode=" + schoolCode +
+                ", schoolCode='" + schoolCode + '\'' +
                 ", teachers=" + teachers +
                 ", parents=" + parents +
                 ", roles=" + roles +

@@ -11,6 +11,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public class Constants {
     public static final String SHARED_NAME = "share_business";
+    public static final String BASE_URL = "base_url";
     public static final String USER_NAME = "user_name";
     public static final String USER_PASS = "user_pass";
     public static final String LINK_API = "LINK_API";
