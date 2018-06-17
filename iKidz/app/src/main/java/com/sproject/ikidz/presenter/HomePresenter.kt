@@ -43,7 +43,7 @@ class HomePresenter(private val view: IHomeView) {
         val link_api = SharedUtils.getInstance().getStringValue(Constants.LINK_API)
 
         if (token != null && link_api != null){
-            object : GetCountNotify(token, link_api, class_id) {
+            object : GetCountNotify(token, link_api, class_id, 1) {
                 override fun onSuccess(notify: RESP_CountNotify?) {
                     iKidApplications.log(TAG, JsonHelper.toJson(notify!!))
                     view.getSetNotify(notify.data.data)

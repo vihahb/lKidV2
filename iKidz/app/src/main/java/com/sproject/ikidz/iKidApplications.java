@@ -5,6 +5,9 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
 import io.realm.DynamicRealm;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -27,6 +30,10 @@ public class iKidApplications extends Application{
         super.onCreate();
         context = this;
         initRealm();
+
+        // Create global configuration and initialize ImageLoader with this configuration
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).build();
+        ImageLoader.getInstance().init(config);
     }
 
     private void initRealm() {

@@ -16,6 +16,8 @@ import com.ravikoradiya.library.CenterTitle;
 import com.ravikoradiya.library.CenterTitleKt;
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.iKidApplications;
+import com.sproject.ikidz.sdk.Utils.CenteredTitleToolbar;
+import com.sproject.ikidz.sdk.Utils.CenteredToolbar;
 import com.sproject.ikidz.sdk.Utils.DisplayUtils;
 
 import java.io.Serializable;
@@ -28,22 +30,22 @@ public abstract class BaseActivity extends AppCompatActivity implements IBasicAc
     Toolbar toolbar;
 
     public void initToolbar(int id, String title, boolean showBack) {
-        toolbar = (Toolbar) findViewById(id);
+        toolbar = (CenteredToolbar) findViewById(id);
         setSupportActionBar(toolbar);
-        CenterTitle.centerTitle(toolbar, true);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar == null) return;
-        actionBar.setDisplayShowHomeEnabled(true);
-        if (showBack) {
+        actionBar.setDisplayShowHomeEnabled(showBack);
 //            toolbar.setPadding(0, 0, DisplayUtils.DpToPx(64, BaseActivity.this), 0);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        actionBar.setDisplayHomeAsUpEnabled(showBack);
 
-        toolbar.setNavigationIcon(R.drawable.ic_action_back);
+        if (showBack)
+            toolbar.setNavigationIcon(R.drawable.ic_action_back);
 
         if (title != null)
             toolbar.setTitle(title);
+
+        setSupportActionBar(toolbar);
     }
 
     public void setTitleToolbar(String title) {
@@ -110,7 +112,21 @@ public abstract class BaseActivity extends AppCompatActivity implements IBasicAc
         finish();
         overridePendingTransition(R.anim.slide_from_right, R.anim.slide_2_left);
     }
-protected void startActivity(Class clazz, String key, Object object, String key1, Object object1) {
+
+    protected void startActivity(Class clazz) {
+        Intent intent = new Intent(this, clazz);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_2_left);
+    }
+
+    protected void startActivity(Class clazz, String key, Object object) {
+        Intent intent = new Intent(this, clazz);
+        intent.putExtra(key, (Serializable) object);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_from_right, R.anim.slide_2_left);
+    }
+
+    protected void startActivity(Class clazz, String key, Object object, String key1, Object object1) {
         Intent intent = new Intent(this, clazz);
         intent.putExtra(key, (Serializable) object);
         intent.putExtra(key1, (Serializable) object1);

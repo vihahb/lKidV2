@@ -25,7 +25,9 @@ import com.sproject.ikidz.sdk.Utils.SharedUtils
 import com.sproject.ikidz.sdk.Utils.TextUtils
 import com.sproject.ikidz.sdk.Utils.WidgetUtils
 import com.sproject.ikidz.sdk.callback.ItemClickListener
+import com.sproject.ikidz.view.activity.editProfile.EditProfileActivity
 import com.sproject.ikidz.view.activity.login.LoginActivity
+import com.sproject.ikidz.view.activity.login.ResetPasswordActivity
 import com.sproject.ikidz.view.adapter.viewpager.ViewPagerMainAdapter
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
@@ -113,7 +115,7 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
         adapterDrawer = AdapterDrawer(listDrawer, activity, ItemClickListener { id ->
             when (id) {
                 Constants.DRAWER_EDIT_ACC -> {
-
+                    startActivity(EditProfileActivity::class.java)
                 }
                 Constants.DRAWER_CHANGEPASS -> {
 
@@ -197,7 +199,7 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.home, menu)
+//        menuInflater.inflate(R.menu.home, menu)
         return true
     }
 
@@ -205,10 +207,7 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
-        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

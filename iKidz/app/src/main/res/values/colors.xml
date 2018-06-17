@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#25ADC5</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="red">#f2100c</color>
+    <color name="dark_red">#40000c</color>
 
     <color name="notify_feature">#FFB1002C</color>
     <color name="feature_1">#f96848</color>

@@ -11,6 +11,7 @@ import com.sproject.ikidz.model.entity.SchoolByDistrict
 import com.sproject.ikidz.presenter.Login.LoginPresenter
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.Base64Helper
+import com.sproject.ikidz.sdk.Utils.CenteredToolbar
 import com.sproject.ikidz.sdk.Utils.SharedUtils
 import com.sproject.ikidz.sdk.Utils.TextUtils
 import com.sproject.ikidz.view.activity.home.HomeActivity
@@ -172,6 +173,33 @@ class LoginActivity : BaseActivity(), ILogin {
         presenter.getProvince()
 
         btnLogin.setOnClickListener { onLogin() }
+        tv_reset.setOnClickListener {
+            if (validate()){
+                startActivity(ResetPasswordActivity::class.java, Constants.LINK_API, link_api)
+            }
+        }
+    }
+
+    private fun validate(): Boolean {
+        if ((provinceAdapter.getItem(sp_province.selectedItemPosition) as ProvinceOrDistrict).id == -1) {
+            showLongToast(resources.getString(R.string.validate_field_province))
+            return false
+        }
+
+        if ((districtAdapter.getItem(sp_district.selectedItemPosition) as ProvinceOrDistrict).id == -1) {
+            showLongToast(resources.getString(R.string.validate_field_district))
+            return false
+        }
+        if ((schoolByDistrictAdapter.getItem(sp_school.selectedItemPosition) as SchoolByDistrict).id == -1) {
+            showLongToast(resources.getString(R.string.validate_field_school))
+            return false
+        }
+        if (TextUtils.isEmpty(link_api)) {
+            showLongToast(resources.getString(R.string.validate_field_school))
+            return false
+        }
+
+        return true
     }
 
     fun onLogin() {

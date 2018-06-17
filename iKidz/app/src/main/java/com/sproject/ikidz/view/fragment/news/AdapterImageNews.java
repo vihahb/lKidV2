@@ -7,26 +7,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 
+import com.fivehundredpx.greedolayout.GreedoLayoutSizeCalculator;
 import com.sproject.ikidz.R;
+import com.sproject.ikidz.iKidApplications;
 import com.sproject.ikidz.model.entity.AlbumEntity;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
-import com.sproject.ikidz.sdk.Utils.WidgetUtils;
 import com.sproject.ikidz.sdk.callback.ImageItemClick;
 import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterImageNews extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    private static final String TAG = "AdapterImageNews";
+
     List<AlbumEntity> data;
     Context context;
     ImageItemClick listener;
 
-    public AdapterImageNews(Context context, ImageItemClick listener) {
-        data = new ArrayList<>();
+    public AdapterImageNews(List<AlbumEntity> data, Context context, ImageItemClick listener) {
+        this.data = data;
         this.context = context;
         this.listener = listener;
     }
@@ -47,39 +50,39 @@ public class AdapterImageNews extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public int getItemCount() {
-        return data.size();
+        if (data != null)
+            return data.size();
+        else return 0;
     }
 
-    public void setListData(List<AlbumEntity> data) {
-        if (data != null) {
-            this.data.clear();
-            this.data.addAll(data);
-            notifyDataSetChanged();
-        }
-    }
+//    public void setListData(List<AlbumEntity> data) {
+//        if (data != null) {
+//            this.data.clear();
+//            this.data.addAll(data);
+//            notifyDataSetChanged();
+//        }
+//    }
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView img_item;
-        ProgressBar prg_loading;
 
         public ViewHolder(View itemView) {
             super(itemView);
             img_item = itemView.findViewById(R.id.item_image);
-            prg_loading = itemView.findViewById(R.id.prg_loading);
         }
 
         public void setData(AlbumEntity entity, int position) {
             if (!TextUtils.isEmpty(entity.getImage())) {
-                WidgetUtils.setImageNotBaseURL(img_item, entity.getImage(), R.mipmap.ic_launcher, new Callback() {
+                Picasso.with(context).load(entity.getImage()).resize(200, 200).centerCrop().into(img_item, new Callback() {
                     @Override
                     public void onSuccess() {
-                        prg_loading.setVisibility(View.GONE);
+                        iKidApplications.log(TAG, "Load image success");
                     }
 
                     @Override
                     public void onError() {
-
+                        iKidApplications.log(TAG, "Load image success");
                     }
                 });
                 itemView.setOnClickListener(view -> listener.onClickItem(position));

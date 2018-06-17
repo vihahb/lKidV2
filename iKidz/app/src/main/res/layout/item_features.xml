@@ -26,7 +26,7 @@
                 android:id="@+id/img_feature"
                 android:layout_width="@dimen/size_56"
                 android:layout_height="@dimen/size_56"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 app:srcCompat="@mipmap/absent" />
 
             <TextView

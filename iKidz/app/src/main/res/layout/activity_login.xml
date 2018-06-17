@@ -70,6 +70,9 @@
                     android:layout_marginBottom="@dimen/size_16"
                     android:hint="@string/tv_user_name"
                     android:textSize="@dimen/font_14"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
                     android:textStyle="italic" />
 
                 <android.support.v7.widget.AppCompatEditText
@@ -77,8 +80,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_16"
+                    android:singleLine="true"
                     android:hint="@string/tv_user_pass"
                     android:textSize="@dimen/font_14"
+                    android:imeOptions="actionDone"
                     android:inputType="textPassword"
                     android:textStyle="italic"
                     style="@style/StyleEditTextLogin"/>
@@ -98,6 +103,7 @@
                         <!--android:textColor="@color/white_100"/>-->
 
                     <TextView
+                        android:id="@+id/tv_reset"
                         android:textColor="#00C3AE"
                         android:layout_weight=".7"
                         android:layout_width="0dp"

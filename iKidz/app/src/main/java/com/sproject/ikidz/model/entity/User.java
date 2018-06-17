@@ -171,7 +171,7 @@ public class User extends RealmObject {
         this.schoolCode = schoolCode;
     }
 
-    public Object getTeachers() {
+    public Teachers getTeachers() {
         return teachers;
     }
 

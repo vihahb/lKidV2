@@ -8,12 +8,14 @@
     tools:showIn="@layout/activity_home"
     app:elevation="0dp">
 
-    <android.support.v7.widget.Toolbar
+    <com.sproject.ikidz.sdk.Utils.CenteredToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:layout_height="57dp"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
         app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:titleTextAppearance="@style/App.Theme.ToolbarTitleUppercase"
         tools:ignore="RtlSymmetry"/>
 
 </android.support.design.widget.AppBarLayout>

@@ -14,6 +14,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="App.Theme.ToolbarTitleUppercase" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
@@ -56,6 +60,10 @@
     <style name="CustomEditText" parent="Widget.AppCompat.EditText">
         <item name="colorControlActivated">@color/white_85</item>
         <item name="colorControlNormal">@color/white_85</item>
+    </style>
+
+    <style name="ToolbarTitleText" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
 </resources>

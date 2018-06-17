@@ -12,6 +12,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
@@ -25,7 +26,9 @@
         <activity
             android:name=".view.activity.home.HomeActivity"
             android:label="@string/title_newsfeed" />
-        <activity android:name=".view.activity.login.LoginActivity"/>
+        <activity android:name=".view.activity.login.LoginActivity" />
+        <activity android:name=".view.activity.editProfile.EditProfileActivity" />
+        <activity android:name=".view.activity.login.ResetPasswordActivity"></activity>
     </application>
 
 </manifest>
