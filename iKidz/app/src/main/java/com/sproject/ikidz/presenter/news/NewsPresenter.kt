@@ -2,6 +2,7 @@ package com.sproject.ikidz.presenter.news
 
 import com.sproject.ikidz.iKidApplications
 import com.sproject.ikidz.model.RESP.RESP_DataNews
+import com.sproject.ikidz.model.entity.ErrorEntity
 import com.sproject.ikidz.model.entity.RequestNews
 import com.sproject.ikidz.model.server.GetNews
 import com.sproject.ikidz.sdk.Commons.Constants
@@ -25,9 +26,9 @@ class NewsPresenter(val view: NewsInf) {
                 view.GetNewsSuccess(news, page)
             }
 
-            override fun onError(s: String) {
-                iKidApplications.log(TAG, s)
-                view.GetNewsError(s)
+            override fun onError(s: ErrorEntity) {
+                iKidApplications.log(TAG, s.errorMessage)
+                view.GetNewsError(s.errorMessage)
             }
 
         }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ln_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/size_4"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/size_4"
+    android:paddingRight="@dimen/size_4">
+
+    <ImageView
+        android:id="@+id/img_thumb"
+        android:layout_width="@dimen/size_48"
+        android:layout_height="@dimen/size_48" />
+</LinearLayout>

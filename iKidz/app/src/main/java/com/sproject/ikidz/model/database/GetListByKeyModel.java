@@ -1,5 +1,6 @@
 package com.sproject.ikidz.model.database;
 
+import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
 
 import java.util.List;
@@ -50,7 +51,7 @@ public abstract class GetListByKeyModel<T extends RealmObject> extends AbsICmd {
     }
 
     @Override
-    protected void exception(String message) {
+    protected void exception(ErrorEntity message) {
         onSuccess(null);
     }
 

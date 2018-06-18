@@ -3,6 +3,7 @@
 buildscript {
     ext.kotlin_version = '1.2.30'
     repositories {
+        maven { url 'https://github.com/500px/greedo-layout-for-android/raw/master/releases/' }
         google()
         jcenter()
         maven { url "https://jitpack.io" }
@@ -19,6 +20,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url 'https://github.com/500px/greedo-layout-for-android/raw/master/releases/' }
         google()
         jcenter()
         mavenCentral()

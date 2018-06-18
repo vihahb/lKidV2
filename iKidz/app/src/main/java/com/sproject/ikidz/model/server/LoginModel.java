@@ -2,6 +2,7 @@ package com.sproject.ikidz.model.server;
 
 import com.sproject.ikidz.model.BasicModel;
 import com.sproject.ikidz.model.RESP.RESP_Login;
+import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.model.entity.UserLogin;
 import com.sproject.ikidz.sdk.Utils.JsonHelper;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
@@ -37,18 +38,18 @@ public abstract class LoginModel extends AbsICmd {
             }
 
             @Override
-            protected void onError(String error) {
+            protected void onError(ErrorEntity error) {
                 LoginModel.this.onError(error);
             }
         });
     }
 
     @Override
-    protected void exception(String message) {
-        onError("UNKNOW Error");
+    protected void exception(ErrorEntity message) {
+        onError(message);
     }
 
     protected abstract void onSuccess(RESP_Login login);
 
-    protected abstract void onError(String error);
+    protected abstract void onError(ErrorEntity error);
 }

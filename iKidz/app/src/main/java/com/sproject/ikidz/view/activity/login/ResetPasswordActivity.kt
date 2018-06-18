@@ -18,7 +18,7 @@ class ResetPasswordActivity : BaseActivity(), IResetView {
         super.onCreate(savedInstanceState)
         getData()
         setContentView(R.layout.activity_reset_password)
-        initToolbar(R.id.toolbar, "Quên mật khẩu", true)
+        initToolbar("Quên mật khẩu", true)
         presenter = ResetPresenter(this)
         btnSend.setOnClickListener {
             if (validData(edtEmail.text.toString())) {

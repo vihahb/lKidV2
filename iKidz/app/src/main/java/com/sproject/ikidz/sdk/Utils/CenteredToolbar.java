@@ -54,8 +54,8 @@ public class CenteredToolbar extends Toolbar {
             centeredTitleTextView.setAllCaps(true);
             centeredTitleTextView.setEllipsize(TextUtils.TruncateAt.END);
             centeredTitleTextView.setSingleLine();
+            centeredTitleTextView.setTextSize(18);
             centeredTitleTextView.setGravity(Gravity.CENTER);
-            centeredTitleTextView.setTextAppearance(getContext(), R.style.TextAppearance_AppCompat_Widget_ActionBar_Title);
 
             Toolbar.LayoutParams lp = new Toolbar.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             lp.gravity = Gravity.CENTER;

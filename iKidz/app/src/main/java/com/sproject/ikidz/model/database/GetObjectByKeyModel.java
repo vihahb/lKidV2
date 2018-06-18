@@ -1,5 +1,6 @@
 package com.sproject.ikidz.model.database;
 
+import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
 
 import io.realm.Realm;
@@ -40,9 +41,10 @@ public abstract class GetObjectByKeyModel<T extends RealmObject> extends AbsICmd
     }
 
     @Override
-    protected void exception(String message) {
-        onSuccess(null);
+    protected void exception(ErrorEntity message) {
+        onError(message);
     }
 
     protected abstract void onSuccess(T object);
+    protected abstract void onError(ErrorEntity message);
 }

@@ -32,12 +32,17 @@ public class RequestOkHttp {
     public void postApi(String url, String jsonObject, ResponseHandle responseHandle) {
         new PostToServer(responseHandle).execute(url, jsonObject);
     }
-public void postApi(String url, String jsonObject, String token, ResponseHandle responseHandle) {
+
+    public void postApi(String url, String jsonObject, String token, ResponseHandle responseHandle) {
         new PostToServerWithToken(responseHandle).execute(url, jsonObject, token);
     }
 
-    public void getApi(String url, String jsonObject, ResponseHandle responseHandle) {
-        new GetToServer(responseHandle).execute(url, jsonObject);
+    public void getApi(String url, ResponseHandle responseHandle) {
+        new GetToServer(responseHandle).execute(url);
+    }
+
+    public void getApi(String url, String token, ResponseHandle responseHandle) {
+        new GetToServerWithToken(responseHandle).execute(url, token);
     }
 
     public void putApi(String url, String jsonObject, String session, ResponseHandle responseHandle) {
@@ -121,7 +126,7 @@ public void postApi(String url, String jsonObject, String token, ResponseHandle 
                     builder.post(body);
                 }
 
-                if (params[2] != null){
+                if (params[2] != null) {
                     builder.addHeader("Authorization", "Bearer " + params[2]);
                 }
                 Request request = builder.build();
@@ -173,9 +178,59 @@ public void postApi(String url, String jsonObject, String token, ResponseHandle 
                 Request.Builder builder = new Request.Builder();
                 builder.url(params[0]);
 
+                Request request = builder.build();
+
+                Log.e(TAG, "GET - Request: " + request.toString() + " #### ");
+
+                Response response = client.newCall(request).execute();
+                return response.body().string();
+            } catch (IOException e) {
+                isSuccess = false;
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if (isSuccess)
+                responseHandle.onSuccess(s);
+            else
+                responseHandle.onError(new Exception("SYSTEM-EXCEPTION: " + iKidApplications.context.getString(R.string.message_can_not_request)));
+        }
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private class GetToServerWithToken extends AsyncTask<String, Integer, String> {
+        private final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+        private ResponseHandle responseHandle;
+        private boolean isSuccess = true;
+
+        GetToServerWithToken(ResponseHandle responseHandle) {
+            this.responseHandle = responseHandle;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            isSuccess = true;
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                OkHttpClient client = new OkHttpClient.Builder()
+                        .connectTimeout(30, TimeUnit.SECONDS)
+                        .writeTimeout(30, TimeUnit.SECONDS)
+                        .readTimeout(30, TimeUnit.SECONDS)
+                        .build();
+
+                Request.Builder builder = new Request.Builder();
+                builder.url(params[0]);
+
                 if (params[1] != null) {
-                    RequestBody body = RequestBody.create(JSON, params[1]);
-                    builder.method("GET", body);
+                    builder.addHeader("Authorization", "Bearer " + params[1]);
                 }
 
                 Request request = builder.build();

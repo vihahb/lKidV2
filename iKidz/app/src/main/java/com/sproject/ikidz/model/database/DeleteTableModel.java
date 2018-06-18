@@ -2,6 +2,7 @@ package com.sproject.ikidz.model.database;
 
 import android.support.annotation.NonNull;
 
+import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
 
 import io.realm.Realm;
@@ -47,16 +48,16 @@ public abstract class DeleteTableModel<T extends RealmObject> extends AbsICmd {
             @Override
             public void onError(@NonNull Throwable error) {
                 realm.close();
-                DeleteTableModel.this.onError();
+                DeleteTableModel.this.onError(new ErrorEntity(-1, error.getMessage()));
             }
         });
     }
 
     @Override
-    protected void exception(String message) {
-        onError();
+    protected void exception(ErrorEntity message) {
+        onError(message);
     }
 
     protected abstract void onSuccess();
-    protected abstract void onError();
+    protected abstract void onError(ErrorEntity message);
 }

@@ -2,6 +2,7 @@ package com.sproject.ikidz.model.server;
 
 import com.sproject.ikidz.model.BasicModel;
 import com.sproject.ikidz.model.RESP.RESP_CountNotify;
+import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
 import com.sproject.ikidz.sdk.callback.ResponseHandle;
 
@@ -28,17 +29,17 @@ public abstract class GetCountNotify extends AbsICmd {
             }
 
             @Override
-            protected void onError(String error) {
+            protected void onError(ErrorEntity error) {
                 GetCountNotify.this.onError(error);
             }
         });
     }
 
     @Override
-    protected void exception(String message) {
+    protected void exception(ErrorEntity message) {
         onError(message);
     }
 
     protected abstract void onSuccess(RESP_CountNotify notify);
-    protected abstract void onError(String s);
+    protected abstract void onError(ErrorEntity s);
 }

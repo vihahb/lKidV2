@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_100"
+    android:orientation="vertical"
+    tools:context=".view.fragment.news.showImage.ShowImageActivity">
+
+    <LinearLayout
+        android:paddingLeft="@dimen/size_8"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_48">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/size_36"
+            android:layout_height="@dimen/size_36"
+            android:src="@drawable/ic_action_clear" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/size_8"
+        android:layout_weight="0.8"
+        android:orientation="horizontal">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v4.view.ViewPager>
+
+        <FrameLayout
+            android:id="@+id/fr_prev"
+            android:layout_marginLeft="@dimen/size_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:background="@drawable/round_black">
+
+            <ImageView
+                android:id="@+id/img_prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/size_4"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_action_back" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fr_next"
+            android:layout_marginRight="@dimen/size_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:background="@drawable/round_black">
+
+            <ImageView
+                android:id="@+id/img_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/size_4"
+                android:rotation="180"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_action_back" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <com.sproject.ikidz.sdk.Utils.RecyclerTabLayout
+        android:id="@+id/rcl_thumbl"
+        style="@style/rtl_RecyclerTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:rtl_tabOnScreenLimit="5" />
+</LinearLayout>

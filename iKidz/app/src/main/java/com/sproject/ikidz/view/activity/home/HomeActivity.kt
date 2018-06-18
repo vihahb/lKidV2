@@ -27,7 +27,6 @@ import com.sproject.ikidz.sdk.Utils.WidgetUtils
 import com.sproject.ikidz.sdk.callback.ItemClickListener
 import com.sproject.ikidz.view.activity.editProfile.EditProfileActivity
 import com.sproject.ikidz.view.activity.login.LoginActivity
-import com.sproject.ikidz.view.activity.login.ResetPasswordActivity
 import com.sproject.ikidz.view.adapter.viewpager.ViewPagerMainAdapter
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
@@ -50,7 +49,7 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
         showLongToast("Đã lưu thông tin lớp chủ nhiệm")
     }
 
-    override fun onSaveClassError() {
+    override fun onSaveClassError(errorMessage: String) {
 //        showLongToast("Đã lưu thông tin lớp chủ nhiệm")
     }
 
@@ -71,6 +70,8 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
         WidgetUtils.setImageURL(imgAvatar, dataUser.user.avatar, R.mipmap.ic_launcher_round)
     }
 
+    lateinit var titles: String
+
     private lateinit var imgAvatar: ImageView
     lateinit var tv_user_name: TextView
     lateinit var tv_user_acc: TextView
@@ -87,7 +88,7 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         presenter = HomePresenter(this)
-        initToolbar(R.id.toolbar, resources.getString(R.string.title_newsfeed), false)
+        initToolbar(resources.getString(R.string.title_newsfeed), false)
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -98,7 +99,8 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
 
         initFragment()
         checkPermission()
-        setTitleToolbar(resources.getString(R.string.title_newsfeed))
+        titles = resources.getString(R.string.toolbar_title_newsfeed)
+        setTitleToolbar(resources.getString(R.string.toolbar_title_newsfeed))
         initHeaderView()
         presenter.getUser()
     }
@@ -154,7 +156,27 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
 
             override fun onPageSelected(position: Int) {
                 if (viewpagerAdapter != null)
-                    setTitleToolbar(viewpagerAdapter!!.getPageTitle(position).toString())
+                    titles = resources.getString(R.string.toolbar_title_newsfeed)
+
+                when (position) {
+                    0 -> {
+                        titles = resources.getString(R.string.toolbar_title_newsfeed)
+                    }
+                    1 -> {
+                        titles = resources.getString(R.string.toolbar_title_school)
+                    }
+                    2 -> {
+                        titles = resources.getString(R.string.toolbar_title_contacts)
+                    }
+                    3 -> {
+                        titles = resources.getString(R.string.toolbar_title_phonebooks)
+                    }
+                    4 -> {
+                        titles = resources.getString(R.string.toolbar_title_message)
+                    }
+                }
+
+                setTitleToolbar(titles)
             }
 
         })

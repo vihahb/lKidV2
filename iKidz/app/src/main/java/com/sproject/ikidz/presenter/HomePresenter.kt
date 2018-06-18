@@ -8,6 +8,7 @@ import com.sproject.ikidz.model.database.GetObjectByKeyModel
 import com.sproject.ikidz.model.database.SaveObjectModel
 import com.sproject.ikidz.model.entity.ClassCurrentTeacher
 import com.sproject.ikidz.model.entity.DataUser
+import com.sproject.ikidz.model.entity.ErrorEntity
 import com.sproject.ikidz.model.entity.ItemDrawer
 import com.sproject.ikidz.model.server.GetClassCurrentOfTeacher
 import com.sproject.ikidz.model.server.GetCountNotify
@@ -49,8 +50,8 @@ class HomePresenter(private val view: IHomeView) {
                     view.getSetNotify(notify.data.data)
                 }
 
-                override fun onError(s: String?) {
-                    iKidApplications.log(TAG, s!!)
+                override fun onError(s: ErrorEntity?) {
+                    iKidApplications.log(TAG, s!!.errorMessage)
                 }
 
             }
@@ -74,9 +75,9 @@ class HomePresenter(private val view: IHomeView) {
                     view.closeProgressBar()
                 }
 
-                override fun onError(s: String?) {
-                    iKidApplications.log(TAG, s!!)
-                    view.getCurrentClassError(s)
+                override fun onError(s: ErrorEntity?) {
+                    iKidApplications.log(TAG, s!!.errorMessage)
+                    view.getCurrentClassError(s.errorMessage)
                     view.closeProgressBar()
                 }
 
@@ -87,6 +88,10 @@ class HomePresenter(private val view: IHomeView) {
         val token = SharedUtils.getInstance().getStringValue(Constants.CURRENT_TOKEN)
         if (token != null) {
             object : GetObjectByKeyModel<DataUser>(DataUser::class.java, "token", token) {
+                override fun onError(message: ErrorEntity?) {
+                    iKidApplications.log(TAG, "getUser error: " + message!!.errorMessage)
+                }
+
                 override fun onSuccess(`object`: DataUser?) {
                     if (`object` != null) {
                         view.setDataUser(`object`)
@@ -98,15 +103,16 @@ class HomePresenter(private val view: IHomeView) {
 
     fun saveCurrentClass(data: ClassCurrentTeacher) {
         SharedUtils.getInstance().putIntValue(Constants.CURRENT_CLASS_TEACHER_ID, data.id)
+        SharedUtils.getInstance().putStringValue(Constants.CURRENT_CLASS_TEACHER_NAME, data.className)
         object : SaveObjectModel<ClassCurrentTeacher>(data) {
             override fun onSuccess() {
                 iKidApplications.log(TAG, "saveCurrentClass success!")
                 view.onSaveClassSuccess()
             }
 
-            override fun onError() {
-                iKidApplications.log(TAG, "saveCurrentClass error!")
-                view.onSaveClassError()
+            override fun onError(s: ErrorEntity) {
+                iKidApplications.log(TAG, "saveCurrentClass error: " + s.errorMessage)
+                view.onSaveClassError(s.errorMessage)
             }
 
         }

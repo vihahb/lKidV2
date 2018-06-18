@@ -1,6 +1,7 @@
 package com.sproject.ikidz.view.fragment.news;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.model.RESP.RESP_DataNews;
+import com.sproject.ikidz.model.entity.AlbumEntity;
 import com.sproject.ikidz.model.entity.NewsEntity;
 import com.sproject.ikidz.model.entity.viewObject.Feature;
 import com.sproject.ikidz.presenter.news.NewsPresenter;
@@ -26,10 +28,11 @@ import com.sproject.ikidz.sdk.Commons.Constants;
 import com.sproject.ikidz.sdk.Utils.SharedUtils;
 import com.sproject.ikidz.sdk.callback.ImageItemClick;
 import com.sproject.ikidz.view.fragment.news.main_feature.AdapterMainFeature;
-import com.stone.vega.library.VegaLayoutManager;
+import com.sproject.ikidz.view.fragment.news.showImage.ShowImageActivity;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,8 +76,13 @@ public class NewsfeedFragment extends Fragment implements NewsInf {
         verticalLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 
         adapterMainFeature = new AdapterMainFeature(featureList, getActivity());
-        adapterNews = new NewsAdapter(newsList, getContext(), position -> {
-
+        adapterNews = new NewsAdapter(newsList, getContext(), (data, position) -> {
+            Intent imgIntent = new Intent(getContext(), ShowImageActivity.class);
+            imgIntent.putExtra(Constants.IMAGE_POSITION, position);
+            imgIntent.putExtra(Constants.LIST_ALBUM, (Serializable) data);
+            startActivity(imgIntent);
+            if (getActivity() != null)
+                getActivity().overridePendingTransition(R.anim.slide_from_right, R.anim.slide_2_left);
         });
     }
 

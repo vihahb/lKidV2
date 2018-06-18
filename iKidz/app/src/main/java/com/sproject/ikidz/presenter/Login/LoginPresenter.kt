@@ -7,6 +7,7 @@ import com.sproject.ikidz.model.RESP.RESP_Login
 import com.sproject.ikidz.model.RESP.RESP_Province
 import com.sproject.ikidz.model.database.SaveObjectModel
 import com.sproject.ikidz.model.entity.DataUser
+import com.sproject.ikidz.model.entity.ErrorEntity
 import com.sproject.ikidz.model.entity.UserLogin
 import com.sproject.ikidz.model.server.DistrictModel
 import com.sproject.ikidz.model.server.GetSchoolByDistrictModel
@@ -41,8 +42,8 @@ class LoginPresenter(private val view: ILogin) {
                 view.closeProgressBar()
             }
 
-            override fun onErrror(err: String?) {
-                iKidApplications.log(TAG, err!!)
+            override fun onErrror(err: ErrorEntity?) {
+                iKidApplications.log(TAG, err!!.errorMessage)
                 view.getProvincesError()
                 view.closeProgressBar()
             }
@@ -62,8 +63,8 @@ class LoginPresenter(private val view: ILogin) {
                 view.closeProgressBar()
             }
 
-            override fun onErrror(err: String) {
-                iKidApplications.log(TAG, err)
+            override fun onErrror(err: ErrorEntity) {
+                iKidApplications.log(TAG, err.errorMessage)
                 view.getDistrictError()
                 view.closeProgressBar()
             }
@@ -83,9 +84,9 @@ class LoginPresenter(private val view: ILogin) {
                 view.closeProgressBar()
             }
 
-            override fun onErrror(err: String) {
-                iKidApplications.log(TAG, err)
-                view.getSchoolsError(err)
+            override fun onErrror(err: ErrorEntity) {
+                iKidApplications.log(TAG, err.errorMessage)
+                view.getSchoolsError(err.errorMessage)
                 view.closeProgressBar()
             }
 
@@ -106,12 +107,11 @@ class LoginPresenter(private val view: ILogin) {
                 view.closeProgressBar()
             }
 
-            override fun onError(error: String?) {
-                iKidApplications.log(TAG, error)
-                view.onLoginError(error)
+            override fun onError(error: ErrorEntity) {
+                iKidApplications.log(TAG, error.errorMessage)
+                view.onLoginError(error.errorMessage)
                 view.closeProgressBar()
             }
-
         }
     }
 
@@ -127,8 +127,8 @@ class LoginPresenter(private val view: ILogin) {
                 view.onSaveUserSuccess()
             }
 
-            override fun onError() {
-                iKidApplications.log(TAG, "saveUserInfo success!")
+            override fun onError(s: ErrorEntity) {
+                iKidApplications.log(TAG, "saveUserInfo error: " + s.errorMessage)
                 view.onSaveUserError()
             }
 

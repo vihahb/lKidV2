@@ -69,4 +69,6 @@
     <dimen name="size_3">3dp</dimen>
     <dimen name="size_180">180dp</dimen>
     <dimen name="size_120">120dp</dimen>
+    <dimen name="font_9">9sp</dimen>
+    <dimen name="size_74">74dp</dimen>
 </resources>

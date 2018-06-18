@@ -3,6 +3,7 @@ package com.sproject.ikidz.sdk.callback;
 import android.util.Log;
 
 import com.sproject.ikidz.model.RESP.RESP_Basic;
+import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.sdk.Utils.JsonHelper;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 
@@ -28,8 +29,8 @@ public abstract class ResponseHandle<T extends RESP_Basic> {
                 onSuccess((T) null);
             } else {
                 T t = JsonHelper.getObjectNoException(result, tClass);
-                if (t!= null & t.getErrorDesc() != null && t.getErrorCode() != 0) {
-                    onError(t.getErrorMessage());
+                if (t!= null & !TextUtils.isEmpty( t.getErrorDesc())  && t.getErrorCode() != 0) {
+                    onError(new ErrorEntity(t.getErrorCode(), t.getErrorMessage()));
                 } else {
                     onSuccess(t);
                 }
@@ -37,15 +38,15 @@ public abstract class ResponseHandle<T extends RESP_Basic> {
 
         } catch (Exception e) {
             e.printStackTrace();
-            onError("Exception: " + e.getMessage());
+            onError(new ErrorEntity(-1, "Exception: " + e.getMessage()));
         }
     }
 
     public void onError(Exception error) {
-        onError("Exception: " + error.getMessage());
+        onError(new ErrorEntity(-1, "Exception: " + error.getMessage()));
     }
 
     protected abstract void onSuccess(T obj);
 
-    protected abstract void onError(String error);
+    protected abstract void onError(ErrorEntity error);
 }

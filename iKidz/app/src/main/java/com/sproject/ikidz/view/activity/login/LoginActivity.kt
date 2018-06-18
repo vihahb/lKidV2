@@ -122,7 +122,7 @@ class LoginActivity : BaseActivity(), ILogin {
 
     private fun initView() {
         initForm()
-        initToolbar(R.id.toolbar, "Đăng nhập", false)
+        initToolbar("ĐĂNG NHẬP", false)
         provinceAdapter = AdapterSpinnerProvince(this, provinceData)
         sp_province.adapter = provinceAdapter
 
@@ -218,6 +218,11 @@ class LoginActivity : BaseActivity(), ILogin {
         }
         if (TextUtils.isEmpty(link_api)) {
             showLongToast(resources.getString(R.string.validate_field_school))
+            return
+        }
+
+        if (edtPassword.text.toString().length < 6){
+            showLongToast(resources.getString(R.string.validate_field_password_too_shot))
             return
         }
         if (!TextUtils.isEmpty(edtUserName.text.toString()) && !TextUtils.isEmpty(edtPassword.text.toString())) {

@@ -15,7 +15,7 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme">
         <activity android:name=".view.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,12 @@
             android:label="@string/title_newsfeed" />
         <activity android:name=".view.activity.login.LoginActivity" />
         <activity android:name=".view.activity.editProfile.EditProfileActivity" />
-        <activity android:name=".view.activity.login.ResetPasswordActivity"></activity>
+        <activity android:name=".view.activity.login.ResetPasswordActivity" />
+        <activity android:name=".view.activity.drug.teacher.DrugActivity" />
+        <activity android:name=".view.activity.attendance.in.AttendanceInActivity" />
+        <activity android:name=".view.activity.attendance.out.AttendanceOutActivity" />
+        <activity android:name=".view.activity.absent.AbsentsActivity" />
+        <activity android:name=".view.fragment.news.showImage.ShowImageActivity"></activity>
     </application>
 
 </manifest>

@@ -8,7 +8,9 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.sproject.ikidz.outLibs.model.ItemPosition;
 
-public class AlbumEntity {
+import java.io.Serializable;
+
+public class AlbumEntity implements Serializable {
 
     @SerializedName("id")
     @Expose
@@ -29,6 +31,7 @@ public class AlbumEntity {
         this.title = title;
         this.image = image;
     }
+
     public String getId() {
         return id;
     }

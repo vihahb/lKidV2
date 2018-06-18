@@ -2,6 +2,7 @@ package com.sproject.ikidz.model.server;
 
 import com.sproject.ikidz.model.BasicModel;
 import com.sproject.ikidz.model.RESP.RESP_DataNews;
+import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.model.entity.RequestNews;
 import com.sproject.ikidz.sdk.Utils.JsonHelper;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
@@ -33,18 +34,18 @@ public abstract class GetNews extends AbsICmd {
             }
 
             @Override
-            protected void onError(String error) {
+            protected void onError(ErrorEntity error) {
                 GetNews.this.onError(error);
             }
         });
     }
 
     @Override
-    protected void exception(String message) {
+    protected void exception(ErrorEntity message) {
         onError(message);
     }
 
     protected abstract void onSucces(RESP_DataNews news);
 
-    protected abstract void onError(String s);
+    protected abstract void onError(ErrorEntity s);
 }

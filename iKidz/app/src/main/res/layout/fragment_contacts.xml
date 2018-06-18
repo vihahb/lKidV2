@@ -30,20 +30,35 @@
                 android:background="@drawable/round_edittext_login"
                 android:gravity="center"
                 android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="@dimen/size_60"
-                    android:layout_height="@dimen/size_60"
-                    android:layout_marginBottom="@dimen/size_8"
-                    android:layout_marginTop="@dimen/font_16"
-                    android:src="@mipmap/ic_launcher_round" />
+                <FrameLayout
+                    android:layout_width="@dimen/size_90"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="@dimen/size_60"
+                        android:layout_marginBottom="@dimen/size_8"
+                        android:layout_marginTop="@dimen/font_16"
+                        android:src="@mipmap/sleep" />
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:id="@+id/tv_notify_class"
+                        android:layout_width="@dimen/size_20"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@drawable/notify_feature"/>
+                </FrameLayout>
 
                 <TextView
+                    android:lines="2"
+                    android:paddingLeft="@dimen/size_8"
+                    android:paddingRight="@dimen/size_8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_8"
                     android:gravity="center"
-                    android:text="Hoạt động" />
+                    android:text="Hoạt động ngủ" />
             </LinearLayout>
 
             <LinearLayout
@@ -58,19 +73,35 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="@dimen/size_60"
-                    android:layout_height="@dimen/size_60"
-                    android:layout_marginBottom="@dimen/size_8"
-                    android:layout_marginTop="@dimen/font_16"
-                    android:src="@mipmap/ic_launcher_round" />
+                <FrameLayout
+                    android:layout_width="@dimen/size_90"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="@dimen/size_60"
+                        android:layout_marginBottom="@dimen/size_8"
+                        android:layout_marginTop="@dimen/font_16"
+                        android:src="@mipmap/eat" />
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:id="@+id/tv_notify_School"
+                        android:layout_width="@dimen/size_20"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@drawable/notify_feature"/>
+                </FrameLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_8"
                     android:gravity="center"
-                    android:text="Hoạt động" />
+                    android:lines="2"
+                    android:paddingLeft="@dimen/size_8"
+                    android:paddingRight="@dimen/size_8"
+                    android:text="Hoạt động ăn" />
             </LinearLayout>
         </LinearLayout>
 
@@ -93,19 +124,35 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="@dimen/size_60"
-                    android:layout_height="@dimen/size_60"
-                    android:layout_marginBottom="@dimen/size_8"
-                    android:layout_marginTop="@dimen/font_16"
-                    android:src="@mipmap/ic_launcher_round" />
+                <FrameLayout
+                    android:layout_width="@dimen/size_90"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="@dimen/size_60"
+                        android:layout_marginBottom="@dimen/size_8"
+                        android:layout_marginTop="@dimen/font_16"
+                        android:src="@mipmap/attendance" />
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:id="@+id/tv_notify_3"
+                        android:layout_width="@dimen/size_20"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@drawable/notify_feature"/>
+                </FrameLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_8"
                     android:gravity="center"
-                    android:text="Hoạt động" />
+                    android:lines="2"
+                    android:paddingLeft="@dimen/size_8"
+                    android:paddingRight="@dimen/size_8"
+                    android:text="Hoạt động khác" />
             </LinearLayout>
 
             <LinearLayout
@@ -120,19 +167,35 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="@dimen/size_60"
-                    android:layout_height="@dimen/size_60"
-                    android:layout_marginBottom="@dimen/size_8"
-                    android:layout_marginTop="@dimen/font_16"
-                    android:src="@mipmap/ic_launcher_round" />
+                <FrameLayout
+                    android:layout_width="@dimen/size_90"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="@dimen/size_60"
+                        android:layout_marginBottom="@dimen/size_8"
+                        android:layout_marginTop="@dimen/font_16"
+                        android:src="@mipmap/nhanxetngayhoc" />
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:id="@+id/tv_notify_eat"
+                        android:layout_width="@dimen/size_20"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@drawable/notify_feature"/>
+                </FrameLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_8"
                     android:gravity="center"
-                    android:text="Hoạt động" />
+                    android:lines="2"
+                    android:paddingLeft="@dimen/size_8"
+                    android:paddingRight="@dimen/size_8"
+                    android:text="Nhận xét ngày học" />
             </LinearLayout>
         </LinearLayout>
 
@@ -155,19 +218,35 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="@dimen/size_60"
-                    android:layout_height="@dimen/size_60"
-                    android:layout_marginBottom="@dimen/size_8"
-                    android:layout_marginTop="@dimen/font_16"
-                    android:src="@mipmap/ic_launcher_round" />
+                <FrameLayout
+                    android:layout_width="@dimen/size_90"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="@dimen/size_60"
+                        android:layout_marginBottom="@dimen/size_8"
+                        android:layout_marginTop="@dimen/font_16"
+                        android:src="@mipmap/heart" />
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:id="@+id/tv_notify_activity_other"
+                        android:layout_width="@dimen/size_20"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@drawable/notify_feature"/>
+                </FrameLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_8"
                     android:gravity="center"
-                    android:text="Hoạt động" />
+                    android:lines="2"
+                    android:paddingLeft="@dimen/size_8"
+                    android:paddingRight="@dimen/size_8"
+                    android:text="Sổ sức khỏe" />
             </LinearLayout>
 
             <LinearLayout
@@ -182,19 +261,35 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="@dimen/size_60"
-                    android:layout_height="@dimen/size_60"
-                    android:layout_marginBottom="@dimen/size_8"
-                    android:layout_marginTop="@dimen/font_16"
-                    android:src="@mipmap/ic_launcher_round" />
+                <FrameLayout
+                    android:layout_width="@dimen/size_90"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="@dimen/size_60"
+                        android:layout_marginBottom="@dimen/size_8"
+                        android:layout_marginTop="@dimen/font_16"
+                        android:src="@mipmap/picture_60" />
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:id="@+id/tv_notify_learn"
+                        android:layout_width="@dimen/size_20"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@drawable/notify_feature"/>
+                </FrameLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_8"
                     android:gravity="center"
-                    android:text="Hoạt động" />
+                    android:lines="2"
+                    android:paddingLeft="@dimen/size_8"
+                    android:paddingRight="@dimen/size_8"
+                    android:text="Album ảnh" />
             </LinearLayout>
         </LinearLayout>
 
@@ -217,19 +312,35 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="@dimen/size_60"
-                    android:layout_height="@dimen/size_60"
-                    android:layout_marginBottom="@dimen/size_8"
-                    android:layout_marginTop="@dimen/font_16"
-                    android:src="@mipmap/ic_launcher_round" />
+                <FrameLayout
+                    android:layout_width="@dimen/size_90"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="@dimen/size_60"
+                        android:layout_marginBottom="@dimen/size_8"
+                        android:layout_marginTop="@dimen/font_16"
+                        android:src="@mipmap/hocba" />
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:id="@+id/tv_notify_vote"
+                        android:layout_width="@dimen/size_20"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@drawable/notify_feature"/>
+                </FrameLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_8"
                     android:gravity="center"
-                    android:text="Hoạt động" />
+                    android:lines="2"
+                    android:paddingLeft="@dimen/size_8"
+                    android:paddingRight="@dimen/size_8"
+                    android:text="Học bạ" />
             </LinearLayout>
 
             <LinearLayout
@@ -244,22 +355,37 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="@dimen/size_60"
-                    android:layout_height="@dimen/size_60"
-                    android:layout_marginBottom="@dimen/size_8"
-                    android:layout_marginTop="@dimen/font_16"
-                    android:src="@mipmap/ic_launcher_round" />
+                <FrameLayout
+                    android:layout_width="@dimen/size_90"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="@dimen/size_60"
+                        android:layout_marginBottom="@dimen/size_8"
+                        android:layout_marginTop="@dimen/font_16"
+                        android:src="@mipmap/notify" />
+                    <TextView
+                        android:layout_marginTop="@dimen/size_16"
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:visibility="gone"
+                        android:id="@+id/tv_notify_care"
+                        android:layout_width="@dimen/size_20"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@drawable/notify_feature"/>
+                </FrameLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_8"
                     android:gravity="center"
-                    android:text="Hoạt động" />
+                    android:lines="2"
+                    android:paddingLeft="@dimen/size_8"
+                    android:paddingRight="@dimen/size_8"
+                    android:text="Thông báo" />
             </LinearLayout>
         </LinearLayout>
-
 
     </LinearLayout>
 </ScrollView>

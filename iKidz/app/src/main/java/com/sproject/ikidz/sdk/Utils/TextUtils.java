@@ -5,6 +5,7 @@ import java.text.DecimalFormatSymbols;
 import java.text.Normalizer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Pattern;
 
@@ -122,4 +123,13 @@ public class TextUtils {
             return "";
         }
     }
+
+//    public String getTimeFormat(long time){
+//        if (time > 0){
+//            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//            Calendar calendar = Calendar.getInstance();
+//            calendar.setTimeInMillis(time);
+//            sdf.parse()
+//        }
+//    }
 }

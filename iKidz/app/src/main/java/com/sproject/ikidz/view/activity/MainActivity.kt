@@ -8,6 +8,7 @@ import com.sproject.ikidz.R
 import com.sproject.ikidz.iKidApplications
 import com.sproject.ikidz.model.database.GetObjectByKeyModel
 import com.sproject.ikidz.model.entity.DataUser
+import com.sproject.ikidz.model.entity.ErrorEntity
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.JsonHelper
 import com.sproject.ikidz.sdk.Utils.SharedUtils
@@ -28,8 +29,12 @@ class MainActivity : AppCompatActivity() {
         var token = SharedUtils.getInstance().getStringValue(Constants.CURRENT_TOKEN)
         if (token != null){
             object : GetObjectByKeyModel<DataUser>(DataUser::class.java, "token", token) {
+                override fun onError(message: ErrorEntity?) {
+                    iKidApplications.log(TAG, "checkUser getObjectError: " + message!!.errorMessage)
+                }
+
                 override fun onSuccess(`object`: DataUser?) {
-                    iKidApplications.log(TAG, "getObjectSuccess: " + JsonHelper.toJson(`object`))
+                    iKidApplications.log(TAG, "checkUser getObjectSuccess: " + JsonHelper.toJson(`object`))
                     alreadyExistsUser = `object` != null
                 }
             }

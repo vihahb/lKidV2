@@ -29,8 +29,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IBasicAc
     private Dialog progressDialog;
     Toolbar toolbar;
 
-    public void initToolbar(int id, String title, boolean showBack) {
-        toolbar = (CenteredToolbar) findViewById(id);
+    public void initToolbar(String title, boolean showBack) {
+        toolbar = (CenteredToolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
@@ -44,6 +44,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IBasicAc
 
         if (title != null)
             toolbar.setTitle(title);
+
+
 
         setSupportActionBar(toolbar);
     }

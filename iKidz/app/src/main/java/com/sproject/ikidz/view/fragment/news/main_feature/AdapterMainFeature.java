@@ -1,6 +1,7 @@
 package com.sproject.ikidz.view.fragment.news.main_feature;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,10 @@ import android.widget.TextView;
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.model.entity.viewObject.Feature;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
+import com.sproject.ikidz.view.activity.absent.AbsentsActivity;
+import com.sproject.ikidz.view.activity.attendance.in.AttendanceInActivity;
+import com.sproject.ikidz.view.activity.attendance.out.AttendanceOutActivity;
+import com.sproject.ikidz.view.activity.drug.teacher.DrugActivity;
 
 import java.util.List;
 
@@ -38,7 +43,7 @@ public class AdapterMainFeature extends RecyclerView.Adapter<RecyclerView.ViewHo
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ViewHolder) {
             ViewHolder viewHolder = (ViewHolder) holder;
-            viewHolder.setData(featureList.get(position));
+            viewHolder.setData(featureList.get(position), position );
         }
     }
 
@@ -68,7 +73,7 @@ public class AdapterMainFeature extends RecyclerView.Adapter<RecyclerView.ViewHo
             img_icon = itemView.findViewById(R.id.img_feature);
         }
 
-        public void setData(Feature feature) {
+        public void setData(Feature feature, int position) {
             if (!TextUtils.isEmpty(feature.getName())) {
                 tv_feature_name.setText(feature.getName());
             }
@@ -90,10 +95,24 @@ public class AdapterMainFeature extends RecyclerView.Adapter<RecyclerView.ViewHo
                 tv_notify.setVisibility(View.GONE);
             }
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //delegate onclick item
+            itemView.setOnClickListener(view -> {
+                switch (position) {
+                    case 0:
+                        context.startActivity(new Intent(context, AbsentsActivity.class));
+                        break;
+                    case 1:
+                        context.startActivity(new Intent(context, AttendanceInActivity.class));
+                        break;
+                    case 2:
+                        context.startActivity(new Intent(context, DrugActivity.class));
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        context.startActivity(new Intent(context, AttendanceOutActivity.class));
+                        break;
+                    case 5:
+                        break;
                 }
             });
         }

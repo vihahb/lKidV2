@@ -3,6 +3,7 @@ package com.sproject.ikidz.model.server;
 import com.sproject.ikidz.model.BasicModel;
 import com.sproject.ikidz.model.RESP.RESP_Basic;
 import com.sproject.ikidz.model.RESP.RESP_CurrentClassTeacher;
+import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
 import com.sproject.ikidz.sdk.callback.ResponseHandle;
 
@@ -28,18 +29,18 @@ public abstract class GetClassCurrentOfTeacher extends AbsICmd {
             }
 
             @Override
-            protected void onError(String error) {
+            protected void onError(ErrorEntity error) {
                 GetClassCurrentOfTeacher.this.onError(error);
             }
         });
     }
 
     @Override
-    protected void exception(String message) {
+    protected void exception(ErrorEntity message) {
         onError(message);
     }
 
     protected abstract void onSuccess(RESP_CurrentClassTeacher data);
 
-    protected abstract void onError(String s);
+    protected abstract void onError(ErrorEntity s);
 }

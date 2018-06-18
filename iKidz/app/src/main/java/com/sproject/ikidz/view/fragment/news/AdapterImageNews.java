@@ -85,7 +85,9 @@ public class AdapterImageNews extends RecyclerView.Adapter<RecyclerView.ViewHold
                         iKidApplications.log(TAG, "Load image success");
                     }
                 });
-                itemView.setOnClickListener(view -> listener.onClickItem(position));
+                itemView.setOnClickListener(view -> {
+                    listener.onClickItem(data, position);
+                });
             }
         }
     }

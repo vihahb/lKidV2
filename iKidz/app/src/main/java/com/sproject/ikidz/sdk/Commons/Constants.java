@@ -25,4 +25,8 @@ public class Constants {
     public static final String ABSENT = "absent"; //Don xin nghi phep
     public static final String ADD_DRUG = "add_drug"; //Don dan thuoc
     public static final String register_more_time = "register_more_time"; //Dang ky hoc them
+    public static final String CURRENT_CLASS_TEACHER_NAME = "CURRENT_CLASS_TEACHER_NAME";
+    public static final String ABSENT_TYPE = "ABSENT_TYPE";
+    public static final String LIST_ALBUM = "LIST_ALBUM";
+    public static final String IMAGE_POSITION = "image_position";
 }

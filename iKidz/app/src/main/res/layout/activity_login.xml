@@ -26,9 +26,9 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:padding="@dimen/size_8"
-                    android:layout_width="@dimen/size_200"
-                    android:layout_height="@dimen/size_200"
+                    android:padding="@dimen/size_24"
+                    android:layout_width="@dimen/size_160"
+                    android:layout_height="@dimen/size_160"
                     android:scaleType="fitXY"
                     android:src="@mipmap/sodo" />
             </LinearLayout>
@@ -114,6 +114,8 @@
                 </LinearLayout>
 
                 <Button
+                    android:layout_marginLeft="@dimen/size_16"
+                    android:layout_marginRight="@dimen/size_16"
                     android:id="@+id/btnLogin"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/size_36"

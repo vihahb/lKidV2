@@ -12,7 +12,7 @@ interface IHomeView : IBasicActivity{
     fun getCurrentClassSuccess(data: RESP_CurrentClassTeacher)
     fun getCurrentClassError(s: String)
     fun onSaveClassSuccess()
-    fun onSaveClassError()
+    fun onSaveClassError(errorMessage: String)
     fun initDrawerSuccess(data: ArrayList<ItemDrawer>)
     fun getSetNotify(data: CountNotify)
 }
