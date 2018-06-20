@@ -33,7 +33,11 @@
         <activity android:name=".view.activity.attendance.in.AttendanceInActivity" />
         <activity android:name=".view.activity.attendance.out.AttendanceOutActivity" />
         <activity android:name=".view.activity.absent.AbsentsActivity" />
-        <activity android:name=".view.fragment.news.showImage.ShowImageActivity"></activity>
+        <activity android:name=".view.fragment.news.showImage.ShowImageActivity" />
+        <activity android:name=".view.activity.learnOverTime.LearnOverTimeActivity" />
+        <activity android:name=".view.activity.curentClass.CurentClassActivity" />
+        <activity android:name=".view.activity.foreignActivity.ForeignActivity" />
+        <activity android:name=".view.activity.foreignActivity.foreignInfo.ForeignInfoActivity"></activity>
     </application>
 
 </manifest>

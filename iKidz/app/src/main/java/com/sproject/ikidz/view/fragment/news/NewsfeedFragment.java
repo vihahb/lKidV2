@@ -138,7 +138,7 @@ public class NewsfeedFragment extends Fragment implements NewsInf {
                                 rcl_feature.setLayoutManager(gridLayoutlManager);
                                 setShowFull(true);
                             }
-                            Toast.makeText(getContext(), "Top most item", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getContext(), "Top most item", Toast.LENGTH_SHORT).show();
                         }
                         break;
 

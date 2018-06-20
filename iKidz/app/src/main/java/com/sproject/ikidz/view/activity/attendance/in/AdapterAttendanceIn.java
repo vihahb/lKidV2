@@ -14,15 +14,12 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.sproject.ikidz.R;
-import com.sproject.ikidz.iKidApplications;
 import com.sproject.ikidz.model.entity.AttendanceIn;
 import com.sproject.ikidz.sdk.Commons.Constants;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.SharedUtils;
-import com.sproject.ikidz.sdk.Utils.WidgetUtils;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterAttendanceIn extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Filterable {
@@ -61,10 +58,16 @@ public class AdapterAttendanceIn extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     public void setAll(boolean in) {
-        if (in)
+        if (in) {
             for (int i = 0; i < data.size(); i++) {
                 data.get(i).setChecked(2);
             }
+        } else {
+            for (int i = 0; i < data.size(); i++) {
+                data.get(i).setChecked(0);
+            }
+        }
+        notifyItemRangeChanged(0, data.size());
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -121,3 +124,4 @@ public class AdapterAttendanceIn extends RecyclerView.Adapter<RecyclerView.ViewH
         notifyDataSetChanged();
     }
 }
+

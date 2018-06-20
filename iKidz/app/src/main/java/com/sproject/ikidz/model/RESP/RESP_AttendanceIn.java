@@ -2,6 +2,7 @@ package com.sproject.ikidz.model.RESP;
 
 import com.google.gson.annotations.Expose;
 import com.sproject.ikidz.model.entity.AttendanceIn;
+import com.sproject.ikidz.model.entity.AttendanceOut;
 
 import java.util.List;
 

@@ -88,6 +88,7 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         presenter = HomePresenter(this)
+        presenter.getUser()
         initToolbar(resources.getString(R.string.title_newsfeed), false)
 
         val toggle = ActionBarDrawerToggle(
@@ -102,7 +103,6 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
         titles = resources.getString(R.string.toolbar_title_newsfeed)
         setTitleToolbar(resources.getString(R.string.toolbar_title_newsfeed))
         initHeaderView()
-        presenter.getUser()
     }
 
     private fun initHeaderView() {

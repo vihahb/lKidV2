@@ -20,6 +20,7 @@
             android:weightSum="2">
 
             <LinearLayout
+                android:id="@+id/ln_class"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/size_5"
@@ -52,6 +53,7 @@
 
                 <TextView
                     android:lines="2"
+                    android:id="@+id/tv_class_name"
                     android:paddingLeft="@dimen/size_8"
                     android:paddingRight="@dimen/size_8"
                     android:layout_width="match_parent"
@@ -62,6 +64,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ln_school"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/size_5"
@@ -113,6 +116,7 @@
             android:weightSum="2">
 
             <LinearLayout
+                android:id="@+id/ln_transfer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/size_5"
@@ -156,6 +160,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ln_eat"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/size_5"
@@ -207,6 +212,7 @@
             android:weightSum="2">
 
             <LinearLayout
+                android:id="@+id/ln_other_activity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/size_5"
@@ -246,10 +252,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_8"
                     android:gravity="center"
-                    android:text="Hoạt động ngọi khoá" />
+                    android:text="Hoạt động ngọai khoá" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ln_lean_activity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/size_5"
@@ -301,6 +308,7 @@
             android:weightSum="2">
 
             <LinearLayout
+                android:id="@+id/ln_vote"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/size_5"
@@ -344,6 +352,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ln_care"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/size_5"

@@ -62,31 +62,52 @@
                     android:layout_marginBottom="@dimen/size_16"
                     android:background="@android:color/transparent"/>
 
-                <android.support.v7.widget.AppCompatEditText
-                    android:id="@+id/edtUserName"
-                    style="@style/StyleEditTextLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                <FrameLayout
                     android:layout_marginBottom="@dimen/size_16"
-                    android:hint="@string/tv_user_name"
-                    android:textSize="@dimen/font_14"
-                    android:inputType="text"
-                    android:singleLine="true"
-                    android:imeOptions="actionNext"
-                    android:textStyle="italic" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edtUserName"
+                        style="@style/StyleEditTextLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/tv_user_name"
+                        android:textSize="@dimen/font_14"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="@dimen/size_40"
+                        android:textStyle="italic" />
+                    <ImageView
+                        android:layout_width="@dimen/size_30"
+                        android:layout_height="@dimen/size_30"
+                        android:src="@mipmap/ic_login_user"/>
+                </FrameLayout>
 
-                <android.support.v7.widget.AppCompatEditText
-                    android:id="@+id/edtPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+
+                <FrameLayout
                     android:layout_marginBottom="@dimen/size_16"
-                    android:singleLine="true"
-                    android:hint="@string/tv_user_pass"
-                    android:textSize="@dimen/font_14"
-                    android:imeOptions="actionDone"
-                    android:inputType="textPassword"
-                    android:textStyle="italic"
-                    style="@style/StyleEditTextLogin"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/edtPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:hint="@string/tv_user_pass"
+                        android:textSize="@dimen/font_14"
+                        android:imeOptions="actionGo"
+                        android:paddingLeft="@dimen/size_40"
+                        android:inputType="textPassword"
+                        android:textStyle="italic"
+                        style="@style/StyleEditTextLogin"/>
+                    <ImageView
+                        android:layout_width="@dimen/size_30"
+                        android:layout_height="@dimen/size_30"
+                        android:src="@mipmap/ic_login_user"/>
+                </FrameLayout>
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"

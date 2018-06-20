@@ -23,7 +23,7 @@ class LoginActivity : BaseActivity(), ILogin {
 
     private var rememberLogin = false
     lateinit var provinceAdapter: AdapterSpinnerProvince
-    lateinit var districtAdapter: AdapterSpinnerProvince
+    lateinit var districtAdapter: AdapterSpinnerDistrict
     lateinit var schoolByDistrictAdapter: AdapterSpinnerSchoolByDistrict
     private lateinit var provinceData: ArrayList<ProvinceOrDistrict>
     private lateinit var districtData: ArrayList<ProvinceOrDistrict>
@@ -126,7 +126,7 @@ class LoginActivity : BaseActivity(), ILogin {
         provinceAdapter = AdapterSpinnerProvince(this, provinceData)
         sp_province.adapter = provinceAdapter
 
-        districtAdapter = AdapterSpinnerProvince(this, districtData)
+        districtAdapter = AdapterSpinnerDistrict(this, districtData)
         sp_district.adapter = districtAdapter
 
         schoolByDistrictAdapter = AdapterSpinnerSchoolByDistrict(this, schoolByDistrictData)

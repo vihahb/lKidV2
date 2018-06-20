@@ -6,25 +6,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.activity.drug.teacher.DrugActivity">
-
-    <include
-        layout="@layout/toolbar_layout"/>
-
-    <LinearLayout
+    <include layout="@layout/toolbar_layout"/>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tablayoutDrug"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TableLayout
-            android:id="@+id/tablayoutDrug"
-            android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:background="@color/white_100"/>
+        android:layout_height="wrap_content"
+        app:tabIndicatorHeight="@dimen/size_1"
+        app:tabTextColor="@color/black_75"
+        app:tabGravity="fill"
+        app:tabBackground="@color/white_100"
+        app:tabMaxWidth="0dp"
+        app:tabIndicatorColor="@color/colorPrimary"/>
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewPagerMain"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-    </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpDrug"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

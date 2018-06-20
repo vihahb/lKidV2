@@ -48,6 +48,7 @@
     <string name="message_login_success">Đăng nhập thành công!</string>
     <string name="error_network">Không có kết nối mạng. Vui lòng kiểm tra và thử lại!</string>
     <string name="mesage_no_data_news">Không có dữ liệu tin tức!</string>
+    <string name="mesage_no_data">Dữ liệu trống. Vui lòng thử lại sau!</string>
     <string name="title_edit_profile">Sửa thông tin cá nhân</string>
     <string name="action_select_image">Chọn ảnh</string>
     <string name="action_update_profile">Cập nhật</string>

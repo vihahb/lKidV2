@@ -57,17 +57,17 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/edt_filter"
-            android:hint="Tìm theo tên học sinh"
-            android:background="@drawable/custom_edittext_attended_search"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:textSize="@dimen/font_14"
-            android:paddingLeft="@dimen/size_32"
-            android:paddingBottom="@dimen/size_4"
-            android:paddingTop="@dimen/size_4"
-            android:layout_height="wrap_content"/>
+        <!--<EditText-->
+            <!--android:id="@+id/edt_filter"-->
+            <!--android:hint="Tìm theo tên học sinh"-->
+            <!--android:background="@drawable/custom_edittext_attended_search"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:textSize="@dimen/font_14"-->
+            <!--android:paddingLeft="@dimen/size_32"-->
+            <!--android:paddingBottom="@dimen/size_4"-->
+            <!--android:paddingTop="@dimen/size_4"-->
+            <!--android:layout_height="wrap_content"/>-->
 
         <CheckBox
             android:id="@+id/chk_check_all_out"

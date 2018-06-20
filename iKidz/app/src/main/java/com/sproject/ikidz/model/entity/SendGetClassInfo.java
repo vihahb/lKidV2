@@ -3,7 +3,7 @@ package com.sproject.ikidz.model.entity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SendGetAbsent {
+public class SendGetClassInfo {
 
     @SerializedName("class_id")
     @Expose
@@ -21,7 +21,7 @@ public class SendGetAbsent {
     @Expose
     private Integer type;
 
-    public SendGetAbsent(Integer classId, Integer perPage, Integer page, String keyword, Integer type) {
+    public SendGetClassInfo(Integer classId, Integer perPage, Integer page, String keyword, Integer type) {
         this.classId = classId;
         this.perPage = perPage;
         this.page = page;

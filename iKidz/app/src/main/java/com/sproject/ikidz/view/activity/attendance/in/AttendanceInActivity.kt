@@ -2,8 +2,10 @@ package com.sproject.ikidz.view.activity.attendance.`in`
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.SearchView
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Menu
 import android.view.MenuItem
 import com.sproject.ikidz.R
 import com.sproject.ikidz.model.entity.AttendanceIn
@@ -13,7 +15,19 @@ import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_attendance_in.*
 import java.util.*
 
-class AttendanceInActivity : BaseActivity(), IAttendanceIn {
+class AttendanceInActivity : BaseActivity(), IAttendanceIn, SearchView.OnQueryTextListener {
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        if (newText.isNullOrEmpty())
+            adapter!!.filterList(list)
+        else
+            filterItem(newText!!)
+        return true
+    }
+
     override fun getAttendanceInSuccess(data: List<AttendanceIn>) {
         list!!.addAll(data)
         adapter!!.notifyDataSetChanged()
@@ -26,6 +40,7 @@ class AttendanceInActivity : BaseActivity(), IAttendanceIn {
     var adapter: AdapterAttendanceIn? = null
     var presenter: AttendanceInPresenter? = null
     var list: ArrayList<AttendanceIn>? = null
+    private var searchView: SearchView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,20 +59,20 @@ class AttendanceInActivity : BaseActivity(), IAttendanceIn {
         rcl_attendanced_in.layoutManager = layoutManager
         rcl_attendanced_in.adapter = adapter
 
-        edt_filter.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(p0: Editable?) {
-                filterItem(p0.toString())
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (p0.isNullOrEmpty())
-                    adapter!!.filterList(list)
-            }
-        })
+//        edt_filter.addTextChangedListener(object : TextWatcher {
+//            override fun afterTextChanged(p0: Editable?) {
+//                filterItem(p0.toString())
+//            }
+//
+//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//
+//            }
+//
+//            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                if (p0.isNullOrEmpty())
+//                    adapter!!.filterList(list)
+//            }
+//        })
         initTime()
     }
 
@@ -87,6 +102,15 @@ class AttendanceInActivity : BaseActivity(), IAttendanceIn {
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_attendance_out, menu)
+        val itemSearch = menu!!.findItem(R.id.search_view_attendance_out)
+        searchView = itemSearch.actionView as SearchView
+        //set OnQueryTextListener cho search view để thực hiện search theo text
+        searchView!!.setOnQueryTextListener(this)
+        return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

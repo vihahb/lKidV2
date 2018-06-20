@@ -60,3 +60,4 @@ public class AdapterSpinnerProvince extends BaseAdapter {
         return view;
     }
 }
+

@@ -29,4 +29,8 @@ public class Constants {
     public static final String ABSENT_TYPE = "ABSENT_TYPE";
     public static final String LIST_ALBUM = "LIST_ALBUM";
     public static final String IMAGE_POSITION = "image_position";
+    public static final String DRUG_TYPE = "drug_type";
+    public static final String MORETIME_TYPE = "moretime_type";
+    public static final String TITLE = "TITLE";
+    public static final String OBJECT = "object";
 }

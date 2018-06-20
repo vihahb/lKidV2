@@ -13,13 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
-            android:visibility="gone"
             android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:text="@string/mesage_no_data"
+            android:paddingLeft="@dimen/size_48"
+            android:paddingRight="@dimen/size_48"
             android:textSize="@dimen/font_16"
-            android:textColor="@color/black_65"/>
+            android:visibility="gone" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rcl_news"

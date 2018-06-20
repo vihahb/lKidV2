@@ -1,6 +1,7 @@
 package com.sproject.ikidz.view.activity.absent.fragment;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,6 +17,9 @@ import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.Utils.WidgetUtils;
 import com.sproject.ikidz.sdk.callback.ItemClickListener;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterAbsentFragment extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -50,6 +54,11 @@ public class AdapterAbsentFragment extends RecyclerView.Adapter<RecyclerView.Vie
         return list.size();
     }
 
+    public void filterList(@NotNull ArrayList<AbsentEntity> list) {
+        this.list = list;
+        notifyDataSetChanged();
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tv_number_row, tv_name, tv_des;
@@ -67,6 +76,12 @@ public class AdapterAbsentFragment extends RecyclerView.Adapter<RecyclerView.Vie
             if (!TextUtils.isEmpty(data.getFullNameStudent())) {
                 tv_name.setText(data.getFullNameStudent());
             }
+
+            if (data.getReceived() == 0)
+                tv_name.setTypeface(tv_name.getTypeface(), Typeface.BOLD_ITALIC);
+            else
+                tv_name.setTypeface(tv_name.getTypeface(), Typeface.NORMAL);
+
 
             if (!TextUtils.isEmpty(data.getContent())) {
                 tv_des.setText(data.getContent());

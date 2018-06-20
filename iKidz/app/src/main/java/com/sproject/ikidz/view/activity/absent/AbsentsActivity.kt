@@ -11,18 +11,9 @@ import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_absents.*
 import kotlinx.android.synthetic.main.activity_home.*
 
-class AbsentsActivity : BaseActivity(), SearchView.OnQueryTextListener {
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        return true
-    }
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        return true
-    }
+class AbsentsActivity : BaseActivity() {
 
     lateinit var vpAdapter: ViewPagerAbsent
-
-    private var searchView: SearchView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,16 +47,6 @@ class AbsentsActivity : BaseActivity(), SearchView.OnQueryTextListener {
             }
 
         })
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_absent, menu!!)
-
-        val itemSearch = menu.findItem(R.id.search_view_absent)
-        searchView = itemSearch.actionView as SearchView
-        //set OnQueryTextListener cho search view để thực hiện search theo text
-        searchView!!.setOnQueryTextListener(this)
-        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

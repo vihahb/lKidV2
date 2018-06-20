@@ -1,5 +1,6 @@
 package com.sproject.ikidz.view.fragment.school
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,14 +10,16 @@ import com.sproject.ikidz.model.entity.CountNotify
 import com.sproject.ikidz.presenter.SchoolPresenter
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.SharedUtils
+import com.sproject.ikidz.view.activity.curentClass.CurentClassActivity
+import com.sproject.ikidz.view.activity.foreignActivity.ForeignActivity
 import com.sproject.ikidz.view.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_school.*
 
 class SchoolFragment : BaseFragment(), ISchoolView {
     override fun getSetNotify(data: CountNotify) {
-        val class_name = SharedUtils.getInstance().getStringValue(Constants.CURRENT_CLASS_TEACHER_NAME)
-        if (!class_name.isEmpty())
-            tv_notify_class.text = class_name
+//        val className = SharedUtils.getInstance().getStringValue(Constants.CURRENT_CLASS_TEACHER_NAME)
+//        if (!className.isEmpty())
+//            tv_notify_class.text = className
 
         if (data.newsNew > 0) {
             tv_notify_School.visibility = View.VISIBLE
@@ -56,6 +59,7 @@ class SchoolFragment : BaseFragment(), ISchoolView {
     }
 
     lateinit var presenter: SchoolPresenter
+    var className = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,5 +77,26 @@ class SchoolFragment : BaseFragment(), ISchoolView {
 
     private fun initView() {
         presenter.getCountNotify()
+        initOnClick()
+    }
+
+    private fun initOnClick() {
+        ln_class.setOnClickListener {
+            val intent = Intent(context, CurentClassActivity::class.java)
+            intent.putExtra(Constants.TITLE, className)
+            startActivity(intent)
+        }
+
+        ln_other_activity.setOnClickListener {
+            startActivity(Intent(context, ForeignActivity::class.java))
+
+        }
+    }
+
+    override fun onResume() {
+        className = SharedUtils.getInstance().getStringValue(Constants.CURRENT_CLASS_TEACHER_NAME)
+        if (!className.isEmpty())
+            tv_class_name.text = className
+        super.onResume()
     }
 }
