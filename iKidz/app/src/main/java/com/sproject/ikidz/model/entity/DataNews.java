@@ -30,7 +30,7 @@ public class DataNews {
     private Integer perPage;
     @SerializedName("prev_page_url")
     @Expose
-    private Object prevPageUrl;
+    private String prevPageUrl;
     @SerializedName("to")
     @Expose
     private Integer to;
@@ -94,11 +94,11 @@ public class DataNews {
         this.perPage = perPage;
     }
 
-    public Object getPrevPageUrl() {
+    public String getPrevPageUrl() {
         return prevPageUrl;
     }
 
-    public void setPrevPageUrl(Object prevPageUrl) {
+    public void setPrevPageUrl(String prevPageUrl) {
         this.prevPageUrl = prevPageUrl;
     }
 

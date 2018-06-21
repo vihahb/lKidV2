@@ -16,7 +16,6 @@ import com.sproject.ikidz.model.entity.viewObject.Feature;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.view.activity.absent.AbsentsActivity;
 import com.sproject.ikidz.view.activity.attendance.in.AttendanceInActivity;
-import com.sproject.ikidz.view.activity.attendance.out.AttendanceOutActivity;
 import com.sproject.ikidz.view.activity.drug.teacher.DrugActivity;
 import com.sproject.ikidz.view.activity.learnOverTime.LearnOverTimeActivity;
 
@@ -44,7 +43,7 @@ public class AdapterMainFeature extends RecyclerView.Adapter<RecyclerView.ViewHo
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof ViewHolder) {
             ViewHolder viewHolder = (ViewHolder) holder;
-            viewHolder.setData(featureList.get(position), position );
+            viewHolder.setData(featureList.get(position), position);
         }
     }
 
@@ -82,7 +81,7 @@ public class AdapterMainFeature extends RecyclerView.Adapter<RecyclerView.ViewHo
             if (feature.isShowFull()) {
                 tv_feature_name.setTextColor(context.getResources().getColor(R.color.white_100));
                 rootLayout.setBackgroundResource(feature.getResource());
-            }else {
+            } else {
                 rootLayout.setBackgroundResource(android.R.color.white);
                 tv_feature_name.setTextColor(context.getResources().getColor(R.color.black_75));
             }
@@ -111,7 +110,7 @@ public class AdapterMainFeature extends RecyclerView.Adapter<RecyclerView.ViewHo
                         context.startActivity(new Intent(context, LearnOverTimeActivity.class));
                         break;
                     case 4:
-                        context.startActivity(new Intent(context, AttendanceOutActivity.class));
+//                        context.startActivity(new Intent(context, AttendanceOutActivity.class));
                         break;
                     case 5:
                         break;

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.activity.school.info.SchoolsNewsInfo">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="@dimen/size_48"
+            android:paddingRight="@dimen/size_48"
+            android:text="@string/mesage_no_data"
+            android:textSize="@dimen/font_16"
+            android:visibility="gone" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/size_16"
+                android:paddingRight="@dimen/size_16">
+
+                <ImageView
+                    android:id="@+id/img_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_140"
+                    android:layout_marginBottom="@dimen/size_8"
+                    android:layout_marginTop="@dimen/size_8" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="false"
+                    android:textColor="@color/black_75"
+                    android:textSize="@dimen/font_16" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.sproject.ikidz.sdk.Utils.RoundImage
+                        android:id="@+id/img_avatar"
+                        android:layout_width="@dimen/size_36"
+                        android:layout_height="@dimen/size_36" />
+
+                    <TextView
+                        android:id="@+id/tv_info_user"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/font_11" />
+
+                    <TextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".7"
+                        android:textSize="@dimen/font_11" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_1"
+                    android:layout_marginBottom="@dimen/size_4"
+                    android:layout_marginTop="@dimen/size_8"
+                    android:background="@color/black_40" />
+
+                <TextView
+                    android:id="@+id/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="false"
+                    android:text="ádfasfasfasfasfasfasf"
+                    android:textColor="@color/black_65"
+                    android:textSize="@dimen/font_12" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_1"
+                    android:layout_marginBottom="@dimen/size_4"
+                    android:layout_marginTop="@dimen/size_8"
+                    android:background="@color/black_40" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1.2" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".8"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".8">
+
+                            <ImageView
+                                android:id="@+id/img_like"
+                                android:layout_width="@dimen/size_24"
+                                android:layout_height="@dimen/size_24"
+                                android:src="@mipmap/ic_like" />
+
+                            <TextView
+                                android:id="@+id/tv_like"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/size_8"
+                                android:gravity="center_vertical"
+                                android:textSize="@dimen/font_11" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:gravity="right">
+
+                            <ImageView
+                                android:id="@+id/img_comment"
+                                android:layout_width="@dimen/size_24"
+                                android:layout_height="@dimen/size_24"
+                                android:src="@mipmap/ic_comment" />
+
+                            <TextView
+                                android:id="@+id/tv_comment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/size_8"
+                                android:gravity="center_vertical|right"
+                                android:textSize="@dimen/font_11" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_8"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.sproject.ikidz.sdk.Utils.RoundImage
+                        android:id="@+id/img_user_ava"
+                        android:layout_width="@dimen/size_36"
+                        android:layout_height="@dimen/size_36" />
+
+                    <EditText
+                        android:id="@+id/edt_comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:background="@drawable/custom_edit_text_attended"
+                        android:hint="Bình luận..."
+                        android:padding="@dimen/size_8"
+                        android:textSize="@dimen/font_12" />
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rcl_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/size_8"
+                    android:layout_marginTop="@dimen/size_8"
+                    android:nestedScrollingEnabled="false" />
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</LinearLayout>

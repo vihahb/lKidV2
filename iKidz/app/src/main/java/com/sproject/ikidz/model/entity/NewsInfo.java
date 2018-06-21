@@ -3,20 +3,20 @@ package com.sproject.ikidz.model.entity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-import java.util.List;
-
-public class NewsEntity implements Serializable {
+public class NewsInfo {
 
     @SerializedName("id")
     @Expose
     private Integer id;
     @SerializedName("cat_id")
     @Expose
-    private String catId;
+    private Integer catId;
     @SerializedName("title")
     @Expose
     private String title;
+    @SerializedName("content")
+    @Expose
+    private String content;
     @SerializedName("publish_date")
     @Expose
     private String publishDate;
@@ -50,9 +50,6 @@ public class NewsEntity implements Serializable {
     @SerializedName("avatar")
     @Expose
     private String avatar;
-    @SerializedName("album")
-    @Expose
-    private List<AlbumEntity> album;
     @SerializedName("is_like_post")
     @Expose
     private Integer isLikePost;
@@ -65,11 +62,11 @@ public class NewsEntity implements Serializable {
         this.id = id;
     }
 
-    public String getCatId() {
+    public Integer getCatId() {
         return catId;
     }
 
-    public void setCatId(String catId) {
+    public void setCatId(Integer catId) {
         this.catId = catId;
     }
 
@@ -79,6 +76,14 @@ public class NewsEntity implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getPublishDate() {
@@ -169,14 +174,6 @@ public class NewsEntity implements Serializable {
         this.avatar = avatar;
     }
 
-    public List<AlbumEntity> getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(List<AlbumEntity> album) {
-        this.album = album;
-    }
-
     public Integer getIsLikePost() {
         return isLikePost;
     }
@@ -185,25 +182,4 @@ public class NewsEntity implements Serializable {
         this.isLikePost = isLikePost;
     }
 
-    @Override
-    public String toString() {
-        return "NewsEntity{" +
-                "id=" + id +
-                ", catId=" + catId +
-                ", title='" + title + '\'' +
-                ", publishDate='" + publishDate + '\'' +
-                ", summary=" + summary +
-                ", countComment='" + countComment + '\'' +
-                ", countLike='" + countLike + '\'' +
-                ", type='" + type + '\'' +
-                ", isComment='" + isComment + '\'' +
-                ", createdAt='" + createdAt + '\'' +
-                ", classId='" + classId + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", image='" + image + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", album=" + album +
-                ", isLikePost=" + isLikePost +
-                '}';
-    }
 }
