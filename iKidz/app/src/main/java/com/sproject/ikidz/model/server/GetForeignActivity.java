@@ -22,7 +22,7 @@ public abstract class GetForeignActivity extends AbsICmd {
     @Override
     protected void invoke() {
         String url = SharedUtils.getInstance().getStringValue(Constants.BASE_URL) + "/api/" + basicModel.OLD_VERSION_API + "list-extracurricular-teacher";
-        basicModel.requestServer.getApi(url, token, new ResponseHandle<RESP_ForeignData>(RESP_ForeignData.class) {
+        basicModel.requestServer.postApi(url, "", token, new ResponseHandle<RESP_ForeignData>(RESP_ForeignData.class) {
             @Override
             protected void onSuccess(RESP_ForeignData obj) {
                 GetForeignActivity.this.onSuccess(obj);

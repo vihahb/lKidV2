@@ -121,6 +121,8 @@ public class RequestOkHttp {
                 Request.Builder builder = new Request.Builder();
                 builder.url(params[0]);
 
+                builder.addHeader("Content-Type", "application/json; charset=utf-8");
+
                 if (params[1] != null) {
                     RequestBody body = RequestBody.create(JSON, params[1]);
                     builder.post(body);

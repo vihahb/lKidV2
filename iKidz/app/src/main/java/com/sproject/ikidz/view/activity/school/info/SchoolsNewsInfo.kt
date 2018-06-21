@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.text.Html
 import android.view.MenuItem
 import android.view.View
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import com.sproject.ikidz.R
 import com.sproject.ikidz.iKidApplications
+import com.sproject.ikidz.model.entity.DataUser
 import com.sproject.ikidz.model.entity.NewsEntity
 import com.sproject.ikidz.model.entity.NewsInfo
 import com.sproject.ikidz.sdk.Commons.Constants
@@ -17,6 +20,12 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_schools_news_info.*
 
 class SchoolsNewsInfo : BaseActivity(), ISchoolNewsInfo {
+    override fun getProfileSuccess(dataUser: DataUser) {
+        info_user_avatar = dataUser.user.avatar
+        if (!TextUtils.isEmpty(info_user_avatar)) {
+            WidgetUtils.setImageURL(img_user_ava, info_user_avatar, R.mipmap.ic_launcher_round)
+        }
+    }
 
     var TAG = "SchoolsNewsInfo"
 
@@ -24,15 +33,16 @@ class SchoolsNewsInfo : BaseActivity(), ISchoolNewsInfo {
         if (!TextUtils.isEmpty(data.title))
             tv_title.text = data.title
 
-        if (!TextUtils.isEmpty(data.content))
-            tv_content.text = Html.fromHtml(data.content)
+        if (!TextUtils.isEmpty(data.content)) {
+            webview.loadData(data.content, "text/html", "UTF-8")
+        }
 
         info_user = "<font color=\'#25ADC2\'>Người đăng</font>"
 
-        if (!TextUtils.isEmpty(data.fullName))
-            info_user += "\n<font color=\'#D9000000\'>" + data.fullName + "</font>"
+        info_user += if (!TextUtils.isEmpty(data.fullName))
+            "<br></br><font color=\'#D9000000\'>" + data.fullName + "</font>"
         else
-            info_user += "\nTrống!"
+            "<br></br>Trống!"
 
         tv_info_user.text = Html.fromHtml(info_user)
 
@@ -67,6 +77,7 @@ class SchoolsNewsInfo : BaseActivity(), ISchoolNewsInfo {
     }
 
     var info_user = ""
+    var info_user_avatar = ""
     lateinit var presenter: SchoolsNewsPresenter
     lateinit var news: NewsEntity
 
@@ -82,6 +93,13 @@ class SchoolsNewsInfo : BaseActivity(), ISchoolNewsInfo {
     private fun getData() {
         news = intent.getSerializableExtra(Constants.OBJECT) as NewsEntity
         presenter.getInfoNews(news.id)
+
+        webview.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(viewx: WebView, urlx: String): Boolean {
+                viewx.loadUrl(urlx)
+                return true
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

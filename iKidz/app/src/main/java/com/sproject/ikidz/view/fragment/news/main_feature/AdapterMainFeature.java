@@ -16,6 +16,7 @@ import com.sproject.ikidz.model.entity.viewObject.Feature;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.view.activity.absent.AbsentsActivity;
 import com.sproject.ikidz.view.activity.attendance.in.AttendanceInActivity;
+import com.sproject.ikidz.view.activity.attendance.out.AttendanceOutActivity;
 import com.sproject.ikidz.view.activity.drug.teacher.DrugActivity;
 import com.sproject.ikidz.view.activity.learnOverTime.LearnOverTimeActivity;
 
@@ -110,7 +111,7 @@ public class AdapterMainFeature extends RecyclerView.Adapter<RecyclerView.ViewHo
                         context.startActivity(new Intent(context, LearnOverTimeActivity.class));
                         break;
                     case 4:
-//                        context.startActivity(new Intent(context, AttendanceOutActivity.class));
+                        context.startActivity(new Intent(context, AttendanceOutActivity.class));
                         break;
                     case 5:
                         break;

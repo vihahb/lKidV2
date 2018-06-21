@@ -31,7 +31,7 @@
         <activity android:name=".view.activity.login.ResetPasswordActivity" />
         <activity android:name=".view.activity.drug.teacher.DrugActivity" />
         <activity android:name=".view.activity.attendance.in.AttendanceInActivity" />
-        <!--<activity android:name=".view.activity.attendance.out.AttendanceOutActivity" />-->
+        <activity android:name=".view.activity.attendance.out.AttendanceOutActivity" />
         <activity android:name=".view.activity.absent.AbsentsActivity" />
         <activity android:name=".view.fragment.news.showImage.ShowImageActivity" />
         <activity android:name=".view.activity.learnOverTime.LearnOverTimeActivity" />
@@ -39,7 +39,8 @@
         <activity android:name=".view.activity.foreignActivity.ForeignActivity" />
         <activity android:name=".view.activity.foreignActivity.foreignInfo.ForeignInfoActivity" />
         <activity android:name=".view.activity.school.SchoolActivity" />
-        <activity android:name=".view.activity.school.info.SchoolsNewsInfo"></activity>
+        <activity android:name=".view.activity.school.info.SchoolsNewsInfo" />
+        <activity android:name=".view.activity.shuttleBus.ShuttlesBusActivity"></activity>
     </application>
 
 </manifest>

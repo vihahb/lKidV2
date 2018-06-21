@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#fff"
     tools:context=".view.activity.school.info.SchoolsNewsInfo">
 
     <include layout="@layout/toolbar_layout" />
@@ -55,6 +56,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_4"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -67,6 +69,7 @@
                         android:id="@+id/tv_info_user"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_8"
                         android:layout_weight="1"
                         android:textSize="@dimen/font_11" />
 
@@ -85,14 +88,11 @@
                     android:layout_marginTop="@dimen/size_8"
                     android:background="@color/black_40" />
 
-                <TextView
-                    android:id="@+id/tv_content"
+                <WebView
+                    android:id="@+id/webview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="false"
-                    android:text="ádfasfasfasfasfasfasf"
-                    android:textColor="@color/black_65"
-                    android:textSize="@dimen/font_12" />
+                    android:singleLine="false" />
 
                 <View
                     android:layout_width="match_parent"
@@ -109,12 +109,12 @@
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_weight="1.2" />
+                        android:layout_weight=".7" />
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".8"
+                        android:layout_weight="1.3"
                         android:orientation="horizontal">
 
                         <LinearLayout

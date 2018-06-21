@@ -10,6 +10,7 @@ import com.sproject.ikidz.model.entity.CountNotify
 import com.sproject.ikidz.presenter.SchoolPresenter
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.SharedUtils
+import com.sproject.ikidz.sdk.Utils.TextUtils
 import com.sproject.ikidz.view.activity.curentClass.CurentClassActivity
 import com.sproject.ikidz.view.activity.foreignActivity.ForeignActivity
 import com.sproject.ikidz.view.activity.school.SchoolActivity
@@ -60,7 +61,7 @@ class SchoolFragment : BaseFragment(), ISchoolView {
     }
 
     lateinit var presenter: SchoolPresenter
-    var className = ""
+    var className: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,9 +100,9 @@ class SchoolFragment : BaseFragment(), ISchoolView {
     }
 
     override fun onResume() {
-//        className = SharedUtils.getInstance().getStringValue(Constants.CURRENT_CLASS_TEACHER_NAME)
-//        if (!className.isEmpty())
-//            tv_class_name.text = className
+        className = SharedUtils.getInstance().getStringValue(Constants.CURRENT_CLASS_TEACHER_NAME)
+        if (!TextUtils.isEmpty(className))
+            tv_class_name.text = className
         super.onResume()
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#fff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -67,13 +67,11 @@
                     android:layout_marginTop="@dimen/size_8"
                     android:background="@color/black_40" />
 
-                <TextView
-                    android:id="@+id/tv_content"
+                <WebView
+                    android:id="@+id/webview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="false"
-                    android:textColor="@color/black_65"
-                    android:textSize="@dimen/font_12" />
+                    android:singleLine="false" />
 
                 <View
                     android:layout_width="match_parent"

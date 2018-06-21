@@ -29,21 +29,22 @@ import java.util.*
 class HomePresenter(private val view: IHomeView) {
 
     var TAG = "HomePresenter"
+
     init {
-        if (SharedUtils.getInstance().getBooleanValue(Constants.TEACHER)){
+        if (SharedUtils.getInstance().getBooleanValue(Constants.TEACHER)) {
             getCurrentClassTeacher()
         }
     }
 
     fun getCountNotify(class_id: Int) {
-        if (!NetworkUtils.isConnected(view.activity)){
+        if (!NetworkUtils.isConnected(view.activity)) {
             view.showLongToast(view.activity.resources.getString(R.string.error_network))
             return
         }
         val token = SharedUtils.getInstance().getStringValue(Constants.CURRENT_TOKEN)
         val link_api = SharedUtils.getInstance().getStringValue(Constants.LINK_API)
 
-        if (token != null && link_api != null){
+        if (token != null && link_api != null) {
             object : GetCountNotify(token, link_api, class_id, 1) {
                 override fun onSuccess(notify: RESP_CountNotify?) {
                     iKidApplications.log(TAG, JsonHelper.toJson(notify!!))
@@ -58,8 +59,8 @@ class HomePresenter(private val view: IHomeView) {
         }
     }
 
-    private fun getCurrentClassTeacher(){
-        if (!NetworkUtils.isConnected(view.activity)){
+    private fun getCurrentClassTeacher() {
+        if (!NetworkUtils.isConnected(view.activity)) {
             view.showLongToast(view.activity.resources.getString(R.string.error_network))
             return
         }
@@ -70,6 +71,8 @@ class HomePresenter(private val view: IHomeView) {
             object : GetClassCurrentOfTeacher(token, link_api) {
                 override fun onSuccess(data: RESP_CurrentClassTeacher?) {
                     iKidApplications.log(TAG, JsonHelper.toJson(data!!))
+                    SharedUtils.getInstance().putIntValue(Constants.CURRENT_CLASS_TEACHER_ID, data.data.id)
+                    SharedUtils.getInstance().putStringValue(Constants.CURRENT_CLASS_TEACHER_NAME, data.data.className)
                     getCountNotify(data.data.id)
                     view.getCurrentClassSuccess(data)
                     view.closeProgressBar()
@@ -102,8 +105,6 @@ class HomePresenter(private val view: IHomeView) {
     }
 
     fun saveCurrentClass(data: ClassCurrentTeacher) {
-        SharedUtils.getInstance().putIntValue(Constants.CURRENT_CLASS_TEACHER_ID, data.id)
-        SharedUtils.getInstance().putStringValue(Constants.CURRENT_CLASS_TEACHER_NAME, data.className)
         object : SaveObjectModel<ClassCurrentTeacher>(data) {
             override fun onSuccess() {
                 iKidApplications.log(TAG, "saveCurrentClass success!")

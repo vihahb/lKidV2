@@ -5,6 +5,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.text.Html
 import android.view.MenuItem
 import android.view.View
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import com.sproject.ikidz.R
 import com.sproject.ikidz.iKidApplications
 import com.sproject.ikidz.model.entity.DataForeignInfo
@@ -28,7 +30,7 @@ class ForeignInfoActivity : BaseActivity(), IGetForeignInfo {
             tv_title.text = info.name
 
         if (!TextUtils.isEmpty(info.content))
-            tv_content.text = Html.fromHtml(info.content)
+            webview.loadData(info.content, "text/html", "UTF-8")
 
         if (!TextUtils.isEmpty(info.fee))
             feeContent = "Chi phí: <font color=\'#ff7300\'>" + info.fee + "</font>"
@@ -89,6 +91,13 @@ class ForeignInfoActivity : BaseActivity(), IGetForeignInfo {
         adapterRegister = AdapterRegister(listRegister, this@ForeignInfoActivity)
         rcl_register.layoutManager = LinearLayoutManager(this@ForeignInfoActivity)
         rcl_register.adapter = adapterRegister
+
+        webview.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(viewx: WebView, urlx: String): Boolean {
+                viewx.loadUrl(urlx)
+                return true
+            }
+        }
     }
 
     private fun getData() {

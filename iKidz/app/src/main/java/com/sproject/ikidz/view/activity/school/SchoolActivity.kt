@@ -59,10 +59,9 @@ class SchoolActivity : BaseActivity(), ISchoolsList, SearchView.OnQueryTextListe
         list = ArrayList()
         rcl_schools.layoutManager = LinearLayoutManager(this)
         adapter = AdapterSchoolsNews(list, this@SchoolActivity, ItemClickListenerGeneric<NewsEntity> { _, data ->
-            run {
-                var intent = Intent(this@SchoolActivity, SchoolsNewsInfo::class.java)
-                intent.putExtra(Constants.OBJECT, data as Serializable)
-            }
+            var intent = Intent(this@SchoolActivity, SchoolsNewsInfo::class.java)
+            intent.putExtra(Constants.OBJECT, data as Serializable)
+            startActivity(intent)
         })
         rcl_schools.adapter = adapter
         presenter.getSchool(page)
