@@ -18,10 +18,26 @@ class CampaignInfoActivity : BaseActivity(), ICampaignInfo {
 
     override fun getInfoCampaignSuccess(data: InfoCampaignEntity) {
         showView(true)
-        rd_1.text = data.answer1
-        rd_2.text = data.answer2
-        rd_3.text = data.answer3
-        rd_4.text = data.answer4
+        if (!data.answer1.isEmpty()) {
+            rd_1.text = data.answer1
+        } else {
+            rd_1.visibility = View.GONE
+        }
+        if (!data.answer2.isEmpty()) {
+            rd_2.text = data.answer2
+        } else {
+            rd_2.visibility = View.GONE
+        }
+        if (!data.answer3.isEmpty()) {
+            rd_3.text = data.answer3
+        } else {
+            rd_3.visibility = View.GONE
+        }
+        if (!data.answer4.isEmpty()) {
+            rd_4.text = data.answer4
+        } else {
+            rd_4.visibility = View.GONE
+        }
     }
 
     private fun showView(b: Boolean) {
