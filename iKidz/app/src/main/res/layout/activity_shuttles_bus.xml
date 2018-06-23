@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.activity.shuttleBus.ShuttlesBusActivity">
 
-    <include
-        layout="@layout/toolbar_layout"/>
+    <include layout="@layout/toolbar_layout" />
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -20,17 +18,86 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="@string/mesage_no_data"
             android:paddingLeft="@dimen/size_48"
             android:paddingRight="@dimen/size_48"
+            android:text="@string/mesage_no_data"
             android:textSize="@dimen/font_16"
             android:visibility="gone" />
 
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rcl_shuttles_bus"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/size_8"
+                android:paddingRight="@dimen/size_8">
+
+                <TextView
+                    android:id="@+id/tv_number_row"
+                    android:layout_width="@dimen/size_36"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="#"
+                    android:textColor="@color/black_85"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="@dimen/size_48"
+                        android:layout_height="@dimen/size_48" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/size_8"
+                        android:layout_weight=".6"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Học sinh"
+                            android:textColor="@color/black_85"
+                            android:textSize="@dimen/font_15"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".4"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hình thức"
+                            android:textColor="@color/black_85"
+                            android:textSize="@dimen/font_15"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcl_shuttles_bus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
     </FrameLayout>
 
 </LinearLayout>

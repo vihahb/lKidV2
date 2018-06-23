@@ -2,40 +2,94 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/size_8"
+    android:paddingRight="@dimen/size_8">
 
     <TextView
         android:id="@+id/tv_number_row"
         android:layout_width="@dimen/size_36"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:text="1"
         android:textColor="@color/black_85"
         android:textStyle="bold" />
 
-    <com.sproject.ikidz.sdk.Utils.RoundImage
-        android:id="@+id/img_avatar"
-        android:layout_width="@dimen/size_36"
-        android:layout_height="@dimen/size_36" />
-
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight=".6"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="@dimen/size_36"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textSize="@dimen/font_15"
-            android:textColor="@color/black_85"
-            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.sproject.ikidz.sdk.Utils.RoundImage
+                android:id="@+id/img_avatar"
+                android:layout_width="@dimen/size_48"
+                android:layout_height="@dimen/size_48"
+                android:src="@mipmap/ic_student_user" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/size_8"
+                android:layout_weight=".6"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hoc sinh"
+                    android:textColor="@color/black_85"
+                    android:textSize="@dimen/font_15"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hoc sinh"
+                    android:textColor="@color/black_55"
+                    android:textSize="@dimen/font_11"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".4"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_type"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/size_36"
+                    android:layout_weight="1"
+                    android:src="@mipmap/ic_ph" />
+
+                <ImageView
+                    android:id="@+id/img_group"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/size_36"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_group_user" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0_5"
+            android:layout_marginLeft="@dimen/size_4"
+            android:layout_marginTop="@dimen/size_4"
+            android:background="@color/black_55" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_weight=".4"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"></LinearLayout>
+
 </LinearLayout>

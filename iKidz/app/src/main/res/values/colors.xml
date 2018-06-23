@@ -40,4 +40,6 @@
     <color name="box">#54BCEB</color>
     <color name="selector_item_color">#25ADC2</color>
     <color name="un_selector_item_color">#9B9B9B</color>
+    <color name="red_dark">#da1717</color>
+    <color name="green_lite">#5ddb66</color>
 </resources>

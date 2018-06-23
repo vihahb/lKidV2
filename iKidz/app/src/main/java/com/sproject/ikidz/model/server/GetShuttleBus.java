@@ -1,6 +1,9 @@
 package com.sproject.ikidz.model.server;
 
 import com.sproject.ikidz.model.BasicModel;
+import com.sproject.ikidz.model.RESP.RESP_DataCampaign;
+import com.sproject.ikidz.model.RESP.RESP_InfoCampagn;
+import com.sproject.ikidz.model.RESP.RESP_ShuttlePickupPerson;
 import com.sproject.ikidz.model.RESP.RESP_ShuttlesBus;
 import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
@@ -22,7 +25,7 @@ public abstract class GetShuttleBus extends AbsICmd {
     @Override
     protected void invoke() {
         String url = link_api + "get-register-pickup-point-for-teacher";
-        String json = "{\"id\":" + id + "}";
+        String json = "{\"class_id\":" + id + "}";
         basicModel.requestServer.postApi(url, json, token, new ResponseHandle<RESP_ShuttlesBus>(RESP_ShuttlesBus.class) {
             @Override
             protected void onSuccess(RESP_ShuttlesBus obj) {
@@ -45,3 +48,4 @@ public abstract class GetShuttleBus extends AbsICmd {
 
     protected abstract void onError(ErrorEntity s);
 }
+

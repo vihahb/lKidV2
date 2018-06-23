@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingLeft="@dimen/size_48"
+        android:paddingRight="@dimen/size_48"
+        android:text="@string/mesage_no_data"
+        android:textSize="@dimen/font_16"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ln_select_month"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/size_8"
+            android:paddingLeft="@dimen/size_16"
+            android:paddingRight="@dimen/size_16"
+            android:paddingTop="@dimen/size_8">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Tìm kiếm theo tháng"
+                android:textColor="@color/black_85"
+                android:textSize="@dimen/font_16"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_8"
+                android:background="@drawable/custom_edit_text_attended"
+                android:focusableInTouchMode="false"
+                android:longClickable="false"
+                android:paddingBottom="@dimen/size_4"
+                android:paddingLeft="@dimen/size_16"
+                android:paddingRight="@dimen/size_16"
+                android:paddingTop="@dimen/size_4"
+                android:text="12/2018"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/font_14" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/size_8"
+            android:paddingRight="@dimen/size_8">
+
+            <TextView
+                android:id="@+id/tv_number_row"
+                android:layout_width="@dimen/size_36"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="#"
+                android:textColor="@color/black_85"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="@dimen/size_48"
+                    android:layout_height="@dimen/size_36" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/size_8"
+                    android:layout_weight=".6"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Học sinh"
+                        android:textColor="@color/black_85"
+                        android:textSize="@dimen/font_15"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".4"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hình thức"
+                        android:textColor="@color/black_85"
+                        android:textSize="@dimen/font_15"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:paddingTop="@dimen/size_8"
+            android:id="@+id/rcl_subcribe_to_eat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</FrameLayout>

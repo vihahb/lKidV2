@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_75">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minHeight="@dimen/size_100"
+        android:layout_marginLeft="@dimen/size_24"
+        android:layout_marginRight="@dimen/size_24"
+        android:background="@drawable/round_layout_dialog"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/size_12"
+            android:paddingTop="@dimen/size_12"
+            android:text="Thông tin người đưa đón"
+            android:textAllCaps="true"
+            android:textColor="@color/black_75"
+            android:textSize="@dimen/font_15" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0_5"
+            android:background="@color/black_55" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:paddingLeft="@dimen/size_48"
+                android:paddingRight="@dimen/size_48"
+                android:text="@string/mesage_no_data"
+                android:textSize="@dimen/font_16"
+                android:visibility="gone" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcl_shuttles_pickup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/size_8"
+                android:paddingLeft="@dimen/size_8"
+                android:paddingRight="@dimen/size_8"
+                android:paddingTop="@dimen/size_8" />
+
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0_5"
+            android:background="@color/black_55" />
+
+        <Button
+            android:id="@+id/btnClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Đóng"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+</FrameLayout>

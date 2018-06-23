@@ -6,7 +6,10 @@ import android.widget.DatePicker;
 
 import com.sproject.ikidz.sdk.callback.DatePickerListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class TimeUtils {
 
@@ -28,5 +31,37 @@ public class TimeUtils {
                 listener.onSelected(year, month, dayOfMonth);
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+    }
+
+    public String getTimeFormatDDMMYY(String time) {
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+//        Date date;
+//        try {
+//            date = dateFormat.parse(time);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//            date = null;
+//        }
+        SimpleDateFormat dt1 = new SimpleDateFormat("dd/mm/yyyy");
+        return dt1.format(time);
+    }
+
+    public static String formatDate(String date, String initDateFormat, String endDateFormat) {
+
+        Date initDate = null;
+        try {
+            initDate = new SimpleDateFormat(initDateFormat).parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            initDate = null;
+        }
+        if (initDate!=null) {
+            SimpleDateFormat formatter = new SimpleDateFormat(endDateFormat);
+            String parsedDate = formatter.format(initDate);
+
+            return parsedDate;
+        } else {
+            return  "";
+        }
     }
 }

@@ -40,7 +40,10 @@
         <activity android:name=".view.activity.foreignActivity.foreignInfo.ForeignInfoActivity" />
         <activity android:name=".view.activity.school.SchoolActivity" />
         <activity android:name=".view.activity.school.info.SchoolsNewsInfo" />
-        <activity android:name=".view.activity.shuttleBus.ShuttlesBusActivity"></activity>
+        <activity android:name=".view.activity.shuttleBus.ShuttlesBusActivity" />
+        <activity android:name=".view.activity.subscribeToEat.SubscribeToEatActivity" />
+        <activity android:name=".view.activity.campaign.CampaignActivity" />
+        <activity android:name=".view.activity.campaign.info.CampaignInfoActivity"></activity>
     </application>
 
 </manifest>

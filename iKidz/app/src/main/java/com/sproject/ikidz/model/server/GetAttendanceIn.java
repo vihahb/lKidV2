@@ -23,7 +23,7 @@ public abstract class GetAttendanceIn extends AbsICmd {
     @Override
     protected void invoke() {
         String url = SharedUtils.getInstance().getStringValue(Constants.BASE_URL) + "/api/" + basicModel.OLD_VERSION_API + "attendance-student-list/" + class_id;
-        basicModel.requestServer.getApi(url, token, new ResponseHandle<RESP_AttendanceIn>(RESP_AttendanceIn.class) {
+        basicModel.requestServer.postApi(url, "", token, new ResponseHandle<RESP_AttendanceIn>(RESP_AttendanceIn.class) {
             @Override
             protected void onSuccess(RESP_AttendanceIn obj) {
                 GetAttendanceIn.this.onSuccess(obj);

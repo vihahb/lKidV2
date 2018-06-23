@@ -11,9 +11,12 @@ import com.sproject.ikidz.presenter.SchoolPresenter
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.SharedUtils
 import com.sproject.ikidz.sdk.Utils.TextUtils
+import com.sproject.ikidz.view.activity.campaign.CampaignActivity
 import com.sproject.ikidz.view.activity.curentClass.CurentClassActivity
 import com.sproject.ikidz.view.activity.foreignActivity.ForeignActivity
 import com.sproject.ikidz.view.activity.school.SchoolActivity
+import com.sproject.ikidz.view.activity.shuttleBus.ShuttlesBusActivity
+import com.sproject.ikidz.view.activity.subscribeToEat.SubscribeToEatActivity
 import com.sproject.ikidz.view.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_school.*
 
@@ -89,6 +92,10 @@ class SchoolFragment : BaseFragment(), ISchoolView {
             startActivity(intent)
         }
 
+        ln_transfer.setOnClickListener {
+            startActivity(Intent(context, ShuttlesBusActivity::class.java))
+        }
+
         ln_other_activity.setOnClickListener {
             startActivity(Intent(context, ForeignActivity::class.java))
 
@@ -96,6 +103,13 @@ class SchoolFragment : BaseFragment(), ISchoolView {
 
         ln_school.setOnClickListener {
             startActivity(Intent(context, SchoolActivity::class.java))
+        }
+
+        ln_eat.setOnClickListener {
+            startActivity(Intent(context, SubscribeToEatActivity::class.java))
+        }
+        ln_vote.setOnClickListener {
+            startActivity(Intent(context, CampaignActivity::class.java))
         }
     }
 

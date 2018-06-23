@@ -24,7 +24,7 @@ public abstract class GetAttendanceOut extends AbsICmd {
     @Override
     protected void invoke() {
         String url = SharedUtils.getInstance().getStringValue(Constants.BASE_URL) + "/api/" + basicModel.OLD_VERSION_API + "attendance-comeback-student-list/" + class_id;
-        basicModel.requestServer.getApi(url, token, new ResponseHandle<RESP_AttendanceOut>(RESP_AttendanceOut.class) {
+        basicModel.requestServer.postApi(url, "", token, new ResponseHandle<RESP_AttendanceOut>(RESP_AttendanceOut.class) {
             @Override
             protected void onSuccess(RESP_AttendanceOut obj) {
                 GetAttendanceOut.this.onSuccess(obj);

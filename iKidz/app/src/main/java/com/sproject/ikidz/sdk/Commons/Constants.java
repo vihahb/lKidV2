@@ -33,4 +33,5 @@ public class Constants {
     public static final String MORETIME_TYPE = "moretime_type";
     public static final String TITLE = "TITLE";
     public static final String OBJECT = "object";
+    public static final String EAT_TYPE = "eat_type";
 }

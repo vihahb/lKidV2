@@ -23,13 +23,13 @@ private String addressSchool;
 
 /**
 * No args constructor for use in serialization
-* 
+*
 */
 public School() {
 }
 
 /**
-* 
+*
 * @param codeSchool
 * @param linkApi
 * @param nameSchool

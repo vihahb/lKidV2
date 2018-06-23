@@ -25,6 +25,9 @@
     <string name="title_future">SẮP TỚI</string>
     <string name="title_all">TẤT CẢ</string>
 
+    <string name="title_subscribe_eat">ĐĂNG KÝ ĂN</string>
+    <string name="title_log_eat">NHẬT KÝ ĂN</string>
+
     <string name="message_back_press_to_exit">Nhấn back lần nữa để thoát app</string>
     <string name="message_permission_needed">Vui lòng cấp quyền để ứng dụng có thể hoạt động chính xác.</string>
     <string name="message_loading">Loading…</string>
