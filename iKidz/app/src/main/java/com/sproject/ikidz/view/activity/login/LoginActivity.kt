@@ -10,10 +10,7 @@ import com.sproject.ikidz.model.entity.ProvinceOrDistrict
 import com.sproject.ikidz.model.entity.SchoolByDistrict
 import com.sproject.ikidz.presenter.Login.LoginPresenter
 import com.sproject.ikidz.sdk.Commons.Constants
-import com.sproject.ikidz.sdk.Utils.Base64Helper
-import com.sproject.ikidz.sdk.Utils.CenteredToolbar
-import com.sproject.ikidz.sdk.Utils.SharedUtils
-import com.sproject.ikidz.sdk.Utils.TextUtils
+import com.sproject.ikidz.sdk.Utils.*
 import com.sproject.ikidz.view.activity.home.HomeActivity
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
@@ -174,7 +171,7 @@ class LoginActivity : BaseActivity(), ILogin {
 
         btnLogin.setOnClickListener { onLogin() }
         tv_reset.setOnClickListener {
-            if (validate()){
+            if (validate()) {
                 startActivity(ResetPasswordActivity::class.java, Constants.LINK_API, link_api)
             }
         }
@@ -203,6 +200,10 @@ class LoginActivity : BaseActivity(), ILogin {
     }
 
     fun onLogin() {
+        if (!NetworkUtils.isConnected(activity)) {
+            showLongToast(activity.resources.getString(R.string.error_network))
+            return
+        }
         if ((provinceAdapter.getItem(sp_province.selectedItemPosition) as ProvinceOrDistrict).id == -1) {
             showLongToast(resources.getString(R.string.validate_field_province))
             return
@@ -221,7 +222,7 @@ class LoginActivity : BaseActivity(), ILogin {
             return
         }
 
-        if (edtPassword.text.toString().length < 6){
+        if (edtPassword.text.toString().length < 6) {
             showLongToast(resources.getString(R.string.validate_field_password_too_shot))
             return
         }

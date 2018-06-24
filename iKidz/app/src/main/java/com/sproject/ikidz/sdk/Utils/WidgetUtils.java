@@ -32,7 +32,7 @@ public class WidgetUtils {
                 view.setImageResource(resource);
             return;
         } else {
-            String urls = SharedUtils.getInstance().getStringValue(Constants.BASE_URL) + url;
+            String urls = SharedUtils.getInstance().getStringValue(Constants.BASE_URL) + "/" + url;
             Picasso.with(iKidApplications.context)
                     .load(urls)
                     .noPlaceholder()

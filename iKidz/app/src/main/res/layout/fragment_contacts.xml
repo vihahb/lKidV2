@@ -301,6 +301,7 @@
             android:weightSum="2">
 
             <LinearLayout
+                android:id="@+id/ln_shcool_profile"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/size_5"
@@ -344,6 +345,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ln_learn_activitys"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/size_5"
@@ -364,12 +366,12 @@
                         android:layout_height="@dimen/size_60"
                         android:layout_marginBottom="@dimen/size_8"
                         android:layout_marginTop="@dimen/font_16"
-                        android:src="@mipmap/notify" />
+                        android:src="@mipmap/ic_hoat_dong_hoc" />
                     <TextView
                         android:layout_marginTop="@dimen/size_16"
                         android:layout_marginLeft="@dimen/size_16"
                         android:visibility="gone"
-                        android:id="@+id/tv_notify_care"
+                        android:id="@+id/tv_learn_activitys"
                         android:layout_width="@dimen/size_20"
                         android:layout_height="@dimen/size_20"
                         android:background="@drawable/notify_feature"/>
@@ -383,7 +385,7 @@
                     android:lines="2"
                     android:paddingLeft="@dimen/size_8"
                     android:paddingRight="@dimen/size_8"
-                    android:text="Thông báo" />
+                    android:text="Hoạt động học" />
             </LinearLayout>
         </LinearLayout>
 

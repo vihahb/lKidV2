@@ -88,7 +88,6 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         presenter = HomePresenter(this)
-        presenter.getUser()
         initToolbar(resources.getString(R.string.title_newsfeed), false)
 
         val toggle = ActionBarDrawerToggle(
@@ -133,6 +132,7 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
         })
         rcl_drawer.adapter = adapterDrawer
         presenter.initDrawer()
+        presenter.getUser()
     }
 
     private fun checkPermission() {

@@ -73,4 +73,5 @@
     <dimen name="size_74">74dp</dimen>
     <dimen name="size_94">94dp</dimen>
     <dimen name="size_140">140dp</dimen>
+    <dimen name="size_84">84dp</dimen>
 </resources>

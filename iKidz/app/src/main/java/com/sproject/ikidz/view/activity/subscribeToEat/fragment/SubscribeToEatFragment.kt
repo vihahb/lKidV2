@@ -91,7 +91,6 @@ class SubscribeToEatFragment : BaseFragment(), ISubscribeToEat {
                 edt_time.setText("" + (month + 1) + "/" + year)
                 presenter.getLogSubscribeTicket(month + 1, year)
             })
-
             picker.show()
         }
     }

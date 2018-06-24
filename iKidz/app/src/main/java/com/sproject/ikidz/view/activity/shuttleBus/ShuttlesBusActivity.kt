@@ -23,6 +23,7 @@ class ShuttlesBusActivity : BaseActivity(), IShuttlesBus {
         dataPerson.clear()
         if (data.isNotEmpty()) {
             dataPerson.addAll(data)
+            tv_message_dialog.visibility = View.INVISIBLE
         } else {
             tv_message_dialog.visibility = View.VISIBLE
             tv_message_dialog.text = this@ShuttlesBusActivity.resources.getString(R.string.mesage_no_data)

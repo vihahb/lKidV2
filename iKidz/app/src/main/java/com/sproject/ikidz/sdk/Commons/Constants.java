@@ -34,4 +34,7 @@ public class Constants {
     public static final String TITLE = "TITLE";
     public static final String OBJECT = "object";
     public static final String EAT_TYPE = "eat_type";
+    public static int TYPE_VIEW = 1;
+    public static int TYPE_EDIT = 2;
+    public static int TYPE_ADD = 1;
 }

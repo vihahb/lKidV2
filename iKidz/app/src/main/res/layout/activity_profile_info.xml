@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.activity.schoolProfile.info.ProfileInfoActivity">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/size_8"
+            android:paddingRight="@dimen/size_8">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+
+                android:paddingTop="@dimen/size_8">
+
+                <FrameLayout
+                    android:layout_width="@dimen/size_64"
+                    android:layout_height="@dimen/size_80">
+
+                    <com.sproject.ikidz.sdk.Utils.RoundImage
+                        android:id="@+id/img_avatar"
+                        android:layout_width="@dimen/size_64"
+                        android:layout_height="@dimen/size_64"
+                        android:layout_gravity="center_vertical"
+                        android:src="@mipmap/ic_student_user" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/size_8">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            android:text="Học sinh:"
+                            android:textColor="@color/black_75"
+                            android:textSize="@dimen/font_13"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:paddingLeft="@dimen/size_16"
+                            android:textColor="@color/black_65"
+                            android:textSize="@dimen/font_13" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_4"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            android:text="Ngày sinh:"
+                            android:textColor="@color/black_75"
+                            android:textSize="@dimen/font_13"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:paddingLeft="@dimen/size_16"
+                            android:textColor="@color/black_65"
+                            android:textSize="@dimen/font_13" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_4"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            android:text="Lớp:"
+                            android:textColor="@color/black_75"
+                            android:textSize="@dimen/font_13"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_class_name"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:paddingLeft="@dimen/size_16"
+                            android:textColor="@color/black_65"
+                            android:textSize="@dimen/font_13" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_4"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".3"
+                            android:text="Năm học:"
+                            android:textColor="@color/black_75"
+                            android:textSize="@dimen/font_13"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_year"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".7"
+                            android:paddingLeft="@dimen/size_16"
+                            android:textColor="@color/black_65"
+                            android:textSize="@dimen/font_13" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/size_16"
+                android:paddingBottom="@dimen/size_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_card_view"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/size_8"
+                    android:paddingLeft="@dimen/size_16"
+                    android:paddingTop="@dimen/size_8"
+                    android:text="Học kỳ 1"
+                    android:textColor="@color/black_75"
+                    android:textSize="@dimen/font_13"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_0_5"
+                    android:background="@color/black_55" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/size_8"
+                    android:paddingTop="@dimen/size_8"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".9"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Có phép: "
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <EditText
+                        android:id="@+id/edt_semester_1_absent"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/size_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_edit_text_attended"
+                        android:hint="Có phép"
+                        android:longClickable="false"
+                        android:paddingBottom="@dimen/size_4"
+                        android:paddingLeft="@dimen/size_8"
+                        android:paddingTop="@dimen/size_4"
+                        android:textColor="@color/black_75"
+                        android:textSize="@dimen/font_11" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.1"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Không phép:"
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <EditText
+                        android:id="@+id/edt_semester_1_not_absent"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/size_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/size_8"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_edit_text_attended"
+                        android:hint="Không phép"
+                        android:longClickable="false"
+                        android:paddingBottom="@dimen/size_4"
+                        android:paddingLeft="@dimen/size_8"
+                        android:paddingTop="@dimen/size_4"
+                        android:textColor="@color/black_75"
+                        android:textSize="@dimen/font_11" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingTop="@dimen/size_8"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".9"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Danh hiệu: "
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <Spinner
+                        android:id="@+id/sp_danh_hieu_semester_1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/size_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.5" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/size_16"
+                android:paddingBottom="@dimen/size_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_card_view"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/size_8"
+                    android:paddingLeft="@dimen/size_16"
+                    android:paddingTop="@dimen/size_8"
+                    android:text="Học kỳ 2"
+                    android:textColor="@color/black_75"
+                    android:textSize="@dimen/font_13"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_0_5"
+                    android:background="@color/black_55" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/size_8"
+                    android:paddingTop="@dimen/size_8"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".9"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Có phép: "
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <EditText
+                        android:id="@+id/edt_semester_2_absent"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/size_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_edit_text_attended"
+                        android:hint="Có phép"
+                        android:longClickable="false"
+                        android:paddingBottom="@dimen/size_4"
+                        android:paddingLeft="@dimen/size_8"
+                        android:paddingTop="@dimen/size_4"
+                        android:textColor="@color/black_75"
+                        android:textSize="@dimen/font_11" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.1"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Không phép:"
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <EditText
+                        android:id="@+id/edt_semester_2_not_absent"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/size_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/size_8"
+                        android:layout_weight="1"
+                        android:background="@drawable/custom_edit_text_attended"
+                        android:hint="Không phép"
+                        android:longClickable="false"
+                        android:paddingBottom="@dimen/size_4"
+                        android:paddingLeft="@dimen/size_8"
+                        android:paddingTop="@dimen/size_4"
+                        android:textColor="@color/black_75"
+                        android:textSize="@dimen/font_11" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingTop="@dimen/size_8"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".9"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Danh hiệu: "
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <Spinner
+                        android:id="@+id/sp_danh_hieu_semester_2"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/size_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.5" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_16"
+                android:background="@drawable/round_card_view"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/size_16">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/size_8"
+                    android:paddingLeft="@dimen/size_16"
+                    android:paddingTop="@dimen/size_8"
+                    android:text="Cả năm"
+                    android:textColor="@color/black_75"
+                    android:textSize="@dimen/font_13"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_0_5"
+                    android:background="@color/black_55" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/size_8"
+                    android:paddingTop="@dimen/size_8"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Tổng số ngày nghỉ:  "
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <EditText
+                        android:id="@+id/edt_total_absent"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/size_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2.6"
+                        android:background="@drawable/custom_edit_text_attended"
+                        android:hint="Tổng số ngày nghỉ"
+                        android:longClickable="false"
+                        android:paddingBottom="@dimen/size_4"
+                        android:paddingLeft="@dimen/size_8"
+                        android:paddingTop="@dimen/size_4"
+                        android:textColor="@color/black_75"
+                        android:textSize="@dimen/font_11" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingTop="@dimen/size_8"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Danh hiệu: "
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <Spinner
+                        android:id="@+id/sp_danh_hieu_total"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/size_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2.6" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

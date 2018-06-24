@@ -43,7 +43,10 @@
         <activity android:name=".view.activity.shuttleBus.ShuttlesBusActivity" />
         <activity android:name=".view.activity.subscribeToEat.SubscribeToEatActivity" />
         <activity android:name=".view.activity.campaign.CampaignActivity" />
-        <activity android:name=".view.activity.campaign.info.CampaignInfoActivity"></activity>
+        <activity android:name=".view.activity.campaign.info.CampaignInfoActivity" />
+        <activity android:name=".view.activity.learnActivity.LearnActivity" />
+        <activity android:name=".view.activity.schoolProfile.SchoolProfileActivity" />
+        <activity android:name=".view.activity.schoolProfile.info.ProfileInfoActivity"></activity>
     </application>
 
 </manifest>

@@ -9,6 +9,8 @@
     <color name="red">#ff0000</color>
     <color name="dark_red">#40000c</color>
     <color name="green">#00ff00</color>
+    <color name="green_dark">#3fbd2e</color>
+    <color name="green_dark_bold">#169929</color>
 
     <color name="notify_feature">#FFB1002C</color>
     <color name="feature_1">#f96848</color>

@@ -13,14 +13,17 @@ import android.widget.TextView;
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.model.entity.CampainEntity;
 import com.sproject.ikidz.model.entity.EatTicketEntity;
+import com.sproject.ikidz.model.entity.LearnActivityEntity;
 import com.sproject.ikidz.model.entity.ShuttleBusEntity;
 import com.sproject.ikidz.model.entity.ShuttlepickupPersonEntity;
+import com.sproject.ikidz.sdk.Commons.Constants;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.Utils.TimeUtil;
 import com.sproject.ikidz.sdk.Utils.TimeUtils;
 import com.sproject.ikidz.sdk.Utils.WidgetUtils;
 import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
+import com.sproject.ikidz.sdk.callback.ItemMoreActionGeneric;
 
 import java.util.List;
 
