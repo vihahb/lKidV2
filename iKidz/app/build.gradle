@@ -8,6 +8,8 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'realm-android'
 
+
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -39,6 +41,9 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.1'
+    implementation 'com.google.firebase:firebase-core:11.8.0'
+    implementation 'com.google.firebase:firebase-messaging:11.8.0'
+    implementation 'com.google.firebase:firebase-database:11.8.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'com.stone.vega.library:VegaLayoutManager:1.0.6'
     implementation 'com.google.code.gson:gson:2.8.4'
@@ -61,3 +66,5 @@ dependencies {
         exclude(group: 'com.android.support')
     }
 }
+
+apply plugin: 'com.google.gms.google-services'

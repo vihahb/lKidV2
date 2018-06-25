@@ -46,7 +46,16 @@
         <activity android:name=".view.activity.campaign.info.CampaignInfoActivity" />
         <activity android:name=".view.activity.learnActivity.LearnActivity" />
         <activity android:name=".view.activity.schoolProfile.SchoolProfileActivity" />
-        <activity android:name=".view.activity.schoolProfile.info.ProfileInfoActivity"></activity>
+        <activity android:name=".view.activity.schoolProfile.info.ProfileInfoActivity" />
+        <activity android:name=".view.activity.message.MessageDetailActivity"/>
+        <receiver
+            android:name=".view.activity.message.broadcast.ChatBroadcast"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.sproject.added_message" />
+                <action android:name="com.sproject.added_room" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

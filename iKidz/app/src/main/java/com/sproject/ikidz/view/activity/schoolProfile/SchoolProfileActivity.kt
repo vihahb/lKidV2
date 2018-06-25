@@ -13,7 +13,7 @@ import com.sproject.ikidz.view.activity.schoolProfile.info.ProfileInfoActivity
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_school_profile.*
 import java.io.Serializable
-import java.util.ArrayList
+import java.util.*
 
 class SchoolProfileActivity : BaseActivity(), ISchoolProfileActivity {
     override fun getProfileError(errorMessage: String) {
