@@ -8,6 +8,7 @@ import com.sproject.ikidz.R
 import com.sproject.ikidz.view.fragment.*
 import com.sproject.ikidz.view.fragment.contacts.ContactsFragment
 import com.sproject.ikidz.view.fragment.news.NewsfeedFragment
+import com.sproject.ikidz.view.fragment.phonebook.PhoneBooksFragment
 import com.sproject.ikidz.view.fragment.school.SchoolFragment
 
 class ViewPagerMainAdapter(fm: FragmentManager?, private val context: Context) : FragmentStatePagerAdapter(fm) {

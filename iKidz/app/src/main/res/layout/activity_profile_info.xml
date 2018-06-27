@@ -148,12 +148,12 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="@dimen/size_16"
-                android:paddingBottom="@dimen/size_16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_16"
                 android:background="@drawable/round_card_view"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/size_16">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -256,12 +256,12 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="@dimen/size_16"
-                android:paddingBottom="@dimen/size_16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_16"
                 android:background="@drawable/round_card_view"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/size_16">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -400,7 +400,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.2"
+                        android:layout_weight="1.8"
                         android:paddingLeft="@dimen/size_16"
                         android:text="Tổng số ngày nghỉ:  "
                         android:textColor="@color/black_65"
@@ -411,7 +411,8 @@
                         android:layout_width="0dp"
                         android:layout_height="@dimen/size_30"
                         android:layout_gravity="center_vertical"
-                        android:layout_weight="2.6"
+                        android:layout_marginRight="@dimen/size_12"
+                        android:layout_weight="2.2"
                         android:background="@drawable/custom_edit_text_attended"
                         android:hint="Tổng số ngày nghỉ"
                         android:longClickable="false"
@@ -433,7 +434,7 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.2"
+                        android:layout_weight="1.8"
                         android:paddingLeft="@dimen/size_16"
                         android:text="Danh hiệu: "
                         android:textColor="@color/black_65"
@@ -444,7 +445,176 @@
                         android:layout_width="0dp"
                         android:layout_height="@dimen/size_30"
                         android:layout_gravity="center_vertical"
-                        android:layout_weight="2.6" />
+                        android:layout_marginRight="@dimen/size_8"
+                        android:layout_weight="2.2" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/size_8"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/size_8"
+                    android:paddingTop="@dimen/size_8"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Đạo đức:  "
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <EditText
+                        android:id="@+id/edt_daoduc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2.5"
+                        android:background="@drawable/custom_edit_text_attended"
+                        android:gravity="top"
+                        android:lines="2"
+                        android:paddingBottom="@dimen/size_4"
+                        android:paddingLeft="@dimen/size_8"
+                        android:paddingTop="@dimen/size_4"
+                        android:textColor="@color/black_75"
+                        android:textSize="@dimen/font_11" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/size_8"
+                    android:paddingTop="@dimen/size_8"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Học tập:  "
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <EditText
+                        android:id="@+id/edt_hoctap"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2.5"
+                        android:background="@drawable/custom_edit_text_attended"
+                        android:gravity="top"
+                        android:lines="2"
+                        android:paddingBottom="@dimen/size_4"
+                        android:paddingLeft="@dimen/size_8"
+                        android:paddingTop="@dimen/size_4"
+                        android:textColor="@color/black_75"
+                        android:textSize="@dimen/font_11" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/size_8"
+                    android:paddingTop="@dimen/size_8"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Sức khỏe:  "
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <EditText
+                        android:id="@+id/edt_suckhoe"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2.5"
+                        android:background="@drawable/custom_edit_text_attended"
+                        android:gravity="top"
+                        android:lines="2"
+                        android:paddingBottom="@dimen/size_4"
+                        android:paddingLeft="@dimen/size_8"
+                        android:paddingTop="@dimen/size_4"
+                        android:textColor="@color/black_75"
+                        android:textSize="@dimen/font_11" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/size_8"
+                    android:gravity="center_vertical"
+                    android:paddingTop="@dimen/size_8"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Được lên lớp: "
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <Spinner
+                        android:id="@+id/sp_lenlop"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/size_30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2.5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/size_8"
+                    android:paddingTop="@dimen/size_8"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:paddingLeft="@dimen/size_16"
+                        android:text="Kết luận chung:  "
+                        android:textColor="@color/black_65"
+                        android:textSize="@dimen/font_11" />
+
+                    <EditText
+                        android:id="@+id/edt_comment_total"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2.5"
+                        android:background="@drawable/custom_edit_text_attended"
+                        android:gravity="top"
+                        android:lines="3"
+                        android:paddingBottom="@dimen/size_4"
+                        android:paddingLeft="@dimen/size_8"
+                        android:paddingTop="@dimen/size_4"
+                        android:textColor="@color/black_75"
+                        android:textSize="@dimen/font_11" />
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

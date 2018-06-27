@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.sproject.ikidz.R
 import com.sproject.ikidz.view.activity.learnActivity.LearnActivity
+import com.sproject.ikidz.view.activity.mbr.MbrListActivity
 import com.sproject.ikidz.view.activity.schoolProfile.SchoolProfileActivity
 import kotlinx.android.synthetic.main.fragment_contacts.*
 
@@ -38,6 +39,9 @@ class ContactsFragment : Fragment() {
         }
         ln_shcool_profile.setOnClickListener {
             startActivity(Intent(context, SchoolProfileActivity::class.java))
+        }
+        ln_mbr.setOnClickListener {
+            startActivity(Intent(context, MbrListActivity::class.java))
         }
     }
 

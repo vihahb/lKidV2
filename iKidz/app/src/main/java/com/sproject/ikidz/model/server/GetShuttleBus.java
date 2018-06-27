@@ -4,6 +4,7 @@ import com.sproject.ikidz.model.BasicModel;
 import com.sproject.ikidz.model.RESP.RESP_DataAnswer;
 import com.sproject.ikidz.model.RESP.RESP_DataCampaign;
 import com.sproject.ikidz.model.RESP.RESP_InfoCampagn;
+import com.sproject.ikidz.model.RESP.RESP_ListParent;
 import com.sproject.ikidz.model.RESP.RESP_ShuttlePickupPerson;
 import com.sproject.ikidz.model.RESP.RESP_ShuttlesBus;
 import com.sproject.ikidz.model.entity.AnswerParams;
@@ -51,4 +52,5 @@ public abstract class GetShuttleBus extends AbsICmd {
 
     protected abstract void onError(ErrorEntity s);
 }
+
 

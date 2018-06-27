@@ -37,4 +37,5 @@ public class Constants {
     public static int TYPE_VIEW = 1;
     public static int TYPE_EDIT = 2;
     public static int TYPE_ADD = 1;
+    public static final String SCHOOL_CODE ="school_code";
 }

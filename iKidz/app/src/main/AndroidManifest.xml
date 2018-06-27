@@ -47,7 +47,8 @@
         <activity android:name=".view.activity.learnActivity.LearnActivity" />
         <activity android:name=".view.activity.schoolProfile.SchoolProfileActivity" />
         <activity android:name=".view.activity.schoolProfile.info.ProfileInfoActivity" />
-        <activity android:name=".view.activity.message.MessageDetailActivity"/>
+        <activity android:name=".view.activity.message.MessageDetailActivity" />
+
         <receiver
             android:name=".view.activity.message.broadcast.ChatBroadcast"
             android:exported="true">
@@ -56,6 +57,10 @@
                 <action android:name="com.sproject.added_room" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".view.activity.mbr.MbrListActivity" />
+        <activity android:name=".view.activity.eatActivity.EatActivity" />
+        <activity android:name=".view.activity.mbr.info.MbrInfoActivity"></activity>
     </application>
 
 </manifest>

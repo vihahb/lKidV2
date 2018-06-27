@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.activity.mbr.info.MbrInfoActivity">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_150">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1.1"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/health_background" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight=".9" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.sproject.ikidz.sdk.Utils.RoundImage
+                        android:id="@+id/img_avatar"
+                        android:layout_width="@dimen/size_80"
+                        android:layout_height="@dimen/size_80"
+                        android:layout_marginTop="@dimen/size_24"
+                        android:src="@mipmap/ic_no_avatar" />
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Trần Văn Đức"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/font_18"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/size_24"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/size_16"
+                android:paddingRight="@dimen/size_16">
+
+                <TextView
+                    android:id="@+id/tv_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/size_8"
+                    android:text="Ngày sinh: 27/07/1995"
+                    android:textColor="@color/black_75" />
+
+                <TextView
+                    android:id="@+id/tv_blood_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/size_8"
+                    android:text="Nhóm máu: O"
+                    android:textColor="@color/black_75" />
+
+                <TextView
+                    android:id="@+id/tv_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/size_8"
+                    android:text="Cân nặng: 56kg"
+                    android:textColor="@color/black_75" />
+
+                <TextView
+                    android:id="@+id/tv_height"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/size_8"
+                    android:text="Chiều cao: 1m7"
+                    android:textColor="@color/black_75" />
+
+                <LinearLayout
+                    android:id="@+id/ln_theodoi_chieucao"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_36"
+                    android:layout_marginTop="@dimen/size_16"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_28"
+                        android:layout_height="@dimen/size_28"
+                        android:src="@mipmap/ic_theo_doi_chieu_cao" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_36"
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_0_5"
+                            android:background="@color/black_40" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_theo_doi_chieucao"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:text="Theo dõi chiều cao"
+                                android:textColor="@color/black_75" />
+
+                            <ImageView
+                                android:layout_width="@dimen/size_24"
+                                android:layout_height="@dimen/size_24"
+                                android:padding="@dimen/size_4"
+                                android:src="@mipmap/ic_arrow_right" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_lich_tiem"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_36"
+                    android:layout_marginTop="@dimen/size_4"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_28"
+                        android:layout_height="@dimen/size_28"
+                        android:src="@mipmap/ic_lich_tiem" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_36"
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_0_5"
+                            android:background="@color/black_40" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_lichtiem"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:text="Lịch tiêm chủng"
+                                android:textColor="@color/black_75" />
+
+                            <ImageView
+                                android:layout_width="@dimen/size_24"
+                                android:layout_height="@dimen/size_24"
+                                android:padding="@dimen/size_4"
+                                android:src="@mipmap/ic_arrow_right" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ln_theodoi_benh"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_36"
+                    android:layout_marginTop="@dimen/size_4"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_28"
+                        android:layout_height="@dimen/size_28"
+                        android:src="@mipmap/ic_theo_doi_benh" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_36"
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_0_5"
+                            android:background="@color/black_40" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_theodoi_benh"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:text="Theo dõi bệnh"
+                                android:textColor="@color/black_75" />
+
+                            <ImageView
+                                android:layout_width="@dimen/size_24"
+                                android:layout_height="@dimen/size_24"
+                                android:padding="@dimen/size_4"
+                                android:src="@mipmap/ic_arrow_right" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

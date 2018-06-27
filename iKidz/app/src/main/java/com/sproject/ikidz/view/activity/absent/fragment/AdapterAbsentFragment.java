@@ -12,10 +12,12 @@ import android.widget.TextView;
 
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.model.entity.AbsentEntity;
+import com.sproject.ikidz.model.entity.StudentsEntity;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.Utils.WidgetUtils;
 import com.sproject.ikidz.sdk.callback.ItemClickListener;
+import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -94,3 +96,5 @@ public class AdapterAbsentFragment extends RecyclerView.Adapter<RecyclerView.Vie
         }
     }
 }
+
+

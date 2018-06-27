@@ -233,6 +233,8 @@ class LoginActivity : BaseActivity(), ILogin {
 ////                SharedUtils.getInstance().putStringValue(Constants.USER_PASS, key)
 //                rememberLogin = true;
 //            }
+            var schoolCode = (schoolByDistrictAdapter.getItem(sp_school.selectedItemPosition) as SchoolByDistrict).codeSchool
+            SharedUtils.getInstance().putStringValue(Constants.SCHOOL_CODE, schoolCode)
             presenter.onLogin(edtUserName.text.toString(), edtPassword.text.toString(), link_api)
         } else {
             showLongToast(resources.getString(R.string.validate_field_user_name_pass))

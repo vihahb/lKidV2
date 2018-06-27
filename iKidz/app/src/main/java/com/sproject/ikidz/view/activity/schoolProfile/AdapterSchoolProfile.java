@@ -6,14 +6,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sproject.ikidz.R;
+import com.sproject.ikidz.model.entity.ClassPeopleEntity;
 import com.sproject.ikidz.model.entity.ProfileEntity;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.Utils.WidgetUtils;
 import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
+import com.sproject.ikidz.sdk.callback.ItemMoreActionGeneric;
 
 import java.util.List;
 

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/size_8">
+    <LinearLayout
+        android:paddingLeft="@dimen/size_8"
+        android:paddingRight="@dimen/size_8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="@dimen/size_48"
+                android:layout_height="@dimen/size_56">
+
+                <com.sproject.ikidz.sdk.Utils.RoundImage
+                    android:id="@+id/img_avatar"
+                    android:layout_width="@dimen/size_48"
+                    android:layout_height="@dimen/size_48"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/ic_student_user" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/size_8"
+                android:layout_weight=".6"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hoc sinh"
+                    android:textColor="@color/black_85"
+                    android:textSize="@dimen/font_15"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_des"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hoc sinh"
+                    android:textColor="@color/black_55"
+                    android:textSize="@dimen/font_11"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".3"
+                android:gravity="center_vertical|right"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/size_4">
+
+                <ImageView
+                    android:id="@+id/img_send_message"
+                    android:layout_width="@dimen/size_24"
+                    android:layout_height="@dimen/size_24"
+                    android:padding="@dimen/size_2"
+                    android:src="@mipmap/ic_send_message"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/img_view"
+                    android:layout_width="@dimen/size_24"
+                    android:layout_height="@dimen/size_24"
+                    android:src="@mipmap/ic_eye_student"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/img_more"
+                    android:layout_width="@dimen/size_24"
+                    android:layout_height="@dimen/size_24"
+                    android:paddingRight="@dimen/size_4"
+                    android:src="@drawable/ic_more_vert" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0_5"
+            android:layout_marginLeft="@dimen/size_4"
+            android:layout_marginTop="@dimen/size_4"
+            android:background="@color/black_55" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
