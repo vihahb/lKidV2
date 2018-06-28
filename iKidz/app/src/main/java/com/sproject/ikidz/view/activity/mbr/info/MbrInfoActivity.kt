@@ -46,7 +46,7 @@ class MbrInfoActivity : BaseActivity(), IMbrInfoActivity {
             tv_blood_group.text = Html.fromHtml(content)
         }
         if (!TextUtils.isEmpty(data.weight)) {
-            var content = "<b>Cân nặng:</b> " + data.weight
+            var content = "<b>Cân nặng:</b> " + data.weight + " kg"
             tv_weight.text = Html.fromHtml(content)
         } else {
             var content = "<b>Cân nặng:</b> Chưa có"
@@ -54,7 +54,7 @@ class MbrInfoActivity : BaseActivity(), IMbrInfoActivity {
         }
 
         if (!TextUtils.isEmpty(data.height)) {
-            var content = "<b>Chiều cao:</b> " + data.height
+            var content = "<b>Chiều cao:</b> " + data.height + " cm"
             tv_height.text = Html.fromHtml(content)
         } else {
             var content = "<b>Chiều cao:</b> Chưa có"

@@ -1,4 +1,4 @@
-package com.sproject.ikidz.view.activity.school;
+package com.sproject.ikidz.view.activity.care;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,23 +12,25 @@ import android.widget.TextView;
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.iKidApplications;
 import com.sproject.ikidz.model.entity.CareNewsEntity;
-import com.sproject.ikidz.model.entity.NewsEntity;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
-import com.sproject.ikidz.sdk.Utils.TimeUtils;
 import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
-public class AdapterSchoolsNews extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class AdapterCareNews extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final String TAG = "AdapterSchoolsNews";
 
-    List<NewsEntity> data;
+    List<CareNewsEntity> data;
     Context context;
-    ItemClickListenerGeneric<NewsEntity> listener;
+    ItemClickListenerGeneric<CareNewsEntity> listener;
 
-    public AdapterSchoolsNews(List<NewsEntity> data, Context context, ItemClickListenerGeneric<NewsEntity> listener) {
+    public AdapterCareNews(List<CareNewsEntity> data, Context context, ItemClickListenerGeneric<CareNewsEntity> listener) {
         this.data = data;
         this.context = context;
         this.listener = listener;
@@ -37,7 +39,7 @@ public class AdapterSchoolsNews extends RecyclerView.Adapter<RecyclerView.ViewHo
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_schools_news, parent, false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_care_baby, parent, false));
     }
 
     @Override
@@ -53,36 +55,37 @@ public class AdapterSchoolsNews extends RecyclerView.Adapter<RecyclerView.ViewHo
         return data.size();
     }
 
-    public void filterList(List<NewsEntity> filterdNames) {
+    public void filterList(List<CareNewsEntity> filterdNames) {
         this.data = filterdNames;
         notifyDataSetChanged();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView img_thumble, img_like, img_comment;
-        TextView tv_title, tv_date, tv_like, tv_comment;
+        ImageView img_thumble;
+        TextView tv_title, tv_time, tv_view;
 
         public ViewHolder(View itemView) {
             super(itemView);
             img_thumble = itemView.findViewById(R.id.img_thumble);
-            img_like = itemView.findViewById(R.id.img_like);
-            img_comment = itemView.findViewById(R.id.img_comment);
+            tv_view = itemView.findViewById(R.id.tv_view);
+            tv_time = itemView.findViewById(R.id.tv_time);
             tv_title = itemView.findViewById(R.id.tv_title);
-            tv_date = itemView.findViewById(R.id.tv_date);
-            tv_like = itemView.findViewById(R.id.tv_like);
-            tv_comment = itemView.findViewById(R.id.tv_comment);
         }
 
-        public void setData(NewsEntity entity, int position) {
-            if (!TextUtils.isEmpty(entity.getCountComment()))
-                tv_like.setText(entity.getCountLike() + " lượt thích");
+        public void setData(CareNewsEntity entity, int position) {
+            tv_view.setText(entity.getTotalView() + " lượt xem");
 
-            if (!TextUtils.isEmpty(entity.getCountComment()))
-                tv_comment.setText(entity.getCountComment() + " bình luận");
-
-            if (!TextUtils.isEmpty(entity.getPublishDate()))
-                tv_date.setText(entity.getPublishDate());
+            if (!TextUtils.isEmpty(entity.getPublishDate())) {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+                Calendar calendar = Calendar.getInstance();
+                try {
+                    calendar.setTime(sdf.parse(entity.getPublishDate()));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                tv_time.setText(TextUtils.comparingTime(calendar.getTimeInMillis()));
+            }
 
             if (!TextUtils.isEmpty(entity.getTitle()))
                 tv_title.setText(entity.getTitle());

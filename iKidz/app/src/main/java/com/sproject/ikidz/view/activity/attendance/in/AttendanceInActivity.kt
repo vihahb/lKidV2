@@ -3,8 +3,6 @@ package com.sproject.ikidz.view.activity.attendance.`in`
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.Menu
 import android.view.MenuItem
 import com.sproject.ikidz.R

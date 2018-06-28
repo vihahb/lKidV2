@@ -5,15 +5,15 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.rackspira.kristiawan.rackmonthpicker.RackMonthPicker
 import com.sproject.ikidz.R
 import com.sproject.ikidz.model.entity.EatTicketEntity
 import com.sproject.ikidz.sdk.Commons.Constants
-import com.sproject.ikidz.sdk.Utils.TimeUtils
 import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric
 import com.sproject.ikidz.view.base.BaseFragment
-import com.twinkle94.monthyearpicker.picker.YearMonthPickerDialog
 import kotlinx.android.synthetic.main.fragment_subscribe_to_eat.*
 import java.util.*
+
 
 class SubscribeToEatFragment : BaseFragment(), ISubscribeToEat {
     override fun getDataTicketSuccess(detail_ticket: List<EatTicketEntity>) {
@@ -87,11 +87,15 @@ class SubscribeToEatFragment : BaseFragment(), ISubscribeToEat {
         edt_time.setText("" + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.YEAR))
         edt_time.setOnClickListener {
 
-            var picker = YearMonthPickerDialog(context, YearMonthPickerDialog.OnDateSetListener { year, month ->
-                edt_time.setText("" + (month + 1) + "/" + year)
-                presenter.getLogSubscribeTicket(month + 1, year)
-            })
-            picker.show()
+            RackMonthPicker(context)
+                    .setLocale(Locale.ENGLISH)
+                    .setPositiveButton { month, startDate, endDate, year, monthLabel ->
+                        edt_time.setText("" + (month + 1) + "/" + year)
+                        presenter.getLogSubscribeTicket(month + 1, year)
+                    }
+                    .setNegativeButton {
+                        it.dismiss()
+                    }.show()
         }
     }
 

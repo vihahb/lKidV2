@@ -60,7 +60,11 @@
 
         <activity android:name=".view.activity.mbr.MbrListActivity" />
         <activity android:name=".view.activity.eatActivity.EatActivity" />
-        <activity android:name=".view.activity.mbr.info.MbrInfoActivity"></activity>
+        <activity android:name=".view.activity.mbr.info.MbrInfoActivity" />
+        <activity android:name=".view.activity.sleepActivity.SleepActivity" />
+        <activity android:name=".view.activity.care.CareActivity" />
+        <activity android:name=".view.activity.otherActivity.OtherActivitys" />
+        <activity android:name=".view.activity.commentDay.CommentLearnActivity"></activity>
     </application>
 
 </manifest>

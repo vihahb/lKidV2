@@ -7,9 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.sproject.ikidz.R
+import com.sproject.ikidz.view.activity.commentDay.CommentLearnActivity
 import com.sproject.ikidz.view.activity.learnActivity.LearnActivity
 import com.sproject.ikidz.view.activity.mbr.MbrListActivity
+import com.sproject.ikidz.view.activity.otherActivity.OtherActivitys
 import com.sproject.ikidz.view.activity.schoolProfile.SchoolProfileActivity
+import com.sproject.ikidz.view.activity.sleepActivity.SleepActivity
 import kotlinx.android.synthetic.main.fragment_contacts.*
 
 class ContactsFragment : Fragment() {
@@ -42,6 +45,17 @@ class ContactsFragment : Fragment() {
         }
         ln_mbr.setOnClickListener {
             startActivity(Intent(context, MbrListActivity::class.java))
+        }
+
+        ln_sleep_activity.setOnClickListener {
+            startActivity(Intent(context, SleepActivity::class.java))
+        }
+
+        ln_activity_more.setOnClickListener {
+            startActivity(Intent(context, OtherActivitys::class.java))
+        }
+        ln_learn_comment.setOnClickListener {
+            startActivity(Intent(context, CommentLearnActivity::class.java))
         }
     }
 

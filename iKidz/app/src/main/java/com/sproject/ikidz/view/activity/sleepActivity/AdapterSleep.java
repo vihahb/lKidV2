@@ -1,4 +1,4 @@
-package com.sproject.ikidz.view.activity.shuttleBus;
+package com.sproject.ikidz.view.activity.sleepActivity;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,25 +7,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.sproject.ikidz.R;
-import com.sproject.ikidz.model.entity.ShuttleBusEntity;
 import com.sproject.ikidz.model.entity.SleepEntity;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.Utils.WidgetUtils;
 import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
-public class AdapterShuttlesBus extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    List<ShuttleBusEntity> data;
+public class AdapterSleep extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    List<SleepEntity> data;
     Context context;
-    ItemClickListenerGeneric<ShuttleBusEntity> listener;
+    ItemClickListenerGeneric<SleepEntity> listener;
 
-    public AdapterShuttlesBus(List<ShuttleBusEntity> data, Context context, ItemClickListenerGeneric<ShuttleBusEntity> listener) {
+    public AdapterSleep(List<SleepEntity> data, Context context, ItemClickListenerGeneric<SleepEntity> listener) {
         this.data = data;
         this.context = context;
         this.listener = listener;
@@ -34,7 +34,7 @@ public class AdapterShuttlesBus extends RecyclerView.Adapter<RecyclerView.ViewHo
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_shuttles_bus, parent, false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_sleep_activity, parent, false));
     }
 
     @Override
@@ -50,46 +50,48 @@ public class AdapterShuttlesBus extends RecyclerView.Adapter<RecyclerView.ViewHo
         return data.size();
     }
 
+    public void filterList(@NotNull List<SleepEntity> filterdNames) {
+        this.data = filterdNames;
+        notifyDataSetChanged();
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv_number_row, tv_name, tv_date;
+        TextView tv_number_row, tv_name;
         RoundImage img_avatar;
-        ImageView img_type, img_group;
+        EditText edt_time_start, edt_time_end, edt_note;
 
         public ViewHolder(View itemView) {
             super(itemView);
             tv_number_row = itemView.findViewById(R.id.tv_number_row);
             tv_name = itemView.findViewById(R.id.tv_name);
-            tv_date = itemView.findViewById(R.id.tv_date);
             img_avatar = itemView.findViewById(R.id.img_avatar);
-            img_type = itemView.findViewById(R.id.img_type);
-            img_group = itemView.findViewById(R.id.img_group);
+            edt_time_start = itemView.findViewById(R.id.edt_time_start);
+            edt_time_end = itemView.findViewById(R.id.edt_time_end);
+            edt_note = itemView.findViewById(R.id.edt_note);
         }
 
-        public void setData(ShuttleBusEntity entity, int position) {
+        public void setData(SleepEntity entity, int position) {
             if (!TextUtils.isEmpty(entity.getFullName())) {
                 tv_name.setText(entity.getFullName());
             }
-            if (!TextUtils.isEmpty(entity.getBirthday())) {
-                tv_date.setText(entity.getBirthday());
+            if (!TextUtils.isEmpty(entity.getStartTime())) {
+                edt_time_start.setText(entity.getStartTime());
             }
-            if (!TextUtils.isEmpty(entity.getAvatarStudent())) {
-                WidgetUtils.setImageURL(img_avatar, entity.getAvatarStudent(), R.mipmap.ic_launcher_round);
+            if (!TextUtils.isEmpty(entity.getEndTime())) {
+                edt_time_end.setText(entity.getEndTime());
+            }
+
+            if (!TextUtils.isEmpty(entity.getNote())) {
+                edt_note.setText(entity.getNote());
+            }
+            if (!TextUtils.isEmpty(entity.getAvatar())) {
+                WidgetUtils.setImageURL(img_avatar, entity.getAvatar(), R.mipmap.ic_launcher_round);
             }
             tv_number_row.setText("" + (position + 1));
-            switch (entity.getTypePickup()) {
-                case "school":
-                    img_type.setImageResource(R.mipmap.ic_nt);
-                    break;
-                case "parent":
-                    img_type.setImageResource(R.mipmap.ic_ph);
-                    break;
-            }
+
 
             itemView.setOnClickListener(view -> listener.ItemClick(position, entity));
         }
     }
 }
-
-
-

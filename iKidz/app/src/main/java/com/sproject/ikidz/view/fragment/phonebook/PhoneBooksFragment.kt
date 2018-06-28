@@ -35,7 +35,8 @@ class PhoneBooksFragment : BaseFragment(), IPhoneBooks {
     }
 
     override fun getPhoneBookError(errorMessage: String) {
-        tv_message.text = errorMessage
+        if (tv_message != null)
+            tv_message.text = errorMessage
     }
 
     companion object {
@@ -109,7 +110,7 @@ class PhoneBooksFragment : BaseFragment(), IPhoneBooks {
         }
 
         if (!TextUtils.isEmpty(data.birthday)) {
-            tv_birthday.text = TimeUtils.formatDate(data.birthday, "yyyy-mm-dd", "dd-mm-yyyy")
+            tv_birthday.text = TimeUtils.formatDate(data.birthday, "yyyy-MM-dd", "dd-MM-yyyy")
         }
         if (!dialog.isShowing)
             dialog.show()

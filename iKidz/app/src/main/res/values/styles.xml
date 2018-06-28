@@ -118,4 +118,12 @@
         <item name="textAllCaps">true</item>
     </style>
 
+    <style name="TimePicker" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
 </resources>

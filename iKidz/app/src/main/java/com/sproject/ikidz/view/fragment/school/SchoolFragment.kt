@@ -12,6 +12,7 @@ import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.SharedUtils
 import com.sproject.ikidz.sdk.Utils.TextUtils
 import com.sproject.ikidz.view.activity.campaign.CampaignActivity
+import com.sproject.ikidz.view.activity.care.CareActivity
 import com.sproject.ikidz.view.activity.curentClass.CurentClassActivity
 import com.sproject.ikidz.view.activity.foreignActivity.ForeignActivity
 import com.sproject.ikidz.view.activity.school.SchoolActivity
@@ -98,7 +99,6 @@ class SchoolFragment : BaseFragment(), ISchoolView {
 
         ln_other_activity.setOnClickListener {
             startActivity(Intent(context, ForeignActivity::class.java))
-
         }
 
         ln_school.setOnClickListener {
@@ -110,6 +110,9 @@ class SchoolFragment : BaseFragment(), ISchoolView {
         }
         ln_vote.setOnClickListener {
             startActivity(Intent(context, CampaignActivity::class.java))
+        }
+        ln_care.setOnClickListener {
+            startActivity(Intent(context, CareActivity::class.java))
         }
     }
 

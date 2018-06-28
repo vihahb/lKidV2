@@ -64,11 +64,11 @@ public class AdapterCampaign extends RecyclerView.Adapter<RecyclerView.ViewHolde
             String date = "";
 
             if (!TextUtils.isEmpty(entity.getDateStart())) {
-                date = "Bắt đầu: " + TimeUtils.getInstance().formatDate(entity.getDateStart(), "yyyy-mm-dd", "dd/mm/yyyy");
+                date = "Bắt đầu: " + TimeUtils.getInstance().formatDate(entity.getDateStart(), "yyyy-MM-dd", "dd/MM/yyyy");
             }
 
             if (!TextUtils.isEmpty(entity.getDateEnd())) {
-                date += " - Kết thúc: " + TimeUtils.getInstance().formatDate(entity.getDateEnd(), "yyyy-mm-dd", "dd/mm/yyyy");
+                date += " - Kết thúc: " + TimeUtils.getInstance().formatDate(entity.getDateEnd(), "yyyy-MM-dd", "dd/MM/yyyy");
             }
 
             tv_time.setText(date);
