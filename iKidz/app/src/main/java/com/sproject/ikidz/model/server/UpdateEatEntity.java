@@ -10,32 +10,32 @@ import com.sproject.ikidz.sdk.Utils.SharedUtils;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
 import com.sproject.ikidz.sdk.callback.ResponseHandle;
 
-public abstract class GetResult extends AbsICmd {
-
-    int id;
-    String link_api, token;
+public abstract class UpdateEatEntity extends AbsICmd {
     BasicModel basicModel = new BasicModel();
+    UpdateValueEat data;
 
-    public GetResult(int id, String token, String link_api) {
-        this.id = id;
-        this.token = token;
-        this.link_api = link_api;
+    public UpdateEatEntity(UpdateValueEat data) {
+        this.data = data;
         run();
     }
 
     @Override
     protected void invoke() {
-        String url = link_api + "/api/v1/get-result-detail-poll";
-        String json = "{\"question_id\":" + id + "}";
-        basicModel.requestServer.postApi(url, json, token, new ResponseHandle<RESP_ResultValue>(RESP_ResultValue.class) {
+        String token = SharedUtils.getInstance().getStringValue(Constants.CURRENT_TOKEN);
+        String link_api = SharedUtils.getInstance().getStringValue(Constants.LINK_API);
+        int id = SharedUtils.getInstance().getIntValue(Constants.CURRENT_CLASS_TEACHER_ID);
+
+        String url = link_api + "add-activity/eat";
+        data.setClassId(id);
+        basicModel.requestServer.postApi(url, JsonHelper.toJson(data), token, new ResponseHandle<RESP_ResultValue>(RESP_ResultValue.class) {
             @Override
             protected void onSuccess(RESP_ResultValue obj) {
-                GetResult.this.onSucces(obj);
+                UpdateEatEntity.this.onSucces(obj);
             }
 
             @Override
             protected void onError(ErrorEntity error) {
-                GetResult.this.onError(error);
+                UpdateEatEntity.this.onError(error);
             }
         });
     }
@@ -49,4 +49,3 @@ public abstract class GetResult extends AbsICmd {
 
     protected abstract void onError(ErrorEntity s);
 }
-

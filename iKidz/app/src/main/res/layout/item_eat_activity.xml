@@ -60,6 +60,7 @@
                 android:id="@+id/tv_eat_note"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/size_8"
                 android:layout_marginTop="@dimen/size_4"
                 android:background="@drawable/round_edit_text_small"
                 android:ellipsize="end"

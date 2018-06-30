@@ -62,7 +62,7 @@ public class AdapterEatActivity extends RecyclerView.Adapter<RecyclerView.ViewHo
             tv_name = itemView.findViewById(R.id.tv_name);
             tv_eat_state = itemView.findViewById(R.id.tv_eat_state);
             img_ava = itemView.findViewById(R.id.img_avatar);
-            edt_note = itemView.findViewById(R.id.edt_note);
+            edt_note = itemView.findViewById(R.id.tv_eat_note);
         }
 
         public void setData(EatEntity data, int position) {
@@ -84,6 +84,8 @@ public class AdapterEatActivity extends RecyclerView.Adapter<RecyclerView.ViewHo
             tv_number_row.setText("" + (position + 1));
 
             WidgetUtils.setImageURL(img_ava, data.getAvatar(), R.mipmap.ic_no_avatar);
+
+            itemView.setOnClickListener(view -> listener.ItemClick(position, data));
         }
     }
 }
