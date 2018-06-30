@@ -113,6 +113,22 @@ public class TimeUtils {
         return sdf.format(date);
     }
 
+    public static String getFirstDayMonthFormat(String initDateFormat) {
+        Calendar c = Calendar.getInstance();   // this takes current date
+        c.set(Calendar.DAY_OF_MONTH, 1);
+        Date date = new Date(c.getTimeInMillis());
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat(initDateFormat);
+        return sdf.format(date);
+    }
+
+    public static String getLastDayMonthFormat(String initDateFormat) {
+        Calendar c = Calendar.getInstance();   // this takes current date
+        c.set(Calendar.DATE, c.getActualMaximum(Calendar.DATE));
+        Date date = new Date(c.getTimeInMillis());
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat(initDateFormat);
+        return sdf.format(date);
+    }
+
     public static String formatDate(String date, String initDateFormat, String endDateFormat) {
 
         Date initDate = null;

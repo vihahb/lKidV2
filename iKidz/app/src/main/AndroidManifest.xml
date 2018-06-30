@@ -64,7 +64,8 @@
         <activity android:name=".view.activity.sleepActivity.SleepActivity" />
         <activity android:name=".view.activity.care.CareActivity" />
         <activity android:name=".view.activity.otherActivity.OtherActivitys" />
-        <activity android:name=".view.activity.commentDay.CommentLearnActivity"></activity>
+        <activity android:name=".view.activity.commentDay.CommentLearnActivity" />
+        <activity android:name=".view.activity.learnProgram.LearnProgramActivity"></activity>
     </application>
 
 </manifest>

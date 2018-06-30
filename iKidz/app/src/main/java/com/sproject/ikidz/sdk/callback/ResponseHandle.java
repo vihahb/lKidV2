@@ -22,6 +22,7 @@ public abstract class ResponseHandle<T extends RESP_Basic> {
     protected ResponseHandle(Class<T> tClass) {
         this.tClass = tClass;
     }
+
     public void onSuccess(String result) {
         try {
             Log.e(TAG, "result: " + result);
@@ -29,7 +30,7 @@ public abstract class ResponseHandle<T extends RESP_Basic> {
                 onSuccess((T) null);
             } else {
                 T t = JsonHelper.getObjectNoException(result, tClass);
-                if (t!= null & !TextUtils.isEmpty( t.getErrorDesc())  && t.getErrorCode() != 0) {
+                if (t != null & !TextUtils.isEmpty(t.getErrorDesc()) && t.getErrorCode() != 0) {
                     onError(new ErrorEntity(t.getErrorCode(), t.getErrorMessage()));
                 } else {
                     onSuccess(t);
@@ -38,12 +39,12 @@ public abstract class ResponseHandle<T extends RESP_Basic> {
 
         } catch (Exception e) {
             e.printStackTrace();
-            onError(new ErrorEntity(-1, "Exception: " + e.getMessage()));
+            onError(new ErrorEntity(-1, e.getMessage()));
         }
     }
 
     public void onError(Exception error) {
-        onError(new ErrorEntity(-1, "Exception: " + error.getMessage()));
+        onError(new ErrorEntity(-1, error.getMessage()));
     }
 
     protected abstract void onSuccess(T obj);

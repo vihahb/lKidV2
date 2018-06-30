@@ -45,5 +45,4 @@ class ViewPageLearnMoreTime(fm: FragmentManager?, private val context: Context) 
             }
         }
     }
-
 }

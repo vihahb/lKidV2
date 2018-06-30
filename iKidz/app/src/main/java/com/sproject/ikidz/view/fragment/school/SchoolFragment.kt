@@ -15,6 +15,7 @@ import com.sproject.ikidz.view.activity.campaign.CampaignActivity
 import com.sproject.ikidz.view.activity.care.CareActivity
 import com.sproject.ikidz.view.activity.curentClass.CurentClassActivity
 import com.sproject.ikidz.view.activity.foreignActivity.ForeignActivity
+import com.sproject.ikidz.view.activity.learnProgram.LearnProgramActivity
 import com.sproject.ikidz.view.activity.school.SchoolActivity
 import com.sproject.ikidz.view.activity.shuttleBus.ShuttlesBusActivity
 import com.sproject.ikidz.view.activity.subscribeToEat.SubscribeToEatActivity
@@ -87,6 +88,10 @@ class SchoolFragment : BaseFragment(), ISchoolView {
     }
 
     private fun initOnClick() {
+        ln_lean_activity.setOnClickListener {
+            startActivity(Intent(context, LearnProgramActivity::class.java))
+        }
+
         ln_class.setOnClickListener {
             val intent = Intent(context, CurentClassActivity::class.java)
             intent.putExtra(Constants.TITLE, className)
