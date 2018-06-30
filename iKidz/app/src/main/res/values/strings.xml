@@ -32,7 +32,7 @@
     <string name="message_permission_needed">Vui lòng cấp quyền để ứng dụng có thể hoạt động chính xác.</string>
     <string name="message_loading">Loading…</string>
     <string name="mesage_loading_data">Đang tải dữ liệu...</string>
-    <string name="message_can_not_request">Không thể request tới server. Vui lòng thử lại sau!</string>
+    <string name="message_can_not_request">Không thể kết nối tới máy chủ. Vui lòng thử lại sau!</string>
     <string name="action_select_non_data_province">Không có dữ liệu tỉnh thành</string>
     <string name="action_select_non_data_district">Không có dữ liệu quận huyện</string>
     <string name="action_select_non_data_school">Không có dữ liệu trường học</string>

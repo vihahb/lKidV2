@@ -96,7 +96,7 @@ public class RequestOkHttp {
             if (isSuccess)
                 responseHandle.onSuccess(s);
             else
-                responseHandle.onError(new Exception("SYSTEM-EXCEPTION: " + iKidApplications.context.getString(R.string.message_can_not_request)));
+                responseHandle.onError(new Exception(iKidApplications.context.getString(R.string.message_can_not_request)));
         }
     }
 
@@ -148,7 +148,7 @@ public class RequestOkHttp {
             if (isSuccess)
                 responseHandle.onSuccess(s);
             else
-                responseHandle.onError(new Exception("SYSTEM-EXCEPTION: " + iKidApplications.context.getString(R.string.message_can_not_request)));
+                responseHandle.onError(new Exception(iKidApplications.context.getString(R.string.message_can_not_request)));
         }
     }
 
@@ -199,7 +199,7 @@ public class RequestOkHttp {
             if (isSuccess)
                 responseHandle.onSuccess(s);
             else
-                responseHandle.onError(new Exception("SYSTEM-EXCEPTION: " + iKidApplications.context.getString(R.string.message_can_not_request)));
+                responseHandle.onError(new Exception(iKidApplications.context.getString(R.string.message_can_not_request)));
         }
     }
 
@@ -254,7 +254,7 @@ public class RequestOkHttp {
             if (isSuccess)
                 responseHandle.onSuccess(s);
             else
-                responseHandle.onError(new Exception("SYSTEM-EXCEPTION: " + iKidApplications.context.getString(R.string.message_can_not_request)));
+                responseHandle.onError(new Exception(iKidApplications.context.getString(R.string.message_can_not_request)));
         }
     }
 
@@ -299,7 +299,7 @@ public class RequestOkHttp {
             if (isSuccess)
                 responseHandle.onSuccess(s);
             else
-                responseHandle.onError(new Exception("SYSTEM-EXCEPTION: " + iKidApplications.context.getString(R.string.message_can_not_request)));
+                responseHandle.onError(new Exception(iKidApplications.context.getString(R.string.message_can_not_request)));
         }
     }
 
@@ -344,7 +344,7 @@ public class RequestOkHttp {
             if (isSuccess)
                 responseHandle.onSuccess(s);
             else
-                responseHandle.onError(new Exception("SYSTEM-EXCEPTION: " + iKidApplications.context.getString(R.string.message_can_not_request)));
+                responseHandle.onError(new Exception(iKidApplications.context.getString(R.string.message_can_not_request)));
         }
     }
 }
