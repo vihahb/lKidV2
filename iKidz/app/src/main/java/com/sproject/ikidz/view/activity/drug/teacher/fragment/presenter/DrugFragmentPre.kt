@@ -3,9 +3,12 @@ package com.sproject.ikidz.view.activity.drug.teacher.fragment.presenter
 import com.sproject.ikidz.R
 import com.sproject.ikidz.iKidApplications
 import com.sproject.ikidz.model.RESP.RESP_GetDrug
+import com.sproject.ikidz.model.RESP.RESP_Status
+import com.sproject.ikidz.model.entity.DrugEntity
 import com.sproject.ikidz.model.entity.ErrorEntity
 import com.sproject.ikidz.model.entity.SendGetClassInfo
 import com.sproject.ikidz.model.server.GetDrugModel
+import com.sproject.ikidz.model.server.ValidDrug
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.NetworkUtils
 import com.sproject.ikidz.sdk.Utils.SharedUtils
@@ -35,6 +38,26 @@ class DrugFragmentPre(var view: IDrugFragment) {
             override fun onError(s: ErrorEntity) {
                 iKidApplications.log(TAG, "getAbsentByClass onError: " + s.errorMessage)
                 view.getDrugError(s.errorMessage)
+            }
+
+        }
+    }
+
+    fun validDrug(data: DrugEntity, position: Int) {
+        if (!NetworkUtils.isConnected(view.activity)) {
+            view.showLongToast(view.activity.resources.getString(R.string.error_network))
+            return
+        }
+        view.showProgressBar(true, true, "Đang xác nhận đơn dặn thuốc...")
+        object : ValidDrug(data.id) {
+            override fun onSucces(news: RESP_Status?) {
+                view.closeProgressBar()
+                view.validDrugSuccess(position)
+            }
+
+            override fun onError(s: ErrorEntity?) {
+                view.closeProgressBar()
+                view.validDrugError()
             }
 
         }

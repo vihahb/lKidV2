@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_75">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/size_24"
+        android:layout_marginRight="@dimen/size_24"
+        android:background="@drawable/round_layout_dialog"
+        android:minHeight="@dimen/size_100"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/size_12"
+            android:paddingTop="@dimen/size_12"
+            android:text="Thời gian trả trẻ"
+            android:textAllCaps="true"
+            android:textColor="@color/black_75"
+            android:textSize="@dimen/font_15" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0_5"
+            android:background="@color/black_55" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/size_100"
+            android:orientation="vertical"
+            android:padding="@dimen/size_16">
+
+            <TextView
+                android:id="@+id/tv_return_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black_75"
+                android:textSize="@dimen/font_15"
+                android:textStyle="bold" />
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/size_16"
+                android:layout_marginLeft="@dimen/size_48"
+                android:layout_marginRight="@dimen/size_48"
+                android:layout_marginTop="@dimen/size_16">
+
+                <EditText
+                    android:id="@+id/edt_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_edit_text_attended"
+                    android:focusableInTouchMode="false"
+                    android:gravity="center"
+                    android:hint="Thời gian trả trẻ"
+                    android:longClickable="false"
+                    android:paddingBottom="@dimen/size_4"
+                    android:paddingLeft="@dimen/size_8"
+                    android:paddingRight="@dimen/size_32"
+                    android:paddingTop="@dimen/size_4"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/font_14" />
+
+                <ImageView
+                    android:layout_width="@dimen/size_24"
+                    android:layout_height="@dimen/size_24"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="@dimen/size_8"
+                    android:padding="@dimen/size_4"
+                    android:src="@mipmap/ic_calendar" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0_5"
+            android:background="@color/black_55" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnClose"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="Đóng"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="@dimen/size_0_5"
+                android:layout_height="match_parent"
+                android:background="@color/black_55" />
+
+            <Button
+                android:id="@+id/btnValid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="Xác nhận"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

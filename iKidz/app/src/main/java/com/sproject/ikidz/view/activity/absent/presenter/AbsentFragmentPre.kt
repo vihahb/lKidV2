@@ -3,9 +3,13 @@ package com.sproject.ikidz.view.activity.absent.presenter
 import com.sproject.ikidz.R
 import com.sproject.ikidz.iKidApplications
 import com.sproject.ikidz.model.RESP.RESP_GetAbsent
+import com.sproject.ikidz.model.RESP.RESP_Status
+import com.sproject.ikidz.model.entity.AbsentEntity
 import com.sproject.ikidz.model.entity.ErrorEntity
 import com.sproject.ikidz.model.entity.SendGetClassInfo
 import com.sproject.ikidz.model.server.GetAbsentModel
+import com.sproject.ikidz.model.server.ValidAbsent
+import com.sproject.ikidz.model.server.ValidOT
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.NetworkUtils
 import com.sproject.ikidz.sdk.Utils.SharedUtils
@@ -38,5 +42,25 @@ class AbsentFragmentPre(var view: IAbsentFragment) {
 
         }
 
+    }
+
+    fun validAbsent(data: AbsentEntity, position: Int, state: Int) {
+        if (!NetworkUtils.isConnected(view.activity)) {
+            view.showLongToast(view.activity.resources.getString(R.string.error_network))
+            return
+        }
+        view.showProgressBar(true, true, "Đang xác nhận đơn xin nghỉ...")
+        object : ValidAbsent(data.id.toInt(), state) {
+            override fun onSucces(news: RESP_Status?) {
+                view.closeProgressBar()
+                view.validAbsenSuccess(position, state)
+            }
+
+            override fun onError(s: ErrorEntity?) {
+                view.closeProgressBar()
+                view.validAbsenError()
+            }
+
+        }
     }
 }

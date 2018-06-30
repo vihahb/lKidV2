@@ -15,16 +15,17 @@ import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.Utils.WidgetUtils;
 import com.sproject.ikidz.sdk.callback.ItemClickListener;
+import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 
 import java.util.List;
 
 public class AdapterDrugFragment extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     List<DrugEntity> list;
     Context context;
-    ItemClickListener listener;
+    ItemClickListenerGeneric<DrugEntity> listener;
 
 
-    public AdapterDrugFragment(List<DrugEntity> list, Context context, ItemClickListener listener) {
+    public AdapterDrugFragment(List<DrugEntity> list, Context context,  ItemClickListenerGeneric<DrugEntity>  listener) {
         this.list = list;
         this.context = context;
         this.listener = listener;
@@ -85,7 +86,7 @@ public class AdapterDrugFragment extends RecyclerView.Adapter<RecyclerView.ViewH
             tv_number_row.setText("" + (position + 1));
 
             WidgetUtils.setImageURL(img_ava, data.getAvatarStudent(), R.mipmap.ic_launcher);
-
+            itemView.setOnClickListener(view -> listener.ItemClick(position, data));
         }
     }
 }

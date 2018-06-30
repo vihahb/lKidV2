@@ -1,19 +1,39 @@
 package com.sproject.ikidz.view.activity.drug.teacher.fragment
 
+import android.annotation.SuppressLint
+import android.app.Dialog
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
+import android.text.Html
 import android.view.*
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
 import com.sproject.ikidz.R
 import com.sproject.ikidz.model.entity.DrugEntity
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.TextUtils
-import com.sproject.ikidz.sdk.callback.ItemClickListener
+import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric
 import com.sproject.ikidz.view.activity.drug.teacher.fragment.presenter.DrugFragmentPre
 import com.sproject.ikidz.view.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_drug.*
 
 class DrugFragment : BaseFragment(), IDrugFragment, SearchView.OnQueryTextListener {
+    override fun validDrugSuccess(position: Int) {
+        showLongToast("Xác nhận đơn dặn thuốc thành công!")
+        list[position].received = 1
+        adapter.notifyItemChanged(position)
+        if (dialog.isShowing)
+            dialog.dismiss()
+    }
+
+    override fun validDrugError() {
+        if (dialog.isShowing)
+            dialog.dismiss()
+        showLongToast("Xác nhận đơn dặn thuốc không thành công!")
+    }
+
     override fun onQueryTextSubmit(query: String?): Boolean {
         return true
     }
@@ -68,9 +88,12 @@ class DrugFragment : BaseFragment(), IDrugFragment, SearchView.OnQueryTextListen
         presenter = DrugFragmentPre(this)
 
         list = ArrayList()
-        adapter = AdapterDrugFragment(list, context, object : ItemClickListener {
-            override fun ItemClick(id: Int) {
-
+        adapter = AdapterDrugFragment(list, context, object : ItemClickListenerGeneric<DrugEntity> {
+            override fun ItemClick(pos: Int, data: DrugEntity) {
+                if (data.received == 0)
+                    showDialogs(data, pos, true)
+                else
+                    showDialogs(data, pos, false)
             }
         })
     }
@@ -86,6 +109,7 @@ class DrugFragment : BaseFragment(), IDrugFragment, SearchView.OnQueryTextListen
     }
 
     private fun initView() {
+        initDialog()
         rcl_drug.layoutManager = LinearLayoutManager(context)
         rcl_drug.adapter = adapter
         presenter.getDrugByClass(page, type)
@@ -95,7 +119,7 @@ class DrugFragment : BaseFragment(), IDrugFragment, SearchView.OnQueryTextListen
         //new array list that will hold the filtered data
         val filterdNames = ArrayList<DrugEntity>()
 
-        for (s in list!!) {
+        for (s in list) {
             if (TextUtils.unicodeToKoDauLowerCase(s.fullNameStudent.toLowerCase()).contains(TextUtils.unicodeToKoDauLowerCase(name.toLowerCase()))) {
                 filterdNames.add(s)
             }
@@ -110,5 +134,61 @@ class DrugFragment : BaseFragment(), IDrugFragment, SearchView.OnQueryTextListen
         //set OnQueryTextListener cho search view để thực hiện search theo text
         searchView!!.setOnQueryTextListener(this)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    private lateinit var dialog: Dialog
+    lateinit var tv_title: TextView
+    lateinit var tv_name: TextView
+    lateinit var tv_date_start: TextView
+    lateinit var tv_date_end: TextView
+    lateinit var tv_content: TextView
+
+    private lateinit var btnUpdate: Button
+
+    @SuppressLint("NewApi")
+    private fun initDialog() {
+        dialog = Dialog(context, R.style.Theme_Transparent)
+        dialog.setContentView(R.layout.dialog_dan_thuoc)
+        dialog.window!!.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
+        dialog.setCancelable(true)
+        dialog.setCanceledOnTouchOutside(true)
+        tv_title = dialog.findViewById(R.id.tv_title)
+        tv_name = dialog.findViewById(R.id.tv_name)
+        tv_content = dialog.findViewById(R.id.tv_content)
+        tv_date_start = dialog.findViewById(R.id.tv_date_start)
+        tv_date_end = dialog.findViewById(R.id.tv_date_end)
+
+        val btnClose = dialog.findViewById<Button>(R.id.btnClose)
+        btnUpdate = dialog.findViewById<Button>(R.id.btnUpdate)
+
+        btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+        btnUpdate.text = "Xác nhận"
+
+        tv_title.text = "Chi tiết dặn thuốc"
+    }
+
+    fun showDialogs(data: DrugEntity, position: Int, notValid: Boolean) {
+        var name = "<b>Học sinh: </b>" + data.fullNameStudent
+        var start = "<b>Ngày bắt đầu: </b>" + data.startDate
+        var end = "<b>Ngày Kết thúc: </b>" + data.endDate
+        var content = "<b>Nội dung: </b>" + data.notes
+
+        tv_name.text = Html.fromHtml(name)
+        tv_date_start.text = Html.fromHtml(start)
+        tv_date_end.text = Html.fromHtml(end)
+        tv_content.text = Html.fromHtml(content)
+
+        if (notValid) {
+            btnUpdate.visibility = View.VISIBLE
+            btnUpdate.setOnClickListener {
+                presenter.validDrug(data, position)
+            }
+        } else
+            btnUpdate.visibility = View.GONE
+
+
+        dialog.show()
     }
 }

@@ -1,14 +1,20 @@
 package com.sproject.ikidz.view.activity.attendance.`in`
 
+import android.annotation.SuppressLint
+import android.app.Dialog
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
 import com.sproject.ikidz.R
 import com.sproject.ikidz.model.entity.AttendanceIn
 import com.sproject.ikidz.sdk.Utils.TextUtils
 import com.sproject.ikidz.sdk.Utils.TimeUtils
+import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_attendance_in.*
 import java.util.*
@@ -52,7 +58,10 @@ class AttendanceInActivity : BaseActivity(), IAttendanceIn, SearchView.OnQueryTe
     }
 
     private fun initView() {
-        adapter = AdapterAttendanceIn(list, this)
+        adapter = AdapterAttendanceIn(list, this, object : ItemClickListenerGeneric<AttendanceIn> {
+            override fun ItemClick(position: Int, data: AttendanceIn) {
+            }
+        })
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rcl_attendanced_in.layoutManager = layoutManager
         rcl_attendanced_in.adapter = adapter
@@ -110,6 +119,8 @@ class AttendanceInActivity : BaseActivity(), IAttendanceIn, SearchView.OnQueryTe
         searchView!!.setOnQueryTextListener(this)
         return super.onCreateOptionsMenu(menu)
     }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item!!.itemId == android.R.id.home)

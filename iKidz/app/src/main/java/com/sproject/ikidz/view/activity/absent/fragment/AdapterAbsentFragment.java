@@ -15,6 +15,7 @@ import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.Utils.WidgetUtils;
 import com.sproject.ikidz.sdk.callback.ItemClickListener;
+import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -24,10 +25,10 @@ import java.util.List;
 public class AdapterAbsentFragment extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     List<AbsentEntity> list;
     Context context;
-    ItemClickListener listener;
+    ItemClickListenerGeneric<AbsentEntity> listener;
 
 
-    public AdapterAbsentFragment(List<AbsentEntity> list, Context context, ItemClickListener listener) {
+    public AdapterAbsentFragment(List<AbsentEntity> list, Context context, ItemClickListenerGeneric<AbsentEntity> listener) {
         this.list = list;
         this.context = context;
         this.listener = listener;
@@ -76,11 +77,20 @@ public class AdapterAbsentFragment extends RecyclerView.Adapter<RecyclerView.Vie
                 tv_name.setText(data.getFullNameStudent());
             }
 
-            if (data.getReceived() == 0)
-                tv_name.setTypeface(tv_name.getTypeface(), Typeface.BOLD_ITALIC);
-            else
-                tv_name.setTypeface(tv_name.getTypeface(), Typeface.NORMAL);
-
+            switch (data.getReceived()) {
+                case 0:
+                    tv_name.setTextColor(context.getResources().getColor(R.color.black_65));
+                    tv_name.setTypeface(tv_name.getTypeface(), Typeface.BOLD_ITALIC);
+                    break;
+                case 1:
+                    tv_name.setTextColor(context.getResources().getColor(R.color.black_65));
+                    tv_name.setTypeface(tv_name.getTypeface(), Typeface.NORMAL);
+                    break;
+                case 2:
+                    tv_name.setTypeface(tv_name.getTypeface(), Typeface.NORMAL);
+                    tv_name.setTextColor(context.getResources().getColor(R.color.red));
+                    break;
+            }
 
             if (!TextUtils.isEmpty(data.getContent())) {
                 tv_des.setText(data.getContent());
@@ -89,7 +99,12 @@ public class AdapterAbsentFragment extends RecyclerView.Adapter<RecyclerView.Vie
             tv_number_row.setText("" + (position + 1));
 
             WidgetUtils.setImageURL(img_ava, data.getAvatarStudent(), R.mipmap.ic_launcher);
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.ItemClick(position, data);
+                }
+            });
         }
     }
 }

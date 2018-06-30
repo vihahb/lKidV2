@@ -18,6 +18,7 @@ import com.sproject.ikidz.model.entity.AttendanceIn;
 import com.sproject.ikidz.sdk.Commons.Constants;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.SharedUtils;
+import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -26,10 +27,12 @@ public class AdapterAttendanceIn extends RecyclerView.Adapter<RecyclerView.ViewH
     private static final String TAG = "AdapterAttendanceIn";
     List<AttendanceIn> data;
     Context context;
+    ItemClickListenerGeneric<AttendanceIn> listener;
 
-    public AdapterAttendanceIn(List<AttendanceIn> data, Context context) {
+    public AdapterAttendanceIn(List<AttendanceIn> data, Context context, ItemClickListenerGeneric<AttendanceIn> listener) {
         this.data = data;
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
@@ -120,7 +123,7 @@ public class AdapterAttendanceIn extends RecyclerView.Adapter<RecyclerView.ViewH
                 }
             }
 
-
+            itemView.setOnClickListener(view -> listener.ItemClick(position, entity));
         }
     }
 }

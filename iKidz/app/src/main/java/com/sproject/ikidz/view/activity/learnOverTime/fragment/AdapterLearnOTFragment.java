@@ -15,17 +15,17 @@ import com.sproject.ikidz.model.entity.LearnOverTimeEntity;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.Utils.WidgetUtils;
-import com.sproject.ikidz.sdk.callback.ItemClickListener;
+import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 
 import java.util.List;
 
 public class AdapterLearnOTFragment extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     List<LearnOverTimeEntity> list;
     Context context;
-    ItemClickListener listener;
+    ItemClickListenerGeneric<LearnOverTimeEntity> listener;
 
 
-    public AdapterLearnOTFragment(List<LearnOverTimeEntity> list, Context context, ItemClickListener listener) {
+    public AdapterLearnOTFragment(List<LearnOverTimeEntity> list, Context context, ItemClickListenerGeneric<LearnOverTimeEntity> listener) {
         this.list = list;
         this.context = context;
         this.listener = listener;
@@ -97,7 +97,12 @@ public class AdapterLearnOTFragment extends RecyclerView.Adapter<RecyclerView.Vi
             tv_number_row.setText("" + (position + 1));
 
             WidgetUtils.setImageURL(img_ava, data.getAvatarStudent(), R.mipmap.ic_launcher);
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.ItemClick(position, data);
+                }
+            });
         }
     }
 }
