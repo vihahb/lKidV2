@@ -3,13 +3,10 @@ package com.sproject.ikidz.view.activity.absent
 import android.os.Bundle
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
-import android.support.v7.widget.SearchView
-import android.view.Menu
 import android.view.MenuItem
 import com.sproject.ikidz.R
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_absents.*
-import kotlinx.android.synthetic.main.activity_home.*
 
 class AbsentsActivity : BaseActivity() {
 

@@ -2,7 +2,6 @@ package com.sproject.ikidz.model.server;
 
 import com.sproject.ikidz.model.BasicModel;
 import com.sproject.ikidz.model.RESP.RESP_NewsInfo;
-import com.sproject.ikidz.model.RESP.RESP_ShuttlesBus;
 import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
 import com.sproject.ikidz.sdk.callback.ResponseHandle;

@@ -6,11 +6,11 @@ import com.google.firebase.database.FirebaseDatabase
 interface IFirebaseService {
 }
 
-fun IFirebaseService.getDatabaseRef() : DatabaseReference {
+fun IFirebaseService.getDatabaseRef(): DatabaseReference {
     return FirebaseDatabase.getInstance().reference
 }
 
-fun IFirebaseService.getUserRef() : DatabaseReference {
+fun IFirebaseService.getUserRef(): DatabaseReference {
     return this.getDatabaseRef().child("users")
 }
 

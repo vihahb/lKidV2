@@ -23,24 +23,24 @@
             android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black_75"
             android:maxLines="2"
+            android:textColor="@color/black_75"
             android:textSize="@dimen/font_14" />
 
         <TextView
             android:id="@+id/tv_relation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black_75"
             android:maxLines="2"
+            android:textColor="@color/black_75"
             android:textSize="@dimen/font_14" />
 
         <TextView
             android:id="@+id/tv_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black_75"
             android:maxLines="2"
+            android:textColor="@color/black_75"
             android:textSize="@dimen/font_14" />
     </LinearLayout>
 

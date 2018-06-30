@@ -2,12 +2,12 @@ package com.sproject.ikidz.model.entity.viewObject;
 
 public class Feature {
 
-    private String name;
-    private int id;
-    private int notifyCount;
     int resource;
     boolean showFull;
     int mipmap;
+    private String name;
+    private int id;
+    private int notifyCount;
 
     public Feature() {
     }

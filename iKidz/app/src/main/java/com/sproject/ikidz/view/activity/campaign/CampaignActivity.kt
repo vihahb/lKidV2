@@ -11,7 +11,7 @@ import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric
 import com.sproject.ikidz.view.activity.campaign.info.CampaignInfoActivity
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_campaign.*
-import java.util.ArrayList
+import java.util.*
 
 class CampaignActivity : BaseActivity(), ICampaignView {
     override fun getcampaignListSuccess(data: List<CampainEntity>) {

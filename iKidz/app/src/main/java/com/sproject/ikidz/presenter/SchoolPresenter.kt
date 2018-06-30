@@ -12,10 +12,10 @@ import com.sproject.ikidz.sdk.Utils.SharedUtils
 import com.sproject.ikidz.view.fragment.school.ISchoolView
 
 class SchoolPresenter(var view: ISchoolView) {
-    val  TAG = "SchoolPresenter"
+    val TAG = "SchoolPresenter"
 
     fun getCountNotify() {
-        if (!NetworkUtils.isConnected(view.activity)){
+        if (!NetworkUtils.isConnected(view.activity)) {
             view.showLongToast(view.activity.resources.getString(R.string.error_network))
             return
         }
@@ -23,7 +23,7 @@ class SchoolPresenter(var view: ISchoolView) {
         val token = SharedUtils.getInstance().getStringValue(Constants.CURRENT_TOKEN)
         val link_api = SharedUtils.getInstance().getStringValue(Constants.LINK_API)
 
-        if (token != null && link_api != null){
+        if (token != null && link_api != null) {
             object : GetCountNotify(token, link_api, classId, 2) {
                 override fun onSuccess(notify: RESP_CountNotify?) {
                     iKidApplications.log(TAG, JsonHelper.toJson(notify!!))

@@ -27,85 +27,6 @@ public class TimeUtils {
         return instance;
     }
 
-    public long convertDateTimeToLong(String date) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date mDate = null;
-
-        try {
-            mDate = sdf.parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        if (mDate != null)
-            return mDate.getTime() / 1000;
-        else
-            return 0;
-    }
-
-    public long convertTimeToLong(String time) {
-        String[] mTime = time.split(":");
-
-        int hour = Integer.parseInt(mTime[0]);
-        int minute = Integer.parseInt(mTime[1]);
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2017, 1, 1, hour, minute);
-
-        return (calendar.getTimeInMillis() / 1000);
-    }
-
-    public String getTimeFormMilisecond(long time) {
-        SimpleDateFormat format = new SimpleDateFormat("HH:mm", Locale.getDefault());
-        Date date = new Date(time);
-        return format.format(date);
-    }
-
-    public String convertTimeInMilisecondToDate(long time) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-        Date date = new Date(time);
-        return dateFormat.format(date);
-    }
-
-
-    public void showDatePickerDialog(Context context, final DatePickerListener listener) {
-        Calendar calendar = Calendar.getInstance();
-
-        new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                listener.onSelected(year, month, dayOfMonth);
-            }
-        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
-    }
-
-    public void showTimePickerDialog(Context context, final TimePickerListener timePickerListener) {
-        final Calendar calendar = Calendar.getInstance();
-        new TimePickerDialog(context, R.style.TimePicker, new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                Calendar calendar = Calendar.getInstance();
-                calendar.setTimeInMillis(calendar.getTimeInMillis());
-                calendar.set(Calendar.HOUR_OF_DAY, i);
-                calendar.set(Calendar.MINUTE, i1);
-                timePickerListener.onTimeSelected(getTimeFormMilisecond(calendar.getTimeInMillis()), convertTimeInMilisecondToDate(calendar.getTimeInMillis()));
-            }
-        }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false).show();
-    }
-
-    public String getTimeFormatDDMMYY(String time) {
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-//        Date date;
-//        try {
-//            date = dateFormat.parse(time);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//            date = null;
-//        }
-        SimpleDateFormat dt1 = new SimpleDateFormat("dd/mm/yyyy");
-        return dt1.format(time);
-    }
-
     public static String getCurrentTimeFormat(String initDateFormat) {
         Calendar calendar = Calendar.getInstance(Locale.getDefault());
         Date date = new Date(calendar.getTimeInMillis());
@@ -146,5 +67,83 @@ public class TimeUtils {
         } else {
             return "";
         }
+    }
+
+    public long convertDateTimeToLong(String date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date mDate = null;
+
+        try {
+            mDate = sdf.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        if (mDate != null)
+            return mDate.getTime() / 1000;
+        else
+            return 0;
+    }
+
+    public long convertTimeToLong(String time) {
+        String[] mTime = time.split(":");
+
+        int hour = Integer.parseInt(mTime[0]);
+        int minute = Integer.parseInt(mTime[1]);
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2017, 1, 1, hour, minute);
+
+        return (calendar.getTimeInMillis() / 1000);
+    }
+
+    public String getTimeFormMilisecond(long time) {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        Date date = new Date(time);
+        return format.format(date);
+    }
+
+    public String convertTimeInMilisecondToDate(long time) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        Date date = new Date(time);
+        return dateFormat.format(date);
+    }
+
+    public void showDatePickerDialog(Context context, final DatePickerListener listener) {
+        Calendar calendar = Calendar.getInstance();
+
+        new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                listener.onSelected(year, month, dayOfMonth);
+            }
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+    }
+
+    public void showTimePickerDialog(Context context, final TimePickerListener timePickerListener) {
+        final Calendar calendar = Calendar.getInstance();
+        new TimePickerDialog(context, R.style.TimePicker, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(calendar.getTimeInMillis());
+                calendar.set(Calendar.HOUR_OF_DAY, i);
+                calendar.set(Calendar.MINUTE, i1);
+                timePickerListener.onTimeSelected(getTimeFormMilisecond(calendar.getTimeInMillis()), convertTimeInMilisecondToDate(calendar.getTimeInMillis()));
+            }
+        }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false).show();
+    }
+
+    public String getTimeFormatDDMMYY(String time) {
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+//        Date date;
+//        try {
+//            date = dateFormat.parse(time);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//            date = null;
+//        }
+        SimpleDateFormat dt1 = new SimpleDateFormat("dd/mm/yyyy");
+        return dt1.format(time);
     }
 }

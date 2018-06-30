@@ -3,21 +3,21 @@ package com.sproject.ikidz.view.activity.learnActivity
 import android.app.Dialog
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.MenuItem
 import android.view.View
-import com.sproject.ikidz.R
-import com.sproject.ikidz.model.entity.LearnActivityEntity
-import com.sproject.ikidz.sdk.Commons.Constants
-import com.sproject.ikidz.sdk.callback.ItemMoreActionGeneric
-import com.sproject.ikidz.view.base.BaseActivity
-import java.util.*
-import android.support.v7.widget.RecyclerView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.sproject.ikidz.R
+import com.sproject.ikidz.model.entity.LearnActivityEntity
+import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.TimeUtils
+import com.sproject.ikidz.sdk.callback.ItemMoreActionGeneric
+import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_learn.*
+import java.util.*
 
 
 class LearnActivity : BaseActivity(), ILearnActivityView {

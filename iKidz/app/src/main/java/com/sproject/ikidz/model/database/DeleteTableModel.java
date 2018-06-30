@@ -59,5 +59,6 @@ public abstract class DeleteTableModel<T extends RealmObject> extends AbsICmd {
     }
 
     protected abstract void onSuccess();
+
     protected abstract void onError(ErrorEntity message);
 }

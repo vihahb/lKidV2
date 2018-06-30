@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 
-public class DataWeek implements Serializable{
+public class DataWeek implements Serializable {
     @SerializedName("week")
     @Expose
     private String week;

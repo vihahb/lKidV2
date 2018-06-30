@@ -10,7 +10,10 @@ import com.sproject.ikidz.model.entity.ProvinceOrDistrict
 import com.sproject.ikidz.model.entity.SchoolByDistrict
 import com.sproject.ikidz.presenter.Login.LoginPresenter
 import com.sproject.ikidz.sdk.Commons.Constants
-import com.sproject.ikidz.sdk.Utils.*
+import com.sproject.ikidz.sdk.Utils.Base64Helper
+import com.sproject.ikidz.sdk.Utils.NetworkUtils
+import com.sproject.ikidz.sdk.Utils.SharedUtils
+import com.sproject.ikidz.sdk.Utils.TextUtils
 import com.sproject.ikidz.view.activity.home.HomeActivity
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*

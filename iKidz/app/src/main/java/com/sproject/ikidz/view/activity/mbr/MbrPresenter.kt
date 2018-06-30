@@ -7,7 +7,7 @@ import com.sproject.ikidz.model.server.GetMbrList
 import com.sproject.ikidz.sdk.Utils.NetworkUtils
 
 class MbrPresenter(private var view: IMbr) {
-    fun getMbr(){
+    fun getMbr() {
         if (!NetworkUtils.isConnected(view.activity)) {
             view.showLongToast(view.activity.resources.getString(R.string.error_network))
             return

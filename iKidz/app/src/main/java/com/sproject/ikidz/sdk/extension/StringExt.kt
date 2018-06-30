@@ -15,10 +15,10 @@ fun String.toDate(format: String = "dd/MM/yyyy"): Date? {
     return null
 }
 
-fun String.getContent(): String{
+fun String.getContent(): String {
     var content = this
-    content = content.replace("<p>","").replace("</p>","")
-    content = content.replace("<br>","\n")
+    content = content.replace("<p>", "").replace("</p>", "")
+    content = content.replace("<br>", "\n")
     content = content.trim()
     return content
 }

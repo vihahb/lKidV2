@@ -25,10 +25,10 @@ import java.util.List;
 import java.util.Locale;
 
 public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder> {
+    static ImageItemClick imageItemClick;
     List<NewsEntity> newsList;
     Context context;
     LayoutInflater inflater;
-    static ImageItemClick imageItemClick;
 
     public AdapterNews(List<NewsEntity> newsList, Context context, ImageItemClick imageItemClick) {
         this.newsList = newsList;
@@ -81,12 +81,12 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder> {
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tv_news_name, tv_content, tv_time, tv_like, tv_comment;
-        private RoundImage img_avatar;
-        private RecyclerView rcl_image;
         //        private AdapterImageNews adapterImageNews;
         List<AlbumEntity> list;
         AdapterImageNews adapter;
+        private TextView tv_news_name, tv_content, tv_time, tv_like, tv_comment;
+        private RoundImage img_avatar;
+        private RecyclerView rcl_image;
 
         ViewHolder(View itemView) {
             super(itemView);

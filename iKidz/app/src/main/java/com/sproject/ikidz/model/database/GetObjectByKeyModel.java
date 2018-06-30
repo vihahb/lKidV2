@@ -46,5 +46,6 @@ public abstract class GetObjectByKeyModel<T extends RealmObject> extends AbsICmd
     }
 
     protected abstract void onSuccess(T object);
+
     protected abstract void onError(ErrorEntity message);
 }

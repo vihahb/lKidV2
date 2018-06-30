@@ -1,7 +1,6 @@
 package com.sproject.ikidz.model.server;
 
 import com.sproject.ikidz.model.BasicModel;
-import com.sproject.ikidz.model.RESP.RESP_DataEatTicket;
 import com.sproject.ikidz.model.RESP.RESP_ShuttlePickupPerson;
 import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.sdk.callback.AbsICmd;

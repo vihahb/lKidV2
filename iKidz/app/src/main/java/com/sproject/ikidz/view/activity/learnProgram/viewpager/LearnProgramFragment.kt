@@ -13,7 +13,7 @@ import com.sproject.ikidz.sdk.callback.ItemMoreActionGeneric
 import com.sproject.ikidz.view.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_data_week.*
 import java.io.Serializable
-import java.util.ArrayList
+import java.util.*
 
 class LearnProgramFragment : BaseFragment() {
 

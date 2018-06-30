@@ -17,14 +17,13 @@ class User {
     var role: Role? = null
     var person: Person? = null
 
-    var fbUser : FBUser? = null
-    set (value){
-        field = value
-        if (this == User.current && value != null)
-        {
-            value.fetchRoom()
+    var fbUser: FBUser? = null
+        set (value) {
+            field = value
+            if (this == User.current && value != null) {
+                value.fetchRoom()
+            }
         }
-    }
 
     constructor(userData: JSONObject?) {
         if (userData == null) {
@@ -46,7 +45,7 @@ class User {
         this.role = Role(userData.safe<JSONObject>("roles"))
     }
 
-    fun getFBUser(){
+    fun getFBUser() {
         val schoolCode = SharedUtils.getInstance().getStringValue(Constants.SCHOOL_CODE)
 //        val schoolCode = Sha[SettingKey.schoolCode]
 
@@ -57,21 +56,19 @@ class User {
             }
 
             override fun onSuccess(data: Any?) {
-                if (data == null){
+                if (data == null) {
                     setFBUser()
-                }
-                else
-                {
+                } else {
                     current?.fbUser = data as FBUser
                 }
             }
         })
     }
 
-    fun setFBUser(){
+    fun setFBUser() {
         val id = SharedUtils.getInstance().getStringValue(Constants.SCHOOL_CODE) + "_" + this.userId
         val newFBUser = FBUser(id, this.person!!.fullName, this.avatar)
-        FirebaseService.setUser(newFBUser, object: Callback{
+        FirebaseService.setUser(newFBUser, object : Callback {
             override fun onError(code: Int, message: String) {
                 current?.fbUser = null
             }
@@ -84,9 +81,9 @@ class User {
 
     companion object {
         var current: User? = null
-        set(value){
-            field = value
-            current?.getFBUser()
-        }
+            set(value) {
+                field = value
+                current?.getFBUser()
+            }
     }
 }

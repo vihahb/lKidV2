@@ -16,11 +16,10 @@ import static android.content.Context.WINDOW_SERVICE;
 
 public class CenteredTitleToolbar extends Toolbar {
 
+    Context context;
     private TextView _titleTextView;
     private int _screenWidth;
     private boolean _centerTitle = true;
-
-    Context context;
 
     public CenteredTitleToolbar(Context context) {
         super(context);

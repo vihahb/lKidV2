@@ -20,7 +20,7 @@ public class DisplayUtils {
 
     public static int DpToPx(int dp, Context context) {
         final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dp *scale + 0.5f);
+        return (int) (dp * scale + 0.5f);
     }
 
     public static int pxToDp(int px) {

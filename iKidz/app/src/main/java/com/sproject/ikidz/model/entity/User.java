@@ -3,10 +3,6 @@ package com.sproject.ikidz.model.entity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-import java.util.List;
-
-import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -82,7 +78,7 @@ public class User extends RealmObject {
      * @param userType
      */
 
-    public User(Integer id, String username, String userType, String avatar, String roleId, String email, String fullName, String base_url, String tokenFirebase,String schoolCode, Teachers teachers, Parents parents, Roles roles) {
+    public User(Integer id, String username, String userType, String avatar, String roleId, String email, String fullName, String base_url, String tokenFirebase, String schoolCode, Teachers teachers, Parents parents, Roles roles) {
         this.id = id;
         this.username = username;
         this.userType = userType;

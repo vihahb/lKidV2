@@ -13,8 +13,8 @@ import android.renderscript.ScriptIntrinsicBlur;
 
 public class BlurUtils {
     /**
-    * Dùng cho API 17 trở lên
-    * */
+     * Dùng cho API 17 trở lên
+     */
 
     private static final float BITMAP_SCALE = 0.4f;
     //    Càng giản thì càng nét

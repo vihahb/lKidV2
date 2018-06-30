@@ -1,24 +1,23 @@
 package com.sproject.ikidz.view.activity.learnOverTime.fragment;
 
 import android.content.Context;
-        import android.graphics.Typeface;
-        import android.support.annotation.NonNull;
-        import android.support.v7.widget.RecyclerView;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
+import android.graphics.Typeface;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-        import com.sproject.ikidz.R;
-        import com.sproject.ikidz.model.entity.DrugEntity;
+import com.sproject.ikidz.R;
 import com.sproject.ikidz.model.entity.LearnOverTimeEntity;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
-        import com.sproject.ikidz.sdk.Utils.TextUtils;
-        import com.sproject.ikidz.sdk.Utils.WidgetUtils;
-        import com.sproject.ikidz.sdk.callback.ItemClickListener;
+import com.sproject.ikidz.sdk.Utils.TextUtils;
+import com.sproject.ikidz.sdk.Utils.WidgetUtils;
+import com.sproject.ikidz.sdk.callback.ItemClickListener;
 
-        import java.util.List;
+import java.util.List;
 
 public class AdapterLearnOTFragment extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     List<LearnOverTimeEntity> list;
@@ -80,7 +79,7 @@ public class AdapterLearnOTFragment extends RecyclerView.Adapter<RecyclerView.Vi
             if (Integer.parseInt(data.getReceived()) == 0) {
                 tv_name.setTypeface(tv_name.getTypeface(), Typeface.BOLD_ITALIC);
                 img_state.setVisibility(View.GONE);
-            }else if (Integer.parseInt(data.getReceived()) == 1 && data.getTimePick() != null) {
+            } else if (Integer.parseInt(data.getReceived()) == 1 && data.getTimePick() != null) {
                 img_state.setImageResource(R.mipmap.ic_check_done);
                 img_state.setVisibility(View.VISIBLE);
                 tv_name.setTypeface(tv_name.getTypeface(), Typeface.NORMAL);

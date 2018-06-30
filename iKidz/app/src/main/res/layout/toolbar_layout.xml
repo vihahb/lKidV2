@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:theme="@style/AppTheme.AppBarOverlay"
-    tools:showIn="@layout/activity_home"
-    app:elevation="0dp">
+    app:elevation="0dp"
+    tools:showIn="@layout/activity_home">
 
     <com.sproject.ikidz.sdk.Utils.CenteredToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="57dp"
-        android:gravity="center"
         android:background="@color/colorPrimary"
+        android:gravity="center"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:titleTextAppearance="@style/App.Theme.ToolbarTitleUppercase"
-        tools:ignore="RtlSymmetry"/>
+        tools:ignore="RtlSymmetry" />
 
 </android.support.design.widget.AppBarLayout>

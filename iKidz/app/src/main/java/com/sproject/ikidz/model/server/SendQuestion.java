@@ -1,10 +1,8 @@
 package com.sproject.ikidz.model.server;
 
 import com.sproject.ikidz.model.BasicModel;
-import com.sproject.ikidz.model.RESP.RESP_Basic;
 import com.sproject.ikidz.model.RESP.RESP_DataAnswer;
 import com.sproject.ikidz.model.entity.AnswerParams;
-import com.sproject.ikidz.model.entity.DataParamsAddLearnEntity;
 import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.sdk.Utils.JsonHelper;
 import com.sproject.ikidz.sdk.callback.AbsICmd;

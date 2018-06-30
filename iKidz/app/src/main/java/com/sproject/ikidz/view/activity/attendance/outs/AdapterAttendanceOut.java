@@ -21,6 +21,7 @@ import com.sproject.ikidz.sdk.Utils.SharedUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
 //
 public class AdapterAttendanceOut extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Filterable {
     private static final String TAG = "AdapterAttendanceIn";
@@ -70,6 +71,11 @@ public class AdapterAttendanceOut extends RecyclerView.Adapter<RecyclerView.View
         notifyItemRangeChanged(0, data.size());
     }
 
+    public void filterList(List<AttendanceOut> filterdNames) {
+        this.data = filterdNames;
+        notifyDataSetChanged();
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tv_number, tv_name;
@@ -113,10 +119,5 @@ public class AdapterAttendanceOut extends RecyclerView.Adapter<RecyclerView.View
 
 
         }
-    }
-
-    public void filterList(List<AttendanceOut> filterdNames) {
-        this.data = filterdNames;
-        notifyDataSetChanged();
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_edittext_login"
+    android:orientation="vertical"
+    android:padding="@dimen/size_8">
+
+    <TextView
+        android:id="@+id/tv_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nhận xét"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/font_14" />
+
+    <ImageView
+        android:id="@+id/img_down"
+        android:layout_width="@dimen/size_16"
+        android:layout_height="@dimen/size_16"
+        android:layout_gravity="right|center_vertical"
+        android:rotation="90"
+        android:src="@mipmap/ic_arrow_right" />
+
+</FrameLayout>

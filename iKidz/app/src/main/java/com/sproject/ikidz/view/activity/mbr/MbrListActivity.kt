@@ -13,7 +13,7 @@ import com.sproject.ikidz.view.activity.mbr.info.MbrInfoActivity
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_mbr_list.*
 import java.io.Serializable
-import java.util.ArrayList
+import java.util.*
 
 class MbrListActivity : BaseActivity(), IMbr {
     override fun getMrbSuccess(list: List<StudentsEntity>) {

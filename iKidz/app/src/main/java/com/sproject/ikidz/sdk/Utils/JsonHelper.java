@@ -16,8 +16,8 @@ import java.util.List;
  * Email: vihahb@gmail.com
  */
 public class JsonHelper {
-    private static Gson gson;
     private static final String TAG = "JsonHelper";
+    private static Gson gson;
 
     static {
         if (gson == null)

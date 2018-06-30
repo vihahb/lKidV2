@@ -7,17 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.model.entity.AbsentEntity;
-import com.sproject.ikidz.model.entity.StudentsEntity;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.Utils.WidgetUtils;
 import com.sproject.ikidz.sdk.callback.ItemClickListener;
-import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 
 import org.jetbrains.annotations.NotNull;
 

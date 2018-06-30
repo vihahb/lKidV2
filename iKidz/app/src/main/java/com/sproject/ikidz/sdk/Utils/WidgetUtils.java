@@ -22,7 +22,7 @@ import java.io.File;
  */
 public class WidgetUtils {
     private static final String TAG = "WidgetUtils";
-    
+
     /**
      * Image
      */
@@ -86,7 +86,7 @@ public class WidgetUtils {
         String urls = SharedUtils.getInstance().getStringValue(Constants.BASE_URL) + url;
 
         iKidApplications.log(TAG, "url = " + url);
-        
+
         Picasso.with(iKidApplications.context)
                 .load(urls)
                 .noPlaceholder()
@@ -95,7 +95,8 @@ public class WidgetUtils {
                 .centerCrop()
                 .into(view, callback);
     }
-public static void setImageNotBaseURL(ImageView view, final String url, int resource, Callback callback) {
+
+    public static void setImageNotBaseURL(ImageView view, final String url, int resource, Callback callback) {
         if (TextUtils.isEmpty(url)) {
             view.setImageResource(resource);
             callback.onError();

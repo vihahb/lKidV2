@@ -60,12 +60,13 @@ public class AdapterLearnProgram extends RecyclerView.Adapter<RecyclerView.ViewH
         public void setData(ContentEntity entity, int position) {
             tv_day.setText("Thứ " + entity.getDay() + " - Ngày " + entity.getDate());
 
-            if (!TextUtils.isEmpty(entity.getContent())) {
-                String[] arr = entity.getContent().split("</span>");
-                String content = arr[0] + arr[1];
-                String content_2 = arr[2] + arr[3];
-                tv_content.setText(Html.fromHtml(content));
-                tv_content_2.setText(Html.fromHtml(content_2));
+            if (!TextUtils.isEmpty(entity.getContentMorning())) {
+                String morning = "<b>Buổi sáng: </b><br>" + entity.getContentMorning();
+                tv_content.setText(Html.fromHtml(morning));
+            }
+            if (!TextUtils.isEmpty(entity.getContentAfternoon())) {
+                String afternoon = "<b>Buổi chiều: </b><br>" + entity.getContentAfternoon();
+                tv_content_2.setText(Html.fromHtml(afternoon));
             }
         }
     }

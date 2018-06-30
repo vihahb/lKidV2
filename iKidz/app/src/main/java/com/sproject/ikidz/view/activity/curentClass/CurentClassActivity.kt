@@ -13,7 +13,7 @@ import com.sproject.ikidz.sdk.Utils.TextUtils
 import com.sproject.ikidz.sdk.callback.ItemClickListener
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_curent_class.*
-import java.util.ArrayList
+import java.util.*
 
 class CurentClassActivity : BaseActivity(), ICurrentClass, SearchView.OnQueryTextListener {
     override fun getCurrentClassSuccess(data: List<StudentEntity>) {

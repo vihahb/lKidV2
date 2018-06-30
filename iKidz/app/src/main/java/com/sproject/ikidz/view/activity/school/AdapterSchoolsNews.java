@@ -11,10 +11,8 @@ import android.widget.TextView;
 
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.iKidApplications;
-import com.sproject.ikidz.model.entity.CareNewsEntity;
 import com.sproject.ikidz.model.entity.NewsEntity;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
-import com.sproject.ikidz.sdk.Utils.TimeUtils;
 import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;

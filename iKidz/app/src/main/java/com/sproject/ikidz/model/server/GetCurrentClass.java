@@ -8,7 +8,7 @@ import com.sproject.ikidz.sdk.Utils.JsonHelper;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
 import com.sproject.ikidz.sdk.callback.ResponseHandle;
 
-public abstract class GetCurrentClass extends AbsICmd{
+public abstract class GetCurrentClass extends AbsICmd {
 
     String link_api, token;
     SendGetClassInfo getClass;
@@ -44,5 +44,6 @@ public abstract class GetCurrentClass extends AbsICmd{
     }
 
     protected abstract void onSuccess(RESP_CurrentClass data);
+
     protected abstract void onError(ErrorEntity s);
 }

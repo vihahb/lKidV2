@@ -10,7 +10,7 @@ import com.google.gson.annotations.Expose;
  * Email: vihahb@gmail.com
  */
 public class UserLogin {
-@Expose
+    @Expose
     private String user;
     @Expose
     private String pass;

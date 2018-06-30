@@ -31,38 +31,42 @@
                 android:background="@drawable/round_edittext_login"
                 android:gravity="center"
                 android:orientation="vertical">
+
                 <FrameLayout
                     android:layout_width="@dimen/size_90"
                     android:layout_height="wrap_content">
+
                     <ImageView
-                        android:layout_gravity="center"
                         android:layout_width="@dimen/size_60"
                         android:layout_height="@dimen/size_60"
+                        android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/size_8"
                         android:layout_marginTop="@dimen/font_16"
                         android:src="@mipmap/sleep" />
+
                     <TextView
-                        android:visibility="gone"
-                        android:layout_marginTop="@dimen/size_16"
-                        android:layout_marginLeft="@dimen/size_16"
                         android:id="@+id/tv_notify_class"
                         android:layout_width="@dimen/size_20"
                         android:layout_height="@dimen/size_20"
-                        android:background="@drawable/notify_feature"/>
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:background="@drawable/notify_feature"
+                        android:visibility="gone" />
                 </FrameLayout>
 
                 <TextView
-                    android:lines="2"
-                    android:paddingLeft="@dimen/size_8"
-                    android:paddingRight="@dimen/size_8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/size_8"
                     android:gravity="center"
+                    android:lines="2"
+                    android:paddingLeft="@dimen/size_8"
+                    android:paddingRight="@dimen/size_8"
                     android:text="Hoạt động ngủ" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ln_eat_activity"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/size_5"
@@ -77,21 +81,23 @@
                 <FrameLayout
                     android:layout_width="@dimen/size_90"
                     android:layout_height="wrap_content">
+
                     <ImageView
-                        android:layout_gravity="center"
                         android:layout_width="@dimen/size_60"
                         android:layout_height="@dimen/size_60"
+                        android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/size_8"
                         android:layout_marginTop="@dimen/font_16"
                         android:src="@mipmap/eat" />
+
                     <TextView
-                        android:visibility="gone"
-                        android:layout_marginTop="@dimen/size_16"
-                        android:layout_marginLeft="@dimen/size_16"
                         android:id="@+id/tv_notify_School"
                         android:layout_width="@dimen/size_20"
                         android:layout_height="@dimen/size_20"
-                        android:background="@drawable/notify_feature"/>
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:background="@drawable/notify_feature"
+                        android:visibility="gone" />
                 </FrameLayout>
 
                 <TextView
@@ -129,21 +135,23 @@
                 <FrameLayout
                     android:layout_width="@dimen/size_90"
                     android:layout_height="wrap_content">
+
                     <ImageView
-                        android:layout_gravity="center"
                         android:layout_width="@dimen/size_60"
                         android:layout_height="@dimen/size_60"
+                        android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/size_8"
                         android:layout_marginTop="@dimen/font_16"
                         android:src="@mipmap/attendance" />
+
                     <TextView
-                        android:visibility="gone"
-                        android:layout_marginTop="@dimen/size_16"
-                        android:layout_marginLeft="@dimen/size_16"
                         android:id="@+id/tv_notify_3"
                         android:layout_width="@dimen/size_20"
                         android:layout_height="@dimen/size_20"
-                        android:background="@drawable/notify_feature"/>
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:background="@drawable/notify_feature"
+                        android:visibility="gone" />
                 </FrameLayout>
 
                 <TextView
@@ -227,21 +235,23 @@
                 <FrameLayout
                     android:layout_width="@dimen/size_90"
                     android:layout_height="wrap_content">
+
                     <ImageView
-                        android:layout_gravity="center"
                         android:layout_width="@dimen/size_60"
                         android:layout_height="@dimen/size_60"
+                        android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/size_8"
                         android:layout_marginTop="@dimen/font_16"
                         android:src="@mipmap/heart" />
+
                     <TextView
-                        android:visibility="gone"
-                        android:layout_marginTop="@dimen/size_16"
-                        android:layout_marginLeft="@dimen/size_16"
                         android:id="@+id/tv_notify_activity_other"
                         android:layout_width="@dimen/size_20"
                         android:layout_height="@dimen/size_20"
-                        android:background="@drawable/notify_feature"/>
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:background="@drawable/notify_feature"
+                        android:visibility="gone" />
                 </FrameLayout>
 
                 <TextView
@@ -270,21 +280,23 @@
                 <FrameLayout
                     android:layout_width="@dimen/size_90"
                     android:layout_height="wrap_content">
+
                     <ImageView
-                        android:layout_gravity="center"
                         android:layout_width="@dimen/size_60"
                         android:layout_height="@dimen/size_60"
+                        android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/size_8"
                         android:layout_marginTop="@dimen/font_16"
                         android:src="@mipmap/picture_60" />
+
                     <TextView
-                        android:visibility="gone"
-                        android:layout_marginTop="@dimen/size_16"
-                        android:layout_marginLeft="@dimen/size_16"
                         android:id="@+id/tv_notify_learn"
                         android:layout_width="@dimen/size_20"
                         android:layout_height="@dimen/size_20"
-                        android:background="@drawable/notify_feature"/>
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:background="@drawable/notify_feature"
+                        android:visibility="gone" />
                 </FrameLayout>
 
                 <TextView
@@ -322,21 +334,23 @@
                 <FrameLayout
                     android:layout_width="@dimen/size_90"
                     android:layout_height="wrap_content">
+
                     <ImageView
-                        android:layout_gravity="center"
                         android:layout_width="@dimen/size_60"
                         android:layout_height="@dimen/size_60"
+                        android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/size_8"
                         android:layout_marginTop="@dimen/font_16"
                         android:src="@mipmap/hocba" />
+
                     <TextView
-                        android:visibility="gone"
-                        android:layout_marginTop="@dimen/size_16"
-                        android:layout_marginLeft="@dimen/size_16"
                         android:id="@+id/tv_notify_vote"
                         android:layout_width="@dimen/size_20"
                         android:layout_height="@dimen/size_20"
-                        android:background="@drawable/notify_feature"/>
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:background="@drawable/notify_feature"
+                        android:visibility="gone" />
                 </FrameLayout>
 
                 <TextView
@@ -366,21 +380,23 @@
                 <FrameLayout
                     android:layout_width="@dimen/size_90"
                     android:layout_height="wrap_content">
+
                     <ImageView
-                        android:layout_gravity="center"
                         android:layout_width="@dimen/size_60"
                         android:layout_height="@dimen/size_60"
+                        android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/size_8"
                         android:layout_marginTop="@dimen/font_16"
                         android:src="@mipmap/ic_hoat_dong_hoc" />
+
                     <TextView
-                        android:layout_marginTop="@dimen/size_16"
-                        android:layout_marginLeft="@dimen/size_16"
-                        android:visibility="gone"
                         android:id="@+id/tv_learn_activitys"
                         android:layout_width="@dimen/size_20"
                         android:layout_height="@dimen/size_20"
-                        android:background="@drawable/notify_feature"/>
+                        android:layout_marginLeft="@dimen/size_16"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:background="@drawable/notify_feature"
+                        android:visibility="gone" />
                 </FrameLayout>
 
                 <TextView

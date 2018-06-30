@@ -13,7 +13,7 @@ fun RecyclerView.addOnItemClickListener(context: Context,
                                         listener: RecyclerItemClickListener)
         : RecyclerView.OnItemTouchListener {
 
-    class RecyclerItemClickListener: RecyclerView.OnItemTouchListener {
+    class RecyclerItemClickListener : RecyclerView.OnItemTouchListener {
         internal var mGestureDetector: GestureDetector
 
         init {

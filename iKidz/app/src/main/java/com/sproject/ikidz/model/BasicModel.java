@@ -13,9 +13,6 @@ import com.sproject.ikidz.sdk.Utils.RequestOkHttp;
 public class BasicModel {
 
     public static String LOGIN_API = "login";
-    public RequestOkHttp requestServer = new RequestOkHttp();
-    public RequestIon requestIonServer = new RequestIon();
-
     public static String MANAGER_LINK_API = "http://manager.ikidz.edu.vn/api/";
     public static String OLD_VERSION_API = "v1/";
     public static String VERSION_API = "v3/";
@@ -24,4 +21,6 @@ public class BasicModel {
     public static String DISTRICT_API = "get-district";
     public static String SCHOOL_API = "get-school";
     public static String GET_SCHOOL_BY_DISTRICT = "get-school-by-district";
+    public RequestOkHttp requestServer = new RequestOkHttp();
+    public RequestIon requestIonServer = new RequestIon();
 }

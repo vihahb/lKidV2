@@ -28,39 +28,42 @@
                     android:id="@+id/img_user_ava_bg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerInside"
-                    android:background="@color/white_100" />
+                    android:background="@color/white_100"
+                    android:scaleType="centerInside" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/black_40"/>
+                    android:background="@color/black_40" />
 
                 <FrameLayout
-                    android:layout_gravity="center"
                     android:layout_width="@dimen/size_110"
-                    android:layout_height="@dimen/size_110">
+                    android:layout_height="@dimen/size_110"
+                    android:layout_gravity="center">
+
                     <com.sproject.ikidz.sdk.Utils.RoundImage
                         android:id="@+id/img_user_ava"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="match_parent" />
+
                     <ImageView
-                        android:visibility="gone"
                         android:id="@+id/btnChangePicture"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@drawable/round_img_gray"
                         android:src="@drawable/ic_action_camera"
-                        android:background="@drawable/round_img_gray"/>
+                        android:visibility="gone" />
                 </FrameLayout>
             </FrameLayout>
 
             <LinearLayout
-                android:paddingLeft="@dimen/size_16"
-                android:paddingRight="@dimen/size_16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_8"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/size_8">
+                android:paddingBottom="@dimen/size_8"
+                android:paddingLeft="@dimen/size_16"
+                android:paddingRight="@dimen/size_16">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -70,31 +73,31 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:enabled="false"
                     android:id="@+id/edt_full_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/size_4"
                     android:background="@drawable/custom_edit_text_profile"
+                    android:enabled="false"
                     android:hint="Ho va ten"
-                    android:textSize="@dimen/font_14"
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:paddingBottom="@dimen/size_4"
                     android:paddingLeft="@dimen/size_12"
                     android:paddingRight="@dimen/size_12"
                     android:paddingTop="@dimen/size_4"
-                    android:textColor="@color/black_85" />
+                    android:textColor="@color/black_85"
+                    android:textSize="@dimen/font_14" />
             </LinearLayout>
 
             <LinearLayout
-                android:paddingLeft="@dimen/size_16"
-                android:paddingRight="@dimen/size_16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_8"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/size_8">
+                android:paddingBottom="@dimen/size_8"
+                android:paddingLeft="@dimen/size_16"
+                android:paddingRight="@dimen/size_16">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -104,37 +107,37 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:enabled="false"
                     android:id="@+id/edt_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/size_4"
                     android:background="@drawable/custom_edit_text_profile"
+                    android:enabled="false"
                     android:hint="Email"
-                    android:textSize="@dimen/font_14"
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:paddingBottom="@dimen/size_4"
                     android:paddingLeft="@dimen/size_12"
                     android:paddingRight="@dimen/size_12"
                     android:paddingTop="@dimen/size_4"
-                    android:textColor="@color/black_85" />
+                    android:textColor="@color/black_85"
+                    android:textSize="@dimen/font_14" />
             </LinearLayout>
 
             <LinearLayout
-                android:enabled="false"
-                android:paddingLeft="@dimen/size_16"
-                android:paddingRight="@dimen/size_16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_8"
+                android:enabled="false"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/size_8">
+                android:paddingBottom="@dimen/size_8"
+                android:paddingLeft="@dimen/size_16"
+                android:paddingRight="@dimen/size_16">
 
                 <TextView
-                    android:enabled="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:enabled="false"
                     android:text="Giới tính"
                     android:textSize="@dimen/font_16"
                     android:textStyle="bold" />
@@ -151,13 +154,13 @@
             </LinearLayout>
 
             <LinearLayout
-                android:paddingLeft="@dimen/size_16"
-                android:paddingRight="@dimen/size_16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_8"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/size_8">
+                android:paddingBottom="@dimen/size_8"
+                android:paddingLeft="@dimen/size_16"
+                android:paddingRight="@dimen/size_16">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -167,13 +170,12 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:enabled="false"
                     android:id="@+id/edt_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/size_4"
-                    android:textSize="@dimen/font_14"
                     android:background="@drawable/custom_edit_text_profile"
+                    android:enabled="false"
                     android:hint="Sđt"
                     android:imeOptions="actionNext"
                     android:inputType="text"
@@ -181,23 +183,24 @@
                     android:paddingLeft="@dimen/size_12"
                     android:paddingRight="@dimen/size_12"
                     android:paddingTop="@dimen/size_4"
-                    android:textColor="@color/black_85" />
+                    android:textColor="@color/black_85"
+                    android:textSize="@dimen/font_14" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnUpdateAcc"
-                android:visibility="invisible"
-                android:layout_marginLeft="@dimen/size_16"
-                android:layout_marginRight="@dimen/size_16"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/size_40"
                 android:layout_marginBottom="@dimen/size_8"
+                android:layout_marginLeft="@dimen/size_16"
+                android:layout_marginRight="@dimen/size_16"
                 android:layout_marginTop="@dimen/size_8"
                 android:background="@drawable/button_round_color_primary"
                 android:text="@string/action_update_profile"
                 android:textAllCaps="true"
                 android:textColor="@color/white_100"
-                android:textSize="@dimen/font_16" />
+                android:textSize="@dimen/font_16"
+                android:visibility="invisible" />
         </LinearLayout>
     </ScrollView>
 

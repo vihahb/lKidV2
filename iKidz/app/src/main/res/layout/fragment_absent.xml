@@ -9,9 +9,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="@string/mesage_no_data"
         android:paddingLeft="@dimen/size_48"
         android:paddingRight="@dimen/size_48"
+        android:text="@string/mesage_no_data"
         android:textSize="@dimen/font_16"
         android:visibility="gone" />
 

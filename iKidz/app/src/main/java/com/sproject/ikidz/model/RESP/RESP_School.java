@@ -2,7 +2,6 @@ package com.sproject.ikidz.model.RESP;
 
 import com.google.gson.annotations.Expose;
 import com.sproject.ikidz.model.entity.School;
-import com.sproject.ikidz.model.entity.SchoolByDistrict;
 
 import java.util.List;
 

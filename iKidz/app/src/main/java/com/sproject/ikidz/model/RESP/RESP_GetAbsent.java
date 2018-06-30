@@ -1,10 +1,7 @@
 package com.sproject.ikidz.model.RESP;
 
 import com.google.gson.annotations.Expose;
-import com.sproject.ikidz.model.entity.AbsentEntity;
 import com.sproject.ikidz.model.entity.DataAbsent;
-
-import java.util.List;
 
 public class RESP_GetAbsent extends RESP_Basic {
     @Expose

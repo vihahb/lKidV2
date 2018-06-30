@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".view.activity.learnActivity.LearnActivity">
 
@@ -28,6 +28,7 @@
         <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -93,28 +94,29 @@
                 </LinearLayout>
 
                 <View
-                    android:layout_marginLeft="@dimen/size_16"
-                    android:layout_marginRight="@dimen/size_16"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/size_0_5"
+                    android:layout_marginLeft="@dimen/size_16"
+                    android:layout_marginRight="@dimen/size_16"
                     android:background="@color/black_40" />
 
 
                 <android.support.v7.widget.RecyclerView
-                    android:paddingLeft="@dimen/size_16"
-                    android:paddingRight="@dimen/size_16"
                     android:id="@+id/rcl_learn_activity"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/size_16"
+                    android:paddingRight="@dimen/size_16" />
             </LinearLayout>
+
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
                 android:layout_margin="16dp"
-                app:backgroundTint="@color/green_dark"
                 android:src="@drawable/ic_plus"
+                app:backgroundTint="@color/green_dark"
                 app:fabSize="auto" />
         </android.support.design.widget.CoordinatorLayout>
 

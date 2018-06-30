@@ -11,7 +11,7 @@ import com.sproject.ikidz.model.server.GetLearnActivity
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.NetworkUtils
 import com.sproject.ikidz.sdk.Utils.SharedUtils
-import java.util.ArrayList
+import java.util.*
 
 class LearnActivityPresenter(private var view: ILearnActivityView) {
     fun getLearnActivity(page: Int) {

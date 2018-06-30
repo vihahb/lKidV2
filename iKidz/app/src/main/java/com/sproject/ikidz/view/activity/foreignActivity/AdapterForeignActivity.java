@@ -13,7 +13,6 @@ import com.sproject.ikidz.R;
 import com.sproject.ikidz.iKidApplications;
 import com.sproject.ikidz.model.entity.ForeignActivityEntity;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
-import com.sproject.ikidz.sdk.callback.ItemClickListener;
 import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;

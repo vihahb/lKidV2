@@ -16,17 +16,14 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.model.RESP.RESP_DataNews;
-import com.sproject.ikidz.model.entity.AlbumEntity;
 import com.sproject.ikidz.model.entity.NewsEntity;
 import com.sproject.ikidz.model.entity.viewObject.Feature;
 import com.sproject.ikidz.presenter.news.NewsPresenter;
 import com.sproject.ikidz.sdk.Commons.Constants;
 import com.sproject.ikidz.sdk.Utils.SharedUtils;
-import com.sproject.ikidz.sdk.callback.ImageItemClick;
 import com.sproject.ikidz.view.fragment.news.main_feature.AdapterMainFeature;
 import com.sproject.ikidz.view.fragment.news.showImage.ShowImageActivity;
 
@@ -50,12 +47,10 @@ public class NewsfeedFragment extends Fragment implements NewsInf {
 //    private static int firstVisibleInListview;
 
     boolean notScrolling = true;
-    private boolean setGrid = true;
-
-    private NewsPresenter presenter;
-
     int page = 1;
     int mTotal_Size = 0;
+    private boolean setGrid = true;
+    private NewsPresenter presenter;
 
     public static NewsfeedFragment newInstance() {
         Bundle args = new Bundle();

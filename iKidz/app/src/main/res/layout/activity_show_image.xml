@@ -9,10 +9,10 @@
     tools:context=".view.fragment.news.showImage.ShowImageActivity">
 
     <LinearLayout
-        android:paddingLeft="@dimen/size_8"
-        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_48">
+        android:layout_height="@dimen/size_48"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/size_8">
 
         <ImageView
             android:id="@+id/img_back"
@@ -37,38 +37,38 @@
 
         <FrameLayout
             android:id="@+id/fr_prev"
-            android:layout_marginLeft="@dimen/size_8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="@dimen/size_8"
             android:background="@drawable/round_black">
 
             <ImageView
                 android:id="@+id/img_prev"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/size_4"
                 android:layout_gravity="center"
                 android:contentDescription="@string/app_name"
+                android:padding="@dimen/size_4"
                 android:src="@drawable/ic_action_back" />
         </FrameLayout>
 
         <FrameLayout
             android:id="@+id/fr_next"
-            android:layout_marginRight="@dimen/size_8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="@dimen/size_8"
             android:background="@drawable/round_black">
 
             <ImageView
                 android:id="@+id/img_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/size_4"
-                android:rotation="180"
                 android:layout_gravity="center"
                 android:contentDescription="@string/app_name"
+                android:padding="@dimen/size_4"
+                android:rotation="180"
                 android:src="@drawable/ic_action_back" />
         </FrameLayout>
     </FrameLayout>

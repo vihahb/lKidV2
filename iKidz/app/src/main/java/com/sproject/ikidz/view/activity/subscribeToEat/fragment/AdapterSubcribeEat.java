@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.model.entity.EatTicketEntity;
-import com.sproject.ikidz.model.entity.ProfileEntity;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.Utils.WidgetUtils;

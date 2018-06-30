@@ -12,6 +12,7 @@ import com.sproject.ikidz.sdk.Utils.TimeUtils
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_attendance_out.*
 import java.util.*
+
 //
 class AttendanceOutActivity : BaseActivity(), IAttendanceOutActivity, SearchView.OnQueryTextListener {
     override fun onQueryTextSubmit(query: String?): Boolean {

@@ -5,15 +5,15 @@ import com.google.gson.annotations.SerializedName;
 
 public class ParamsOtherActivitysEntity {
 
-@SerializedName("date")
-@Expose
-private String date;
-@SerializedName("start_time")
-@Expose
-private String startTime;
-@SerializedName("end_time")
-@Expose
-private String endTime;
+    @SerializedName("date")
+    @Expose
+    private String date;
+    @SerializedName("start_time")
+    @Expose
+    private String startTime;
+    @SerializedName("end_time")
+    @Expose
+    private String endTime;
 
     public ParamsOtherActivitysEntity(String date, String startTime, String endTime) {
         this.date = date;
@@ -22,28 +22,28 @@ private String endTime;
     }
 
     public String getDate() {
-return date;
-}
+        return date;
+    }
 
-public void setDate(String date) {
-this.date = date;
-}
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-public String getStartTime() {
-return startTime;
-}
+    public String getStartTime() {
+        return startTime;
+    }
 
-public void setStartTime(String startTime) {
-this.startTime = startTime;
-}
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
 
-public String getEndTime() {
-return endTime;
-}
+    public String getEndTime() {
+        return endTime;
+    }
 
-public void setEndTime(String endTime) {
-this.endTime = endTime;
-}
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
 
 
     @Override

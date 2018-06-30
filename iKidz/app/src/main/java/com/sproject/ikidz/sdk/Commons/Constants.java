@@ -1,7 +1,5 @@
 package com.sproject.ikidz.sdk.Commons;
 
-import org.jetbrains.annotations.Nullable;
-
 /**
  * Created by User: Vi-PC
  * Author: Vũ Hà Vi
@@ -34,8 +32,8 @@ public class Constants {
     public static final String TITLE = "TITLE";
     public static final String OBJECT = "object";
     public static final String EAT_TYPE = "eat_type";
+    public static final String SCHOOL_CODE = "school_code";
     public static int TYPE_VIEW = 1;
     public static int TYPE_EDIT = 2;
     public static int TYPE_ADD = 1;
-    public static final String SCHOOL_CODE ="school_code";
 }

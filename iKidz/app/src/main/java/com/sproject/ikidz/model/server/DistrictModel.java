@@ -15,9 +15,8 @@ import com.sproject.ikidz.sdk.callback.ResponseHandle;
  * Email: vihahb@gmail.com
  */
 public abstract class DistrictModel extends AbsICmd {
-    private BasicModel basicModel = new BasicModel();
-
     int pid;
+    private BasicModel basicModel = new BasicModel();
 
     public DistrictModel(int pid) {
         this.pid = pid;

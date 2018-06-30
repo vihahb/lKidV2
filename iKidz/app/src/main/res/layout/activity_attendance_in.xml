@@ -6,83 +6,84 @@
     android:orientation="vertical"
     tools:context=".view.activity.attendance.in.AttendanceInActivity">
 
-    <include layout="@layout/toolbar_layout"/>
+    <include layout="@layout/toolbar_layout" />
 
     <LinearLayout
-        android:paddingTop="@dimen/size_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:paddingBottom="@dimen/size_8"
         android:paddingLeft="@dimen/size_8"
         android:paddingRight="@dimen/size_8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:paddingTop="@dimen/size_8">
 
         <TextView
-            android:text="Chọn ngày"
-            android:textStyle="bold"
-            android:textColor="@color/black_75"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Chọn ngày"
+            android:textColor="@color/black_75"
+            android:textStyle="bold" />
+
         <EditText
-            android:longClickable="false"
             android:id="@+id/edt_time"
-            android:focusableInTouchMode="false"
-            android:paddingLeft="@dimen/size_8"
-            android:paddingBottom="@dimen/size_4"
-            android:paddingTop="@dimen/size_4"
-            android:textSize="@dimen/font_14"
-            android:layout_marginLeft="@dimen/size_8"
-            android:background="@drawable/custom_edit_text_attended"
-            android:layout_weight="1"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_8"
+            android:layout_weight="1"
+            android:background="@drawable/custom_edit_text_attended"
+            android:focusableInTouchMode="false"
+            android:longClickable="false"
+            android:paddingBottom="@dimen/size_4"
+            android:paddingLeft="@dimen/size_8"
+            android:paddingTop="@dimen/size_4"
             android:textColor="@color/colorPrimary"
-            android:layout_height="wrap_content" />
+            android:textSize="@dimen/font_14" />
 
         <Button
-            android:layout_marginLeft="@dimen/size_8"
             android:id="@+id/btn_update"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/size_30"
+            android:layout_marginLeft="@dimen/size_8"
+            android:background="@drawable/button_radius_color_primary"
             android:text="Cập nhật"
-            android:textSize="@dimen/font_12"
-            android:textColor="@color/white_100"
             android:textAllCaps="false"
-            android:background="@drawable/button_radius_color_primary"/>
+            android:textColor="@color/white_100"
+            android:textSize="@dimen/font_12" />
     </LinearLayout>
 
     <LinearLayout
-        android:paddingLeft="@dimen/size_8"
-        android:paddingRight="@dimen/size_8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/size_8"
+        android:paddingRight="@dimen/size_8">
 
         <!--<EditText-->
-            <!--android:id="@+id/edt_filter"-->
-            <!--android:hint="Tìm theo tên học sinh"-->
-            <!--android:background="@drawable/custom_edittext_attended_search"-->
-            <!--android:layout_weight="1"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:textSize="@dimen/font_14"-->
-            <!--android:paddingLeft="@dimen/size_32"-->
-            <!--android:paddingBottom="@dimen/size_4"-->
-            <!--android:paddingTop="@dimen/size_4"-->
-            <!--android:layout_height="wrap_content"/>-->
+        <!--android:id="@+id/edt_filter"-->
+        <!--android:hint="Tìm theo tên học sinh"-->
+        <!--android:background="@drawable/custom_edittext_attended_search"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:textSize="@dimen/font_14"-->
+        <!--android:paddingLeft="@dimen/size_32"-->
+        <!--android:paddingBottom="@dimen/size_4"-->
+        <!--android:paddingTop="@dimen/size_4"-->
+        <!--android:layout_height="wrap_content"/>-->
 
         <CheckBox
             android:id="@+id/chk_check_all_out"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/size_36"
+            android:background="@android:color/transparent"
             android:text="Chọn tất đến lớp"
-            android:textSize="@dimen/font_11"
-            android:textColor="@color/black_65"
             android:textAllCaps="false"
-            android:background="@android:color/transparent"/>
+            android:textColor="@color/black_65"
+            android:textSize="@dimen/font_11" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rcl_attendanced_in"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

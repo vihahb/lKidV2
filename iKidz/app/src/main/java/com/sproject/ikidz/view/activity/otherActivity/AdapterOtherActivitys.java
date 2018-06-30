@@ -19,6 +19,7 @@ import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+
 public class AdapterOtherActivitys extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     List<OtherActivitysEntity> data;
     Context context;

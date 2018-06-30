@@ -11,8 +11,9 @@ import com.sproject.ikidz.R;
 
 import java.util.Objects;
 
-public abstract class BaseFragment extends Fragment implements IBasicActivity{
+public abstract class BaseFragment extends Fragment implements IBasicActivity {
     private Dialog progressDialog;
+
     @Override
     public void showLongToast(String message) {
         Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();

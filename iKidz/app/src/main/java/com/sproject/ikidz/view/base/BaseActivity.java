@@ -12,13 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ravikoradiya.library.CenterTitle;
-import com.ravikoradiya.library.CenterTitleKt;
 import com.sproject.ikidz.R;
-import com.sproject.ikidz.iKidApplications;
-import com.sproject.ikidz.sdk.Utils.CenteredTitleToolbar;
 import com.sproject.ikidz.sdk.Utils.CenteredToolbar;
-import com.sproject.ikidz.sdk.Utils.DisplayUtils;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -26,8 +21,8 @@ import java.util.Objects;
 public abstract class BaseActivity extends AppCompatActivity implements IBasicActivity {
 
     boolean isWaitingForExit = false;
-    private Dialog progressDialog;
     Toolbar toolbar;
+    private Dialog progressDialog;
 
     public void initToolbar(String title, boolean showBack) {
         toolbar = (CenteredToolbar) findViewById(R.id.toolbar);
@@ -44,7 +39,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IBasicAc
 
         if (title != null)
             toolbar.setTitle(title);
-
 
 
         setSupportActionBar(toolbar);
@@ -148,32 +142,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IBasicAc
         overridePendingTransition(R.anim.slide_from_right, R.anim.slide_2_left);
     }
 
-    class WaitingForExit extends AsyncTask<Object, Object, Object> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            isWaitingForExit = true;
-            showLongToast(getString(R.string.message_back_press_to_exit));
-        }
-
-        @Override
-        protected Object doInBackground(Object... params) {
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Object o) {
-            super.onPostExecute(o);
-            isWaitingForExit = false;
-        }
-    }
-
     @Override
     public void finish() {
         super.finish();
@@ -209,5 +177,31 @@ public abstract class BaseActivity extends AppCompatActivity implements IBasicAc
     @Override
     public Activity getActivity() {
         return this;
+    }
+
+    class WaitingForExit extends AsyncTask<Object, Object, Object> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            isWaitingForExit = true;
+            showLongToast(getString(R.string.message_back_press_to_exit));
+        }
+
+        @Override
+        protected Object doInBackground(Object... params) {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            super.onPostExecute(o);
+            isWaitingForExit = false;
+        }
     }
 }

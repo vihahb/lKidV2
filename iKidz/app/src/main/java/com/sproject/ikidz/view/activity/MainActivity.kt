@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private fun checkUser() {
 
         var token = SharedUtils.getInstance().getStringValue(Constants.CURRENT_TOKEN)
-        if (token != null){
+        if (token != null) {
             object : GetObjectByKeyModel<DataUser>(DataUser::class.java, "token", token) {
                 override fun onError(message: ErrorEntity?) {
                     iKidApplications.log(TAG, "checkUser getObjectError: " + message!!.errorMessage)
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                     alreadyExistsUser = `object` != null
                 }
             }
-        } else{
+        } else {
             alreadyExistsUser = false
         }
 

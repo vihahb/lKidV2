@@ -5,7 +5,7 @@ package com.sproject.ikidz.sdk.extension
  */
 
 import java.text.SimpleDateFormat
-import java.util.Date
+import java.util.*
 
 
 fun Date.string(format: String = "dd/MM/yyyy"): String {
@@ -13,11 +13,11 @@ fun Date.string(format: String = "dd/MM/yyyy"): String {
     return formatter.format(this)
 }
 
-fun Date.timePeriod() : String {
+fun Date.timePeriod(): String {
     val currentTime = System.currentTimeMillis()
     val delta = (currentTime - this.time) / 1000
 
-    if (delta < 60){
+    if (delta < 60) {
         return "just now"
     }
 
@@ -29,13 +29,13 @@ fun Date.timePeriod() : String {
 
     val hours = minutes / 60
 
-    if (hours < 24){
+    if (hours < 24) {
         return if (hours > 1) ("" + hours + " hours") else "an hour"
     }
 
     val days = hours / 24
 
-    if (days == 1L){
+    if (days == 1L) {
         return "Yesterday at " + this.string("h:mma")
     }
 

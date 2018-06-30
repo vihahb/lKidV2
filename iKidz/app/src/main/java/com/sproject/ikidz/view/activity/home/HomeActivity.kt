@@ -31,7 +31,7 @@ import com.sproject.ikidz.view.adapter.viewpager.ViewPagerMainAdapter
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.toolbar_layout.*
-import java.util.ArrayList
+import java.util.*
 
 class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun getSetNotify(data: CountNotify) {

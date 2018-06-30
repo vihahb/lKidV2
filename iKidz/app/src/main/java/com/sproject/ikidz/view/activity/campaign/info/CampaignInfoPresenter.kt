@@ -55,9 +55,9 @@ class CampaignInfoPresenter(private var view: ICampaignInfo) {
 
             override fun onError(s: ErrorEntity) {
                 view.closeProgressBar()
-                if (s.errorCode == 37){
+                if (s.errorCode == 37) {
                     view.sendQuestionError("Đã hết thời gian thăm dò ý kiến!")
-                } else{
+                } else {
                     view.sendQuestionError(s.errorMessage)
                 }
 

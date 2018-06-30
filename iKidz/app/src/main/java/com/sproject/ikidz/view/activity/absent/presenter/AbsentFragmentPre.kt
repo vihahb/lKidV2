@@ -3,11 +3,9 @@ package com.sproject.ikidz.view.activity.absent.presenter
 import com.sproject.ikidz.R
 import com.sproject.ikidz.iKidApplications
 import com.sproject.ikidz.model.RESP.RESP_GetAbsent
-import com.sproject.ikidz.model.RESP.RESP_GetDrug
 import com.sproject.ikidz.model.entity.ErrorEntity
 import com.sproject.ikidz.model.entity.SendGetClassInfo
 import com.sproject.ikidz.model.server.GetAbsentModel
-import com.sproject.ikidz.model.server.GetDrugModel
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.NetworkUtils
 import com.sproject.ikidz.sdk.Utils.SharedUtils

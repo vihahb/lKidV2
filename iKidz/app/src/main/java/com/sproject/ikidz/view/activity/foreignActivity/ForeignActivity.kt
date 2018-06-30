@@ -8,7 +8,6 @@ import android.view.View
 import com.sproject.ikidz.R
 import com.sproject.ikidz.model.entity.ForeignActivityEntity
 import com.sproject.ikidz.sdk.Commons.Constants
-import com.sproject.ikidz.sdk.callback.ItemClickListener
 import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric
 import com.sproject.ikidz.view.activity.foreignActivity.foreignInfo.ForeignInfoActivity
 import com.sproject.ikidz.view.base.BaseActivity

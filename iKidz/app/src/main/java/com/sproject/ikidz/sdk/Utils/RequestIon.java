@@ -1,16 +1,11 @@
 package com.sproject.ikidz.sdk.Utils;
 
-import android.util.Log;
-
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.async.util.Charsets;
 import com.koushikdutta.ion.Ion;
 import com.sproject.ikidz.iKidApplications;
 import com.sproject.ikidz.model.RESP.RESP_Basic;
 import com.sproject.ikidz.sdk.callback.ResponseHandle;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
 

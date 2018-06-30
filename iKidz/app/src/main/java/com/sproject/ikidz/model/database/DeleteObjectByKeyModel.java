@@ -63,5 +63,6 @@ public abstract class DeleteObjectByKeyModel<T extends RealmObject> extends AbsI
     }
 
     protected abstract void onSuccess();
+
     protected abstract void onError(ErrorEntity message);
 }

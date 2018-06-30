@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.sproject.ikidz.R
 import com.sproject.ikidz.view.activity.commentDay.CommentLearnActivity
+import com.sproject.ikidz.view.activity.eatActivity.EatActivity
 import com.sproject.ikidz.view.activity.learnActivity.LearnActivity
 import com.sproject.ikidz.view.activity.mbr.MbrListActivity
 import com.sproject.ikidz.view.activity.otherActivity.OtherActivitys
@@ -56,7 +57,12 @@ class ContactsFragment : Fragment() {
         }
         ln_learn_comment.setOnClickListener {
             startActivity(Intent(context, CommentLearnActivity::class.java))
+
+        }
+        ln_eat_activity.setOnClickListener {
+            startActivity(Intent(context, EatActivity::class.java))
         }
     }
+
 
 }

@@ -44,5 +44,6 @@ public abstract class GetAbsentModel extends AbsICmd {
     }
 
     protected abstract void onSuccess(RESP_GetAbsent notify);
+
     protected abstract void onError(ErrorEntity s);
 }

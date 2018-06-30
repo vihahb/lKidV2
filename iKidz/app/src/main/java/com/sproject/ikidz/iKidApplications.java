@@ -21,9 +21,13 @@ import io.realm.RealmSchema;
  * Time: 10:11 PM
  * Email: vihahb@gmail.com
  */
-public class iKidApplications extends Application{
+public class iKidApplications extends Application {
 
     public static Context context;
+
+    public static void log(String title, String content) {
+        Log.e(title, content);
+    }
 
     @Override
     public void onCreate() {
@@ -46,10 +50,6 @@ public class iKidApplications extends Application{
                 .build();
 
         Realm.getInstance(config);
-    }
-
-    public static void log(String title, String content) {
-        Log.e(title, content);
     }
 
     public class Migration implements RealmMigration {

@@ -121,9 +121,9 @@
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
-            android:paddingTop="@dimen/size_8"
             android:id="@+id/rcl_subcribe_to_eat"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/size_8" />
     </LinearLayout>
 </FrameLayout>

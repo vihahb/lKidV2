@@ -9,9 +9,9 @@
     tools:openDrawer="end">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <include layout="@layout/toolbar_layout" />
 
@@ -24,7 +24,7 @@
                 android:id="@+id/viewPagerMain"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <com.sproject.ikidz.sdk.Utils.BottomNavigationViewEx
                 android:id="@+id/tablayoutMain"
@@ -33,7 +33,7 @@
                 android:background="@color/bottom_bar_color"
                 app:itemIconTint="@drawable/selector_bottom_navigation"
                 app:itemTextColor="@drawable/selector_bottom_navigation"
-                app:menu="@menu/menu_navigation_with_view_pager"/>
+                app:menu="@menu/menu_navigation_with_view_pager" />
         </LinearLayout>
     </LinearLayout>
 
@@ -43,6 +43,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_home"/>
+        app:headerLayout="@layout/nav_header_home" />
 
 </android.support.v4.widget.DrawerLayout>

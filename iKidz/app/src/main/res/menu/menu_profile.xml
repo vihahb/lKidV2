@@ -5,5 +5,5 @@
         android:id="@+id/menu_edit"
         android:icon="@drawable/ic_action_edit"
         android:title="Sửa"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 </menu>

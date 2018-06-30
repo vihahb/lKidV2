@@ -5,9 +5,9 @@ import com.sproject.ikidz.model.entity.CountNotify
 import com.sproject.ikidz.model.entity.DataUser
 import com.sproject.ikidz.model.entity.ItemDrawer
 import com.sproject.ikidz.view.base.IBasicActivity
-import java.util.ArrayList
+import java.util.*
 
-interface IHomeView : IBasicActivity{
+interface IHomeView : IBasicActivity {
     fun setDataUser(dataUser: DataUser)
     fun getCurrentClassSuccess(data: RESP_CurrentClassTeacher)
     fun getCurrentClassError(s: String)

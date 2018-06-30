@@ -32,7 +32,7 @@ class DrugFragment : BaseFragment(), IDrugFragment, SearchView.OnQueryTextListen
     }
 
     override fun getDrugSuccess(data: List<DrugEntity>) {
-        if(data.isEmpty()){
+        if (data.isEmpty()) {
             tv_message.visibility = View.VISIBLE
             tv_message.text = activity!!.resources.getString(R.string.mesage_no_data)
         }

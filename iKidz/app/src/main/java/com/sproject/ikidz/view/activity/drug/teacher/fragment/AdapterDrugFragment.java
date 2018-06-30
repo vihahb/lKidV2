@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.model.entity.DrugEntity;
-import com.sproject.ikidz.model.entity.LearnOverTimeEntity;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.Utils.WidgetUtils;

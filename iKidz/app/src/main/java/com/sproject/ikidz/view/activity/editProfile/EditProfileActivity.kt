@@ -12,7 +12,7 @@ import com.sproject.ikidz.sdk.Utils.SharedUtils
 import com.sproject.ikidz.sdk.Utils.WidgetUtils
 import com.sproject.ikidz.view.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_edit_profile.*
-import java.util.ArrayList
+import java.util.*
 
 class EditProfileActivity : BaseActivity(), iEditProfile {
     var edit = false
@@ -21,8 +21,8 @@ class EditProfileActivity : BaseActivity(), iEditProfile {
 
     }
 
-    private lateinit var genders : ArrayList<String>
-    lateinit var adapter : AdapterGender
+    private lateinit var genders: ArrayList<String>
+    lateinit var adapter: AdapterGender
 
     override fun getProfileSuccess(user: DataUser) {
         if (!user.user.avatar.isEmpty()) {
@@ -46,9 +46,9 @@ class EditProfileActivity : BaseActivity(), iEditProfile {
                 edt_phone.hint = "Chưa có số điện thoại"
         }
 
-        if (SharedUtils.getInstance().getBooleanValue(Constants.TEACHER)){
+        if (SharedUtils.getInstance().getBooleanValue(Constants.TEACHER)) {
             sp_gender.setSelection(user.user.teachers.gender)
-        } else{
+        } else {
             sp_gender.setSelection(user.user.parents.gender)
         }
 
@@ -94,14 +94,14 @@ class EditProfileActivity : BaseActivity(), iEditProfile {
 
     private fun editField(edit: Boolean) {
         edt_phone.isEnabled = edit
-        edt_email.isEnabled= edit
-        edt_full_name.isEnabled= edit
+        edt_email.isEnabled = edit
+        edt_full_name.isEnabled = edit
         sp_gender.isEnabled = edit
 
         if (edit) {
             btnUpdateAcc.visibility = View.VISIBLE
             btnChangePicture.visibility = View.VISIBLE
-        }else {
+        } else {
             btnUpdateAcc.visibility = View.INVISIBLE
             btnChangePicture.visibility = View.INVISIBLE
         }

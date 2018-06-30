@@ -26,6 +26,8 @@ import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 
 public class BottomNavigationViewEx extends BottomNavigationView {
+    // detect navigation tab changes when the user clicking on navigation item
+    private static boolean isNavigationItemClicking = false;
     // used for animation
     private int mShiftAmount;
     private float mScaleUpFactor;
@@ -36,19 +38,15 @@ public class BottomNavigationViewEx extends BottomNavigationView {
     private boolean visibilityTextSizeRecord;
     private boolean visibilityHeightRecord;
     private int mItemHeight;
-    private boolean textVisibility = true;
     // used for animation end
-
+    private boolean textVisibility = true;
     // used for setupWithViewPager
     private ViewPager mViewPager;
     private MyOnNavigationItemSelectedListener mMyOnNavigationItemSelectedListener;
     private BottomNavigationViewExOnPageChangeListener mPageChangeListener;
     private BottomNavigationMenuView mMenuView;
-    private BottomNavigationItemView[] mButtons;
     // used for setupWithViewPager end
-
-    // detect navigation tab changes when the user clicking on navigation item
-    private static boolean isNavigationItemClicking = false;
+    private BottomNavigationItemView[] mButtons;
 
     public BottomNavigationViewEx(Context context) {
         super(context);
@@ -65,6 +63,31 @@ public class BottomNavigationViewEx extends BottomNavigationView {
 //        init();
     }
 
+    /**
+     * get text height by font size
+     *
+     * @param fontSize
+     * @return
+     */
+    private static int getFontHeight(float fontSize) {
+        Paint paint = new Paint();
+        paint.setTextSize(fontSize);
+        Paint.FontMetrics fm = paint.getFontMetrics();
+        return (int) Math.ceil(fm.descent - fm.top) + 2;
+    }
+
+    /**
+     * dp to px
+     *
+     * @param context
+     * @param dpValue dp
+     * @return px
+     */
+    public static int dp2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
+
     private void init() {
         try {
             addAnimationListener();
@@ -72,7 +95,6 @@ public class BottomNavigationViewEx extends BottomNavigationView {
             e.printStackTrace();
         }
     }
-
 
     private void addAnimationListener() {
         /**
@@ -147,7 +169,6 @@ public class BottomNavigationViewEx extends BottomNavigationView {
             }
         }
     }
-
 
     /**
      * change the visibility of icon
@@ -292,19 +313,6 @@ public class BottomNavigationViewEx extends BottomNavigationView {
         }
 
         mMenuView.updateMenuView();
-    }
-
-    /**
-     * get text height by font size
-     *
-     * @param fontSize
-     * @return
-     */
-    private static int getFontHeight(float fontSize) {
-        Paint paint = new Paint();
-        paint.setTextSize(fontSize);
-        Paint.FontMetrics fm = paint.getFontMetrics();
-        return (int) Math.ceil(fm.descent - fm.top) + 2;
     }
 
     /**
@@ -463,26 +471,6 @@ public class BottomNavigationViewEx extends BottomNavigationView {
     }
 
     /**
-     * get menu item position in menu
-     *
-     * @param item
-     * @return position if success, -1 otherwise
-     */
-    public int getMenuItemPosition(MenuItem item) {
-        // get item id
-        int itemId = item.getItemId();
-        // get meunu
-        Menu menu = getMenu();
-        int size = menu.size();
-        for (int i = 0; i < size; i++) {
-            if (menu.getItem(i).getItemId() == itemId) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    /**
      * set the current checked item
      *
      * @param item start from 0.
@@ -515,6 +503,26 @@ public class BottomNavigationViewEx extends BottomNavigationView {
         // 3. call mOnClickListener.onClick();
         mOnClickListener.onClick(mButtons[item]);
 
+    }
+
+    /**
+     * get menu item position in menu
+     *
+     * @param item
+     * @return position if success, -1 otherwise
+     */
+    public int getMenuItemPosition(MenuItem item) {
+        // get item id
+        int itemId = item.getItemId();
+        // get meunu
+        Menu menu = getMenu();
+        int size = menu.size();
+        for (int i = 0; i < size; i++) {
+            if (menu.getItem(i).getItemId() == itemId) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -719,20 +727,6 @@ public class BottomNavigationViewEx extends BottomNavigationView {
     }
 
     /**
-     * set menu item height
-     *
-     * @param height in px
-     */
-    public void setItemHeight(int height) {
-        // 1. get mMenuView
-        final BottomNavigationMenuView mMenuView = getBottomNavigationMenuView();
-        // 2. set private final int mItemHeight in mMenuView
-        setField(mMenuView.getClass(), mMenuView, "mItemHeight", height);
-
-        mMenuView.updateMenuView();
-    }
-
-    /**
      * get menu item height
      *
      * @return in px
@@ -745,15 +739,17 @@ public class BottomNavigationViewEx extends BottomNavigationView {
     }
 
     /**
-     * dp to px
+     * set menu item height
      *
-     * @param context
-     * @param dpValue dp
-     * @return px
+     * @param height in px
      */
-    public static int dp2px(Context context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
+    public void setItemHeight(int height) {
+        // 1. get mMenuView
+        final BottomNavigationMenuView mMenuView = getBottomNavigationMenuView();
+        // 2. set private final int mItemHeight in mMenuView
+        setField(mMenuView.getClass(), mMenuView, "mItemHeight", height);
+
+        mMenuView.updateMenuView();
     }
 
     /**
@@ -874,6 +870,49 @@ public class BottomNavigationViewEx extends BottomNavigationView {
         super.setOnNavigationItemSelectedListener(mMyOnNavigationItemSelectedListener);
     }
 
+    public void enableShiftingMode(int position, boolean enable) {
+        getBottomNavigationItemView(position).setShiftingMode(enable);
+    }
+
+    public void setItemBackground(int position, int background) {
+        getBottomNavigationItemView(position).setItemBackground(background);
+    }
+
+    public void setIconTintList(int position, ColorStateList tint) {
+        getBottomNavigationItemView(position).setIconTintList(tint);
+    }
+
+    public void setTextTintList(int position, ColorStateList tint) {
+        getBottomNavigationItemView(position).setTextColor(tint);
+    }
+
+    /**
+     * set margin top for all icons
+     *
+     * @param marginTop in px
+     */
+    public void setIconsMarginTop(int marginTop) {
+        for (int i = 0; i < getItemCount(); i++) {
+            setIconMarginTop(i, marginTop);
+        }
+    }
+
+    /**
+     * set margin top for icon
+     *
+     * @param position
+     * @param marginTop in px
+     */
+    public void setIconMarginTop(int position, int marginTop) {
+        /*
+        1. BottomNavigationItemView
+        2. private final int mDefaultMargin;
+         */
+        BottomNavigationItemView itemView = getBottomNavigationItemView(position);
+        setField(BottomNavigationItemView.class, itemView, "mDefaultMargin", marginTop);
+        mMenuView.updateMenuView();
+    }
+
     /**
      * A {@link ViewPager.OnPageChangeListener} class which contains the
      * necessary calls back to the provided {@link BottomNavigationViewEx} so that the tab position is
@@ -913,8 +952,8 @@ public class BottomNavigationViewEx extends BottomNavigationView {
      * Decorate OnNavigationItemSelectedListener for setupWithViewPager
      */
     private static class MyOnNavigationItemSelectedListener implements OnNavigationItemSelectedListener {
-        private OnNavigationItemSelectedListener listener;
         private final WeakReference<ViewPager> viewPagerRef;
+        private OnNavigationItemSelectedListener listener;
         private boolean smoothScroll;
         private SparseIntArray items;// used for change ViewPager selected item
         private int previousPosition = -1;
@@ -971,49 +1010,6 @@ public class BottomNavigationViewEx extends BottomNavigationView {
             return true;
         }
 
-    }
-
-    public void enableShiftingMode(int position, boolean enable) {
-        getBottomNavigationItemView(position).setShiftingMode(enable);
-    }
-
-    public void setItemBackground(int position, int background) {
-        getBottomNavigationItemView(position).setItemBackground(background);
-    }
-
-    public void setIconTintList(int position, ColorStateList tint) {
-        getBottomNavigationItemView(position).setIconTintList(tint);
-    }
-
-    public void setTextTintList(int position, ColorStateList tint) {
-        getBottomNavigationItemView(position).setTextColor(tint);
-    }
-
-    /**
-     * set margin top for all icons
-     *
-     * @param marginTop in px
-     */
-    public void setIconsMarginTop(int marginTop) {
-        for (int i = 0; i < getItemCount(); i++) {
-            setIconMarginTop(i, marginTop);
-        }
-    }
-
-    /**
-     * set margin top for icon
-     *
-     * @param position
-     * @param marginTop in px
-     */
-    public void setIconMarginTop(int position, int marginTop) {
-        /*
-        1. BottomNavigationItemView
-        2. private final int mDefaultMargin;
-         */
-        BottomNavigationItemView itemView = getBottomNavigationItemView(position);
-        setField(BottomNavigationItemView.class, itemView, "mDefaultMargin", marginTop);
-        mMenuView.updateMenuView();
     }
 
 }

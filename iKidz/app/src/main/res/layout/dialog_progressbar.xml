@@ -43,10 +43,10 @@
                     android:id="@+id/txt_message"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/size_16"
                     android:ellipsize="end"
                     android:gravity="left"
                     android:maxLines="2"
-                    android:layout_marginRight="@dimen/size_16"
                     android:text="@string/message_loading"
                     android:textColor="@color/black_60"
                     android:textSize="@dimen/font_15" />

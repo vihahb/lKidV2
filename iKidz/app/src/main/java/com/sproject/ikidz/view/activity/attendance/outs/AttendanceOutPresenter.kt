@@ -7,6 +7,7 @@ import com.sproject.ikidz.model.server.GetAttendanceOut
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.NetworkUtils
 import com.sproject.ikidz.sdk.Utils.SharedUtils
+
 //
 class AttendanceOutPresenter(private var view: IAttendanceOutActivity) {
     fun getListAttendanceOut() {

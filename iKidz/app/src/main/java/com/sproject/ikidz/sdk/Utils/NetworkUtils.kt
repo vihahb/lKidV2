@@ -1,14 +1,9 @@
 package com.sproject.ikidz.sdk.Utils
 
-import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
-import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
 import android.telephony.TelephonyManager
-
-import com.sproject.ikidz.R
 
 /**
  * Created by Vũ Hà Vi on 11/4/2016

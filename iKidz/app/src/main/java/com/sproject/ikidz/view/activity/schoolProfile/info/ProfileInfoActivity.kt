@@ -1,7 +1,7 @@
 package com.sproject.ikidz.view.activity.schoolProfile.info
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.sproject.ikidz.R
 
 class ProfileInfoActivity : AppCompatActivity() {

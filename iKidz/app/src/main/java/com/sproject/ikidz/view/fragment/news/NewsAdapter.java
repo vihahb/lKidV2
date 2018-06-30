@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.sproject.ikidz.R;
-import com.sproject.ikidz.model.entity.AlbumEntity;
 import com.sproject.ikidz.model.entity.NewsEntity;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
@@ -53,12 +52,12 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tv_news_name, tv_content, tv_time, tv_like, tv_comment;
-        private RoundImage img_avatar;
-        private RecyclerView rcl_image;
         //        private AdapterImageNews adapterImageNews;
 //        List<AlbumEntity> list;
         AdapterImageNews adapter;
+        private TextView tv_news_name, tv_content, tv_time, tv_like, tv_comment;
+        private RoundImage img_avatar;
+        private RecyclerView rcl_image;
 
         ViewHolder(View itemView) {
             super(itemView);

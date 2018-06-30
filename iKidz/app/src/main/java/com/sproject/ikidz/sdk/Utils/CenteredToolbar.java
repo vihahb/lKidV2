@@ -10,8 +10,6 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.TextView;
 
-import com.sproject.ikidz.R;
-
 public class CenteredToolbar extends Toolbar {
 
     private TextView centeredTitleTextView;
@@ -35,13 +33,13 @@ public class CenteredToolbar extends Toolbar {
     }
 
     @Override
-    public void setTitle(CharSequence title) {
-        getCenteredTitleTextView().setText(title);
+    public CharSequence getTitle() {
+        return getCenteredTitleTextView().getText().toString();
     }
 
     @Override
-    public CharSequence getTitle() {
-        return getCenteredTitleTextView().getText().toString();
+    public void setTitle(CharSequence title) {
+        getCenteredTitleTextView().setText(title);
     }
 
     public void setTypeface(Typeface font) {

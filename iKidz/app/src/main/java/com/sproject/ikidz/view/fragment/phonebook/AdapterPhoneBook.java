@@ -23,9 +23,8 @@ public class AdapterPhoneBook extends RecyclerView.Adapter<RecyclerView.ViewHold
     List<ClassPeopleEntity> data;
     Context context;
     ItemMoreActionGeneric<ClassPeopleEntity> listener;
-    private boolean isShow;
-
     int TYPE_PEOPLE = 1, TYPE_DIVIDER = 0;
+    private boolean isShow;
 
     public AdapterPhoneBook(List<ClassPeopleEntity> data, Context context, ItemMoreActionGeneric<ClassPeopleEntity> listener) {
         this.data = data;

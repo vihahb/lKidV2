@@ -3,13 +3,14 @@ package com.sproject.ikidz.model.entity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
+public class ContentEntity {
 
-public class ContentEntity implements Serializable {
-
-    @SerializedName("content")
+    @SerializedName("content_morning")
     @Expose
-    private String content;
+    private String contentMorning;
+    @SerializedName("content_afternoon")
+    @Expose
+    private String contentAfternoon;
     @SerializedName("day")
     @Expose
     private String day;
@@ -17,12 +18,20 @@ public class ContentEntity implements Serializable {
     @Expose
     private String date;
 
-    public String getContent() {
-        return content;
+    public String getContentMorning() {
+        return contentMorning;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setContentMorning(String contentMorning) {
+        this.contentMorning = contentMorning;
+    }
+
+    public String getContentAfternoon() {
+        return contentAfternoon;
+    }
+
+    public void setContentAfternoon(String contentAfternoon) {
+        this.contentAfternoon = contentAfternoon;
     }
 
     public String getDay() {

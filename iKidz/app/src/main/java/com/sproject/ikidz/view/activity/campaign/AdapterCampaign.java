@@ -58,7 +58,7 @@ public class AdapterCampaign extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         public void setData(CampainEntity entity, int position) {
             if (!TextUtils.isEmpty(entity.getName())) {
-                tv_title.setText((position+1) + ". " + entity.getName());
+                tv_title.setText((position + 1) + ". " + entity.getName());
             }
 
             String date = "";

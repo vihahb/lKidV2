@@ -1,6 +1,5 @@
 package com.sproject.ikidz.view.fragment.news.showImage;
 
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.iKidApplications;
 import com.sproject.ikidz.model.entity.AlbumEntity;
-import com.sproject.ikidz.sdk.Utils.WidgetUtils;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 

@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.fivehundredpx.greedolayout.GreedoLayoutSizeCalculator;
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.iKidApplications;
 import com.sproject.ikidz.model.entity.AlbumEntity;
@@ -17,7 +16,6 @@ import com.sproject.ikidz.sdk.callback.ImageItemClick;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterImageNews extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

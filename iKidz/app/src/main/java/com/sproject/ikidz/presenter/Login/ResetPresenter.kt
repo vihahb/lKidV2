@@ -18,18 +18,18 @@ class ResetPresenter(var view: IResetView) {
 
     var TAG = "ResetPresenter"
 
-    fun sendResetRequest(link_api: String, email: String){
+    fun sendResetRequest(link_api: String, email: String) {
         object : ResetPassword(link_api, email) {
             override fun onSuccess(basic: RESP_Basic) {
                 view.showLongToast("Vui lòng kiểm tra email để thay đổi mật khẩu.")
             }
 
             override fun onError(s: ErrorEntity) {
-                if (s.errorCode == 26){
+                if (s.errorCode == 26) {
                     view.showLongToast(view.activity.getString(R.string.error_email_invalid))
-                } else if (s.errorCode == 25){
+                } else if (s.errorCode == 25) {
                     view.showLongToast(view.activity.getString(R.string.error_email_not_exists))
-                } else{
+                } else {
                     view.showLongToast(s.errorMessage)
                 }
             }

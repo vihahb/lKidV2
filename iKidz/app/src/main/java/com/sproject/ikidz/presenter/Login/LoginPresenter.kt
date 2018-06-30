@@ -30,7 +30,7 @@ class LoginPresenter(private val view: ILogin) {
     var TAG = "LoginPresenter"
 
     fun getProvince() {
-        if (!NetworkUtils.isConnected(view.activity)){
+        if (!NetworkUtils.isConnected(view.activity)) {
             view.showLongToast(view.activity.resources.getString(R.string.error_network))
             return
         }
@@ -51,7 +51,7 @@ class LoginPresenter(private val view: ILogin) {
     }
 
     fun getDistrict(codeProvince: Int) {
-        if (!NetworkUtils.isConnected(view.activity)){
+        if (!NetworkUtils.isConnected(view.activity)) {
             view.showLongToast(view.activity.resources.getString(R.string.error_network))
             return
         }
@@ -72,7 +72,7 @@ class LoginPresenter(private val view: ILogin) {
     }
 
     fun getSchoolByDistrict(distrcId: Int) {
-        if (!NetworkUtils.isConnected(view.activity)){
+        if (!NetworkUtils.isConnected(view.activity)) {
             view.showLongToast(view.activity.resources.getString(R.string.error_network))
             return
         }
@@ -94,13 +94,13 @@ class LoginPresenter(private val view: ILogin) {
     }
 
     fun onLogin(username: String, pass: String, link_api: String) {
-        if (!NetworkUtils.isConnected(view.activity)){
+        if (!NetworkUtils.isConnected(view.activity)) {
             view.showLongToast(view.activity.resources.getString(R.string.error_network))
             return
         }
         view.showProgressBar(false, true, view.activity.getString(R.string.mesage_login_data))
         var login = UserLogin(username, pass)
-        object: LoginModel(login, link_api){
+        object : LoginModel(login, link_api) {
             override fun onSuccess(login: RESP_Login) {
                 iKidApplications.log(TAG, JsonHelper.toJson(login))
                 view.onLoginSuccess(login)
@@ -116,11 +116,11 @@ class LoginPresenter(private val view: ILogin) {
     }
 
     fun saveUserInfo(data: DataUser) {
-        if (data.user.roles.slug == Constants.TEACHER){
+        if (data.user.roles.slug == Constants.TEACHER) {
             SharedUtils.getInstance().putBooleanValue(Constants.TEACHER, true)
         }
 
-        object : SaveObjectModel<DataUser> (data){
+        object : SaveObjectModel<DataUser>(data) {
             override fun onSuccess() {
                 SharedUtils.getInstance().putStringValue(Constants.BASE_URL, data.user.base_url)
                 iKidApplications.log(TAG, "saveUserInfo success!")

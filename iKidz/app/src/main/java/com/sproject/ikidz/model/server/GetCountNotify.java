@@ -41,5 +41,6 @@ public abstract class GetCountNotify extends AbsICmd {
     }
 
     protected abstract void onSuccess(RESP_CountNotify notify);
+
     protected abstract void onError(ErrorEntity s);
 }

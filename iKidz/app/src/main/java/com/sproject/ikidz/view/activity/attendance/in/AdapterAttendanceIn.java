@@ -70,6 +70,11 @@ public class AdapterAttendanceIn extends RecyclerView.Adapter<RecyclerView.ViewH
         notifyItemRangeChanged(0, data.size());
     }
 
+    public void filterList(List<AttendanceIn> filterdNames) {
+        this.data = filterdNames;
+        notifyDataSetChanged();
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tv_number, tv_name;
@@ -117,11 +122,6 @@ public class AdapterAttendanceIn extends RecyclerView.Adapter<RecyclerView.ViewH
 
 
         }
-    }
-
-    public void filterList(List<AttendanceIn> filterdNames) {
-        this.data = filterdNames;
-        notifyDataSetChanged();
     }
 }
 
