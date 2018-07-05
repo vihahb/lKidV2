@@ -1,5 +1,6 @@
 package com.sproject.ikidz.view.activity.otherActivity
 
+import android.app.Dialog
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
@@ -7,8 +8,13 @@ import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.TextView
 import com.sproject.ikidz.R
 import com.sproject.ikidz.model.entity.OtherActivitysEntity
+import com.sproject.ikidz.model.entity.ValueSleepEntity
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.SharedUtils
 import com.sproject.ikidz.sdk.Utils.TextUtils
@@ -21,6 +27,16 @@ import kotlinx.android.synthetic.main.activity_other_activitys.*
 import java.util.*
 
 class OtherActivitys : BaseActivity(), IOtherActivitysView, SearchView.OnQueryTextListener {
+    override fun updateOtherValueError() {
+        showLongToast("Cập nhật hoạt động không thành công!")
+    }
+
+    override fun updateOtherValueSuccess(pos: Int, otherValue: ValueSleepEntity) {
+        list[pos].note = otherValue.note
+        adapter.notifyItemChanged(pos)
+        showLongToast("Cập nhật hoạt động thành công!")
+    }
+
     override fun onQueryTextSubmit(query: String?): Boolean {
         return true
     }
@@ -60,7 +76,6 @@ class OtherActivitys : BaseActivity(), IOtherActivitysView, SearchView.OnQueryTe
     lateinit var start_time: String
     lateinit var date: String
     private var searchView: SearchView? = null
-    lateinit var calendar: Calendar
     var content_time = ""
     lateinit var className: String
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,13 +87,13 @@ class OtherActivitys : BaseActivity(), IOtherActivitysView, SearchView.OnQueryTe
     }
 
     private fun initView() {
+        initDialogEdit()
         className = SharedUtils.getInstance().getStringValue(Constants.CURRENT_CLASS_TEACHER_NAME)
         if (!TextUtils.isEmpty(className))
             tv_class_name.text = className
 
-        calendar = Calendar.getInstance()
-        start_time = "" + calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE)
-        end_time = "" + (calendar.get(Calendar.HOUR) + 1) + ":" + calendar.get(Calendar.MINUTE)
+        start_time = TimeUtils.getCurrentTimeFormat("HH:mm")
+        end_time =  TimeUtils.getCurrentTimeFormatHigh1("HH:mm")
 
         content_time = "<font color=\'#35cd1c\'>Bắt đầu: $start_time - </font><font color=\'#f31141\'>Kết thúc: $end_time"
         tv_time.text = Html.fromHtml(content_time)
@@ -95,7 +110,7 @@ class OtherActivitys : BaseActivity(), IOtherActivitysView, SearchView.OnQueryTe
         edt_time.setOnClickListener {
             TimeUtils.getInstance().showDatePickerDialog(this, object : DatePickerListener {
                 override fun onSelected(year: Int, month: Int, day: Int) {
-                    date = "" + day + "/" + (month + 1) + "/" + year;
+                    date = "" + day + "/" + (month + 1) + "/" + year
                     edt_time.setText(date)
                     presenter.getOthersList(date, start_time, end_time)
                 }
@@ -104,8 +119,8 @@ class OtherActivitys : BaseActivity(), IOtherActivitysView, SearchView.OnQueryTe
         }
         list = ArrayList()
         adapter = AdapterOtherActivitys(list, this, object : ItemClickListenerGeneric<OtherActivitysEntity> {
-            override fun ItemClick(id: Int, data: OtherActivitysEntity) {
-
+            override fun ItemClick(pos: Int, data: OtherActivitysEntity) {
+                showDialogedit(pos, data)
             }
         })
         rcl_other_activitys.layoutManager = LinearLayoutManager(this)
@@ -128,6 +143,63 @@ class OtherActivitys : BaseActivity(), IOtherActivitysView, SearchView.OnQueryTe
             }
         })
     }
+
+
+    lateinit var edt_note: EditText
+    lateinit var tv_user_name: TextView
+    lateinit var btnUpdate: Button
+    lateinit var btnClose: Button
+    lateinit var dialog: Dialog
+
+    private fun initDialogEdit() {
+        dialog = Dialog(this, R.style.Theme_Transparent)
+        dialog.setContentView(R.layout.dialog_update_other_activity)
+        dialog.window!!.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
+        dialog.setCancelable(true)
+        dialog.setCanceledOnTouchOutside(true)
+
+        tv_user_name = dialog.findViewById(R.id.tv_name)
+        edt_note = dialog.findViewById(R.id.edt_note)
+        btnUpdate = dialog.findViewById(R.id.btnUpdate)
+        btnClose = dialog.findViewById(R.id.btnClose)
+
+        btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+    }
+
+    fun showDialogedit(pos: Int, data: OtherActivitysEntity) {
+        if (!data.note.isNullOrEmpty())
+            edt_note.setText(data.note)
+
+        if (!data.fullName.isNullOrEmpty())
+            tv_user_name.text = data.fullName
+
+        btnUpdate.setOnClickListener {
+            if (edt_note.text.isNullOrEmpty()) {
+                showLongToast("Vui lòng nhập nội dung ghi chú!")
+                return@setOnClickListener
+            }
+
+            var otherValue = ValueSleepEntity(
+                    start_time,
+                    end_time,
+                    data.fullName,
+                    edt_note.text.toString(),
+                    data.id
+            )
+
+            presenter.updateOtherValue(edt_time.text.toString(),
+                    otherValue, pos)
+
+            dialog.dismiss()
+        }
+
+        if(!dialog.isShowing){
+            dialog.show()
+        }
+    }
+
 
     private fun filterItem(name: String) {
         //new array list that will hold the filtered data

@@ -2,6 +2,8 @@ package com.sproject.ikidz.model.server;
 
 import com.sproject.ikidz.model.BasicModel;
 import com.sproject.ikidz.model.RESP.RESP_DataSleep;
+import com.sproject.ikidz.model.RESP.RESP_ProfileInfoEntity;
+import com.sproject.ikidz.model.RESP.RESP_SampleReview;
 import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.sdk.Commons.Constants;
 import com.sproject.ikidz.sdk.Utils.SharedUtils;
@@ -48,3 +50,4 @@ public abstract class GetSleepList extends AbsICmd {
     protected abstract void onError(ErrorEntity s);
 
 }
+

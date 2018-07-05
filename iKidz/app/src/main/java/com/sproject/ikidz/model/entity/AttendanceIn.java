@@ -13,16 +13,16 @@ public class AttendanceIn {
     private String nickname;
     @SerializedName("at_id")
     @Expose
-    private Object atId;
+    private String atId;
     @SerializedName("absent_id")
     @Expose
-    private Object absentId;
+    private String absentId;
     @SerializedName("full_name")
     @Expose
     private String fullName;
     @SerializedName("received")
     @Expose
-    private Object received;
+    private String received;
     @SerializedName("avatar")
     @Expose
     private String avatar;
@@ -58,19 +58,19 @@ public class AttendanceIn {
         this.nickname = nickname;
     }
 
-    public Object getAtId() {
+    public String getAtId() {
         return atId;
     }
 
-    public void setAtId(Object atId) {
+    public void setAtId(String atId) {
         this.atId = atId;
     }
 
-    public Object getAbsentId() {
+    public String getAbsentId() {
         return absentId;
     }
 
-    public void setAbsentId(Object absentId) {
+    public void setAbsentId(String absentId) {
         this.absentId = absentId;
     }
 
@@ -82,11 +82,11 @@ public class AttendanceIn {
         this.fullName = fullName;
     }
 
-    public Object getReceived() {
+    public String getReceived() {
         return received;
     }
 
-    public void setReceived(Object received) {
+    public void setReceived(String received) {
         this.received = received;
     }
 
@@ -134,8 +134,7 @@ public class AttendanceIn {
         return checked;
     }
 
-    public void setChecked(int checked) {
+    public void setChecked(Integer checked) {
         this.checked = checked;
     }
-
 }

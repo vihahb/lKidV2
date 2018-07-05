@@ -82,7 +82,7 @@
                     android:paddingRight="@dimen/size_6"
                     android:paddingTop="@dimen/size_2"
                     android:textColor="@color/white_100"
-                    android:textSize="@dimen/font_11"
+                    android:textSize="@dimen/font_10"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>

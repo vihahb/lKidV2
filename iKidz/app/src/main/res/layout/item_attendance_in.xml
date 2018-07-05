@@ -49,6 +49,7 @@
                 android:layout_width="@dimen/size_0"
                 android:layout_height="@dimen/size_24"
                 android:layout_weight="1.1"
+                android:clickable="false"
                 android:text="Có phép"
                 android:textSize="@dimen/font_9"
                 android:theme="@style/RadioButtonYellow" />
@@ -58,6 +59,7 @@
                 android:layout_width="@dimen/size_0"
                 android:layout_height="match_parent"
                 android:layout_weight="1.3"
+                android:clickable="false"
                 android:text="Không phép"
                 android:textSize="@dimen/font_9"
                 android:theme="@style/RadioButtonRed" />
@@ -67,6 +69,7 @@
                 android:layout_width="@dimen/size_0"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:clickable="false"
                 android:text="Đến lớp"
                 android:textSize="@dimen/font_9"
                 android:theme="@style/RadioButtonGreen" />

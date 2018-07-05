@@ -22,7 +22,7 @@ public class AttendanceOut {
     private String avatar;
     @SerializedName("checked")
     @Expose
-    private String checked;
+    private Integer checked;
 
     public Integer getId() {
         return id;
@@ -64,11 +64,11 @@ public class AttendanceOut {
         this.avatar = avatar;
     }
 
-    public String getChecked() {
+    public Integer getChecked() {
         return checked;
     }
 
-    public void setChecked(String checked) {
+    public void setChecked(Integer checked) {
         this.checked = checked;
     }
 

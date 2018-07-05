@@ -25,7 +25,8 @@ class EatActivityPresenter(private var view: IEatActivity) {
             override fun onSucces(respond: RESP_MenuEat?) {
                 view.closeProgressBar()
                 view.getMenuEatSuccess(respond!!.data)
-                getEatActivity(date, respond.data[0].code)
+                if (respond.data.isNotEmpty())
+                    getEatActivity(date, respond.data[0].code)
             }
 
             override fun onError(s: ErrorEntity?) {

@@ -30,6 +30,8 @@
         android:orientation="vertical">
 
         <TextView
+            android:paddingTop="@dimen/size_8"
+            android:paddingBottom="@dimen/size_4"
             android:id="@+id/tv_attend_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,6 +47,7 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:clickable="false"
                 android:id="@+id/rdo_chuave"
                 android:layout_width="@dimen/size_0"
                 android:layout_height="@dimen/size_24"
@@ -54,6 +57,7 @@
                 android:theme="@style/RadioButtonRed" />
 
             <RadioButton
+                android:clickable="false"
                 android:id="@+id/rdo_dave"
                 android:layout_width="@dimen/size_0"
                 android:layout_height="match_parent"

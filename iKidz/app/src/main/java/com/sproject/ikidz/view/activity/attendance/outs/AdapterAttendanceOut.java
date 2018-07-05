@@ -18,8 +18,10 @@ import com.sproject.ikidz.model.entity.AttendanceOut;
 import com.sproject.ikidz.sdk.Commons.Constants;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.SharedUtils;
+import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
 import java.util.List;
 
 //
@@ -27,10 +29,14 @@ public class AdapterAttendanceOut extends RecyclerView.Adapter<RecyclerView.View
     private static final String TAG = "AdapterAttendanceIn";
     List<AttendanceOut> data;
     Context context;
+    ItemClickListenerGeneric<AttendanceOut> listener;
+    HashMap<Integer, Integer> selection;
 
-    public AdapterAttendanceOut(List<AttendanceOut> data, Context context) {
+    public AdapterAttendanceOut(List<AttendanceOut> data, Context context, ItemClickListenerGeneric<AttendanceOut> listener) {
         this.data = data;
         this.context = context;
+        this.listener = listener;
+        selection = new HashMap<>();
     }
 
     @NonNull
@@ -58,14 +64,14 @@ public class AdapterAttendanceOut extends RecyclerView.Adapter<RecyclerView.View
         return null;
     }
 
-    public void setAll(boolean in) {
-        if (in) {
+    public void setAll(boolean outed) {
+        if (outed) {
             for (int i = 0; i < data.size(); i++) {
-                data.get(i).setChecked(String.valueOf(3));
+                selection.put(i, 3);
             }
         } else {
             for (int i = 0; i < data.size(); i++) {
-                data.get(i).setChecked(String.valueOf(2));
+                selection.put(i, 2);
             }
         }
         notifyItemRangeChanged(0, data.size());
@@ -107,17 +113,59 @@ public class AdapterAttendanceOut extends RecyclerView.Adapter<RecyclerView.View
                     .into(im_avatar);
 
             if (entity.getChecked() != null) {
-                switch (Integer.parseInt(entity.getChecked())) {
+                switch (entity.getChecked()) {
+                    case 2:
+                        selection.put(position, 2);
+                        break;
+                    case 3:
+                        selection.put(position, 3);
+                        break;
+                    default:
+                        selection.put(position, 0);
+                }
+            } else {
+                selection.put(position, 0);
+            }
+
+            if (selection.get(position) != null) {
+                switch (selection.get(position)) {
+                    case 0:
+                        rdo_group_in.check(R.id.rdo_chuave);
+                        break;
                     case 2:
                         rdo_group_in.check(R.id.rdo_chuave);
                         break;
                     case 3:
                         rdo_group_in.check(R.id.rdo_dave);
                         break;
+                    default:
+                        rdo_group_in.check(R.id.rdo_chuave);
+                        break;
                 }
+                setRadioCorlor(selection.get(position));
+
             }
 
+            itemView.setOnClickListener(view -> {
+                listener.ItemClick(position, entity);
+            });
+        }
 
+        void setRadioCorlor(int type) {
+            switch (type) {
+                case 2:
+                    rdo_chuave.setTextColor(context.getResources().getColor(R.color.red));
+                    rdo_dave.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    break;
+                case 3:
+                    rdo_chuave.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    rdo_dave.setTextColor(context.getResources().getColor(R.color.green_yet));
+                    break;
+                default:
+                    rdo_chuave.setTextColor(context.getResources().getColor(R.color.red));
+                    rdo_dave.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    break;
+            }
         }
     }
 }

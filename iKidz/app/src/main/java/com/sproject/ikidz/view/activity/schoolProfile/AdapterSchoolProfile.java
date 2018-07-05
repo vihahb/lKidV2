@@ -71,6 +71,15 @@ public class AdapterSchoolProfile extends RecyclerView.Adapter<RecyclerView.View
             if (!TextUtils.isEmpty(entity.getAvatar())) {
                 WidgetUtils.setImageURL(img_avatar, entity.getAvatar(), R.mipmap.ic_launcher_round);
             }
+
+            if (!TextUtils.isEmpty(entity.getCommented())){
+                if (entity.getCommented().equals("1")){
+                    tv_write_comment.setText("Đã nhận xét");
+                } else {
+                    tv_write_comment.setText("Viết nhận xét");
+                }
+            }
+
             tv_number_row.setText("" + (position + 1));
 
             tv_write_comment.setOnClickListener(view -> listener.ItemClick(position, entity));

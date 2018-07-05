@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_75">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/size_24"
+        android:layout_marginRight="@dimen/size_24"
+        android:background="@drawable/round_layout_dialog"
+        android:minHeight="@dimen/size_100"
+        android:orientation="vertical">
+        <!--round_edittext_login-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/size_12"
+                android:paddingTop="@dimen/size_12"
+                android:text="Thông tin chi tiết"
+                android:textAllCaps="false"
+                android:textColor="@color/black_75"
+                android:textSize="@dimen/font_15" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0_5"
+            android:background="@color/black_55" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="@dimen/size_100"
+            android:orientation="vertical"
+            android:padding="@dimen/size_16">
+
+            <LinearLayout
+                android:paddingLeft="@dimen/size_8"
+                android:paddingRight="@dimen/size_8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_8"
+                    android:layout_weight=".6"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hoc sinh"
+                        android:textColor="@color/black_85"
+                        android:textSize="@dimen/font_15" />
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/size_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_30"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/edt_time_start"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/size_8"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_edit_text_attended"
+                            android:focusableInTouchMode="false"
+                            android:gravity="center"
+                            android:longClickable="false"
+                            android:paddingBottom="@dimen/size_4"
+                            android:paddingTop="@dimen/size_4"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/font_12" />
+
+                        <View
+                            android:layout_width="@dimen/size_4"
+                            android:layout_height="@dimen/size_0_5"
+                            android:background="@color/black_60" />
+
+                        <EditText
+                            android:id="@+id/edt_time_end"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/size_8"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_edit_text_attended"
+                            android:focusableInTouchMode="false"
+                            android:gravity="center"
+                            android:longClickable="false"
+                            android:paddingBottom="@dimen/size_4"
+                            android:paddingTop="@dimen/size_4"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/font_12" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/size_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/edt_note"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/size_8"
+                            android:background="@drawable/custom_edit_text_attended"
+                            android:gravity="top"
+                            android:hint="Ghi chú"
+                            android:lines="2"
+                            android:paddingBottom="@dimen/size_4"
+                            android:paddingLeft="@dimen/size_8"
+                            android:paddingTop="@dimen/size_4"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/font_12" />
+
+                       </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0_5"
+            android:background="@color/black_55" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnClose"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="Đóng"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="@dimen/size_0_5"
+                android:layout_height="match_parent"
+                android:background="@color/black_55" />
+
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:text="Cập nhật"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

@@ -87,17 +87,17 @@
 
     <!--Radio Theme-->
     <style name="RadioButtonGreen" parent="Widget.AppCompat.CompoundButton.RadioButton">
-        <item name="android:textColor">@drawable/custom_compound_green</item>
+        <item name="android:textColor">@color/normal_text_dario</item>
         <item name="buttonTint">@drawable/custom_compound_green</item>
     </style>
 
     <style name="RadioButtonRed" parent="Widget.AppCompat.CompoundButton.RadioButton">
-        <item name="android:textColor">@drawable/custom_compound_red</item>
+        <item name="android:textColor">@color/normal_text_dario</item>
         <item name="buttonTint">@drawable/custom_compound_red</item>
     </style>
 
     <style name="RadioButtonYellow" parent="Widget.AppCompat.CompoundButton.RadioButton">
-        <item name="android:textColor">@drawable/custom_compound_yellow</item>
+        <item name="android:textColor">@color/normal_text_dario</item>
         <item name="buttonTint">@drawable/custom_compound_yellow</item>
     </style>
 

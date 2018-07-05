@@ -90,7 +90,7 @@ class SubscribeToEatFragment : BaseFragment(), ISubscribeToEat {
             RackMonthPicker(context)
                     .setLocale(Locale.ENGLISH)
                     .setPositiveButton { month, startDate, endDate, year, monthLabel ->
-                        edt_time.setText("" + (month + 1) + "/" + year)
+                        edt_time.setText("" + month + "/" + year)
                         presenter.getLogSubscribeTicket(month + 1, year)
                     }
                     .setNegativeButton {

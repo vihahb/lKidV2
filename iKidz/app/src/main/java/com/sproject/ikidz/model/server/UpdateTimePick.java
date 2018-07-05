@@ -1,4 +1,5 @@
 package com.sproject.ikidz.model.server;
+
 import com.sproject.ikidz.model.BasicModel;
 import com.sproject.ikidz.model.RESP.RESP_Status;
 import com.sproject.ikidz.model.entity.ErrorEntity;
@@ -6,6 +7,7 @@ import com.sproject.ikidz.sdk.Commons.Constants;
 import com.sproject.ikidz.sdk.Utils.SharedUtils;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
 import com.sproject.ikidz.sdk.callback.ResponseHandle;
+
 public abstract class UpdateTimePick extends AbsICmd {
     int id;
     String timePick;

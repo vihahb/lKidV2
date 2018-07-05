@@ -8,12 +8,16 @@ import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.sdk.Utils.CenteredToolbar;
+import com.sproject.ikidz.sdk.Utils.TextUtils;
+import com.sproject.ikidz.sdk.callback.DialogClickListener;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -86,6 +90,40 @@ public abstract class BaseActivity extends AppCompatActivity implements IBasicAc
         if (progressDialog != null) {
             new Handler().postDelayed(() -> progressDialog.dismiss(), 1000);
         }
+    }
+
+    public void showMaterialDialog(String title, String message, DialogClickListener listener) {
+        Dialog dialog = new Dialog(this, R.style.Theme_Transparent);
+        dialog.setContentView(R.layout.dialog_all);
+        dialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
+
+        TextView tv_title = dialog.findViewById(R.id.tv_title);
+        TextView tv_message = dialog.findViewById(R.id.tv_message);
+        Button btnClose = dialog.findViewById(R.id.btnClose);
+        Button btnAgree = dialog.findViewById(R.id.btnAgree);
+
+        if (!TextUtils.isEmpty(title)) {
+            tv_title.setText(title);
+        }
+
+        if (!TextUtils.isEmpty(message)) {
+            tv_message.setText(message);
+        }
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                listener.DesagreeListener();
+            }
+        });
+
+        btnAgree.setOnClickListener(view -> {
+            dialog.dismiss();
+            listener.AgreeListener();
+        });
+        dialog.show();
     }
 
 

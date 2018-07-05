@@ -14,24 +14,25 @@ import com.sproject.ikidz.model.entity.AbsentEntity;
 import com.sproject.ikidz.sdk.Utils.RoundImage;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.Utils.WidgetUtils;
-import com.sproject.ikidz.sdk.callback.ItemClickListener;
 import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class AdapterAbsentFragment extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     List<AbsentEntity> list;
     Context context;
     ItemClickListenerGeneric<AbsentEntity> listener;
-
+    HashMap<Integer, Integer> stateHashMap;
 
     public AdapterAbsentFragment(List<AbsentEntity> list, Context context, ItemClickListenerGeneric<AbsentEntity> listener) {
         this.list = list;
         this.context = context;
         this.listener = listener;
+        stateHashMap = new HashMap<>();
     }
 
     @NonNull
@@ -79,17 +80,30 @@ public class AdapterAbsentFragment extends RecyclerView.Adapter<RecyclerView.Vie
 
             switch (data.getReceived()) {
                 case 0:
-                    tv_name.setTextColor(context.getResources().getColor(R.color.black_65));
-                    tv_name.setTypeface(tv_name.getTypeface(), Typeface.BOLD_ITALIC);
+                    stateHashMap.put(position, 0);
                     break;
                 case 1:
-                    tv_name.setTextColor(context.getResources().getColor(R.color.black_65));
-                    tv_name.setTypeface(tv_name.getTypeface(), Typeface.NORMAL);
+                    stateHashMap.put(position, 1);
                     break;
                 case 2:
-                    tv_name.setTypeface(tv_name.getTypeface(), Typeface.NORMAL);
-                    tv_name.setTextColor(context.getResources().getColor(R.color.red));
+                    stateHashMap.put(position, 2);
                     break;
+            }
+            if (stateHashMap.get(position) != null) {
+                switch (stateHashMap.get(position)) {
+                    case 0:
+                        tv_name.setTextColor(context.getResources().getColor(R.color.black_65));
+                        tv_name.setTypeface(tv_name.getTypeface(), Typeface.BOLD_ITALIC);
+                        break;
+                    case 1:
+                        tv_name.setTextColor(context.getResources().getColor(R.color.black_65));
+                        tv_name.setTypeface(tv_name.getTypeface(), Typeface.NORMAL);
+                        break;
+                    case 2:
+                        tv_name.setTypeface(tv_name.getTypeface(), Typeface.NORMAL);
+                        tv_name.setTextColor(context.getResources().getColor(R.color.red));
+                        break;
+                }
             }
 
             if (!TextUtils.isEmpty(data.getContent())) {

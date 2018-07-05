@@ -48,11 +48,11 @@ class LearnProgramFragment : BaseFragment() {
 
     private fun initView() {
         list = ArrayList()
-        adapter = AdapterLearnProgram(list, context, object : ItemMoreActionGeneric<ContentEntity> {
-            override fun ItemClick(type: Int, id: Int, data: ContentEntity) {
-
-            }
-        })
+//        adapter = AdapterLearnProgram(list, context, object : ItemMoreActionGeneric<ContentEntity> {
+//            override fun ItemClick(type: Int, id: Int, data: ContentEntity) {
+//
+//            }
+//        })
         list.addAll(data.data_week)
         rcl_data_week.layoutManager = LinearLayoutManager(context)
         rcl_data_week.adapter = adapter

@@ -165,6 +165,8 @@ class AbsentFragment : BaseFragment(), IAbsentFragment, SearchView.OnQueryTextLi
     }
 
     fun showDialogs(data: AbsentEntity, position: Int, notValid: Boolean) {
+        tv_title.text = "Chi tiết đơn xin nghỉ"
+
         var name = "<b>Học sinh: </b>" + data.fullNameStudent
         var start = "<b>Ngày bắt đầu: </b>" + data.absentStart
         var end = "<b>Ngày Kết thúc: </b>" + data.absentEnd

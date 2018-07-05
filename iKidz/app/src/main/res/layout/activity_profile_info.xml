@@ -608,6 +608,7 @@
                         android:background="@drawable/custom_edit_text_attended"
                         android:gravity="top"
                         android:lines="3"
+                        android:hint="Kết luận chung."
                         android:paddingBottom="@dimen/size_4"
                         android:paddingLeft="@dimen/size_8"
                         android:paddingTop="@dimen/size_4"

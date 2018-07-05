@@ -28,6 +28,9 @@ public class ProfileEntity implements Serializable {
     @SerializedName("student_code")
     @Expose
     private String studentCode;
+    @SerializedName("commented")
+    @Expose
+    private String commented;
 
     public Integer getId() {
         return id;
@@ -85,4 +88,11 @@ public class ProfileEntity implements Serializable {
         this.studentCode = studentCode;
     }
 
+    public String getCommented() {
+        return commented;
+    }
+
+    public void setCommented(String commented) {
+        this.commented = commented;
+    }
 }

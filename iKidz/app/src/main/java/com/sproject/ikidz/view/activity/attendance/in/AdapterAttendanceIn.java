@@ -21,6 +21,7 @@ import com.sproject.ikidz.sdk.Utils.SharedUtils;
 import com.sproject.ikidz.sdk.callback.ItemClickListenerGeneric;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class AdapterAttendanceIn extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Filterable {
@@ -28,11 +29,13 @@ public class AdapterAttendanceIn extends RecyclerView.Adapter<RecyclerView.ViewH
     List<AttendanceIn> data;
     Context context;
     ItemClickListenerGeneric<AttendanceIn> listener;
+    HashMap<Integer, Integer> stateHash;
 
     public AdapterAttendanceIn(List<AttendanceIn> data, Context context, ItemClickListenerGeneric<AttendanceIn> listener) {
         this.data = data;
         this.context = context;
         this.listener = listener;
+        stateHash = new HashMap<>();
     }
 
     @NonNull
@@ -63,11 +66,11 @@ public class AdapterAttendanceIn extends RecyclerView.Adapter<RecyclerView.ViewH
     public void setAll(boolean in) {
         if (in) {
             for (int i = 0; i < data.size(); i++) {
-                data.get(i).setChecked(2);
+                stateHash.put(i, 2);
             }
         } else {
             for (int i = 0; i < data.size(); i++) {
-                data.get(i).setChecked(0);
+                stateHash.put(i, 0);
             }
         }
         notifyItemRangeChanged(0, data.size());
@@ -112,6 +115,24 @@ public class AdapterAttendanceIn extends RecyclerView.Adapter<RecyclerView.ViewH
             if (entity.getChecked() != null) {
                 switch (entity.getChecked()) {
                     case 0:
+                        stateHash.put(position, 0);
+                        break;
+                    case 1:
+                        stateHash.put(position, 1);
+                        break;
+                    case 2:
+                        stateHash.put(position, 2);
+                        break;
+                    default:
+                        stateHash.put(position, 3);
+                }
+            } else {
+                stateHash.put(position, -1);
+            }
+
+            if (stateHash.get(position) != null) {
+                switch (stateHash.get(position)) {
+                    case 0:
                         rdo_group_in.check(R.id.rdo_khongphep);
                         break;
                     case 1:
@@ -120,10 +141,42 @@ public class AdapterAttendanceIn extends RecyclerView.Adapter<RecyclerView.ViewH
                     case 2:
                         rdo_group_in.check(R.id.rdo_denlop);
                         break;
+                    default:
+                        rdo_group_in.clearCheck();
                 }
+                setRadioCorlor(stateHash.get(position));
             }
-
             itemView.setOnClickListener(view -> listener.ItemClick(position, entity));
+        }
+
+        void setRadioCorlor(int type) {
+            switch (type) {
+                case -1:
+                    rdo_khongphep.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    rdo_cophep.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    rdo_denlop.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    break;
+                case 0:
+                    rdo_khongphep.setTextColor(context.getResources().getColor(R.color.red));
+                    rdo_cophep.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    rdo_denlop.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    break;
+                case 1:
+                    rdo_khongphep.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    rdo_cophep.setTextColor(context.getResources().getColor(R.color.yellow));
+                    rdo_denlop.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    break;
+                case 2:
+                    rdo_khongphep.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    rdo_cophep.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    rdo_denlop.setTextColor(context.getResources().getColor(R.color.green_yet));
+                    break;
+                case 3:
+                    rdo_khongphep.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    rdo_cophep.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    rdo_denlop.setTextColor(context.getResources().getColor(R.color.normal_text_dario));
+                    break;
+            }
         }
     }
 }

@@ -37,7 +37,7 @@
                 android:text="ádasfasfdfs"
                 android:textAllCaps="true"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/font_14" />
+                android:textSize="@dimen/font_12" />
 
             <TextView
                 android:id="@+id/tv_class_name"
@@ -50,7 +50,7 @@
                 android:text="àgdfsdfsdfsdf"
                 android:textAllCaps="true"
                 android:textColor="@color/yellow"
-                android:textSize="@dimen/font_14" />
+                android:textSize="@dimen/font_12" />
         </LinearLayout>
     </LinearLayout>
 
@@ -163,22 +163,47 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_36"
             android:background="@color/green_dark"
-            android:paddingLeft="@dimen/size_8"
-            android:paddingRight="@dimen/size_8"
             app:tabBackground="@color/green_dark"
             app:tabGravity="fill"
             app:tabIndicatorColor="@color/colorPrimary"
             app:tabIndicatorHeight="@dimen/size_3"
             app:tabMaxWidth="0dp"
             app:tabSelectedTextColor="@color/white_100"
-            app:tabTextColor="@color/white_100" />
+            app:tabTextColor="@color/white_100">
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/vpProgram"
+            <android.support.design.widget.TabItem
+                android:id="@+id/item_week_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Tuần 1" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/item_week_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Tuần 2" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/item_week_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Tuần 3" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/item_week_4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="Tuần 4" />
+        </android.support.design.widget.TabLayout>
+
+        <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/rcl_data_week"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="@dimen/size_8"
-            android:paddingRight="@dimen/size_8" />
+            android:paddingLeft="@dimen/size_16"
+            android:paddingRight="@dimen/size_16">
+
+        </android.support.v7.widget.RecyclerView>
     </LinearLayout>
 
 

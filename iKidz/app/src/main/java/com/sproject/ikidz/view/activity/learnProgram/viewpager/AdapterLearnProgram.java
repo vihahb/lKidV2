@@ -14,6 +14,7 @@ import com.sproject.ikidz.model.entity.ContentEntity;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.callback.ItemMoreActionGeneric;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterLearnProgram extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -21,8 +22,8 @@ public class AdapterLearnProgram extends RecyclerView.Adapter<RecyclerView.ViewH
     Context context;
     ItemMoreActionGeneric<ContentEntity> listener;
 
-    public AdapterLearnProgram(List<ContentEntity> data, Context context, ItemMoreActionGeneric<ContentEntity> listener) {
-        this.data = data;
+    public AdapterLearnProgram(Context context, ItemMoreActionGeneric<ContentEntity> listener) {
+        this.data = new ArrayList<>();
         this.context = context;
         this.listener = listener;
     }
@@ -39,6 +40,11 @@ public class AdapterLearnProgram extends RecyclerView.Adapter<RecyclerView.ViewH
             ViewHolder viewHolder = (ViewHolder) holder;
             viewHolder.setData(data.get(position), position);
         }
+    }
+
+    public void setListData(List<ContentEntity> data) {
+        this.data = data;
+        notifyDataSetChanged();
     }
 
     @Override

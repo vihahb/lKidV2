@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName;
 
 public class ParamsAddLearnEntity {
 
-    @SerializedName("learning_morning")
+    @SerializedName("learn_morning")
     @Expose
     private String learningMorning;
-    @SerializedName("learning_afternoon")
+    @SerializedName("learn_afternoon")
     @Expose
     private String learningAfternoon;
     @SerializedName("id")

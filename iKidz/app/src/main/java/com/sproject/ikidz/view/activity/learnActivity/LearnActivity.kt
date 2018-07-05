@@ -21,6 +21,23 @@ import java.util.*
 
 
 class LearnActivity : BaseActivity(), ILearnActivityView {
+    override fun createOrUpdateSuccess(learningMorning: String, learningAfternoon: String, date: String, pos: Int) {
+        showLongToast("Cập nhật hoạt động học thành công!")
+        if (pos > -1) {
+            list[pos].learnMorning = learningMorning
+            list[pos].learnAfternoon = learningAfternoon
+            list[pos].activityDate = date
+            adapter.notifyItemChanged(pos)
+        } else {
+            presenter.getLearnActivity(1)
+        }
+
+    }
+
+    override fun createOrUpdateError() {
+        showLongToast("Cập nhật hoạt động học không thành công!")
+    }
+
     override fun getLearnActivitySuccess(data: List<LearnActivityEntity>) {
 
         if (page == 1) {
@@ -73,13 +90,13 @@ class LearnActivity : BaseActivity(), ILearnActivityView {
         initDialogCreateOrUpdate()
         list = ArrayList()
         adapter = AdapterLearnActivity(list, this, object : ItemMoreActionGeneric<LearnActivityEntity> {
-            override fun ItemClick(type: Int, id: Int, data: LearnActivityEntity) {
+            override fun ItemClick(type: Int, pos: Int, data: LearnActivityEntity) {
                 when (type) {
                     Constants.TYPE_VIEW -> {
                         setDataView(data)
                     }
                     Constants.TYPE_EDIT -> {
-                        showUpdateDialog(data)
+                        showUpdateDialog(pos, data)
                     }
                 }
             }
@@ -153,16 +170,19 @@ class LearnActivity : BaseActivity(), ILearnActivityView {
         }
     }
 
-    fun showUpdateDialog(entity: LearnActivityEntity) {
+    fun showUpdateDialog(pos: Int, entity: LearnActivityEntity) {
         tv_title.text = "Sửa hoạt động học"
 
         edt_time.setText(entity.activityDate)
         edt_morning.setText(entity.learnMorning)
         edt_afternoon.setText(entity.learnAfternoon)
 
+        edt_time.isEnabled = false
+
         btnAgrees.setOnClickListener {
             if (validate()) {
-                presenter.createOrUpdateLearn(Constants.TYPE_EDIT, entity.id, edt_morning.text.toString(), edt_afternoon.text.toString(), edt_time.text.toString())
+                presenter.createOrUpdateLearn(pos, Constants.TYPE_EDIT, entity.id, edt_morning.text.toString(), edt_afternoon.text.toString(), edt_time.text.toString())
+                dialogAddOrUpdate.dismiss()
             }
         }
         if (!dialogAddOrUpdate.isShowing)
@@ -173,7 +193,7 @@ class LearnActivity : BaseActivity(), ILearnActivityView {
         btnAgrees.setOnClickListener {
             if (validate()) {
                 //tạo hoat động học
-                presenter.createOrUpdateLearn(Constants.TYPE_ADD, null, edt_morning.text.toString(), edt_afternoon.text.toString(), edt_time.text.toString())
+                presenter.createOrUpdateLearn(-1, Constants.TYPE_ADD, null, edt_morning.text.toString(), edt_afternoon.text.toString(), edt_time.text.toString())
             }
         }
         if (!dialogAddOrUpdate.isShowing)

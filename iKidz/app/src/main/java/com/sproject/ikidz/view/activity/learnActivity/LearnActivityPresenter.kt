@@ -37,7 +37,7 @@ class LearnActivityPresenter(private var view: ILearnActivityView) {
         }
     }
 
-    fun createOrUpdateLearn(type: Int, id: Int?, learningMorning: String,
+    fun createOrUpdateLearn(pos: Int, type: Int, id: Int?, learningMorning: String,
                             learningAfternoon: String, date: String) {
         if (!NetworkUtils.isConnected(view.activity)) {
             view.showLongToast(view.activity.resources.getString(R.string.error_network))
@@ -59,16 +59,21 @@ class LearnActivityPresenter(private var view: ILearnActivityView) {
         view.showProgressBar(true, true, mesage)
 
         val activityes = ArrayList<ParamsAddLearnEntity>()
-        activityes.add(ParamsAddLearnEntity(learningMorning, learningAfternoon, id!!))
+        if (id != null)
+            activityes.add(ParamsAddLearnEntity(learningMorning, learningAfternoon, id))
+        else
+            activityes.add(ParamsAddLearnEntity(learningMorning, learningAfternoon, null))
         val dataparm = DataParamsAddLearnEntity(activityes, classId, date)
 
         object : CreateOrUpdateLearnActivity(dataparm, token, linkApi) {
             override fun onSucces(news: RESP_Basic?) {
                 view.closeProgressBar()
+                view.createOrUpdateSuccess(learningMorning, learningAfternoon, date, pos)
             }
 
             override fun onError(s: ErrorEntity?) {
                 view.closeProgressBar()
+                view.createOrUpdateError()
             }
 
         }
