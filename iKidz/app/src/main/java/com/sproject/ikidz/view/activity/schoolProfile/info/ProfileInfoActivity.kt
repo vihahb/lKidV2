@@ -1,6 +1,7 @@
 package com.sproject.ikidz.view.activity.schoolProfile.info
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -17,7 +18,6 @@ import java.util.*
 class ProfileInfoActivity : BaseActivity(), IProfileView {
     override fun updateProfileSuccess() {
         showLongToast("Cập nhật thông tin học bạ thành công!")
-        finish()
     }
 
     override fun updateProfileError() {
