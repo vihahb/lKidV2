@@ -33,7 +33,12 @@ public class Constants {
     public static final String OBJECT = "object";
     public static final String EAT_TYPE = "eat_type";
     public static final String SCHOOL_CODE = "school_code";
+    public static final String AVATAR_USER = "AVATAR_USER";
+    public static final String FIREBASE_TOKEN = "FIREBASE_TOKEN";
     public static int TYPE_VIEW = 1;
     public static int TYPE_EDIT = 2;
     public static int TYPE_ADD = 1;
+    public static final int LIKE_POST = 1;
+    public static final int COMMENT_POST = 2;
+    public static final int TYPE_POST_NEWS = 1;
 }

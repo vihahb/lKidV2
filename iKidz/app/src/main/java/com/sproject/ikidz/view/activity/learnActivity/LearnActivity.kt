@@ -177,8 +177,6 @@ class LearnActivity : BaseActivity(), ILearnActivityView {
         edt_morning.setText(entity.learnMorning)
         edt_afternoon.setText(entity.learnAfternoon)
 
-        edt_time.isEnabled = false
-
         btnAgrees.setOnClickListener {
             if (validate()) {
                 presenter.createOrUpdateLearn(pos, Constants.TYPE_EDIT, entity.id, edt_morning.text.toString(), edt_afternoon.text.toString(), edt_time.text.toString())

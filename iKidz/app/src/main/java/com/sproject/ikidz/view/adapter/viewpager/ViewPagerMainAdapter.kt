@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import com.sproject.ikidz.R
-import com.sproject.ikidz.view.fragment.MessageFragment
+import com.sproject.ikidz.view.fragment.message.MessageFragment
 import com.sproject.ikidz.view.fragment.contacts.ContactsFragment
 import com.sproject.ikidz.view.fragment.news.NewsfeedFragment
 import com.sproject.ikidz.view.fragment.phonebook.PhoneBooksFragment

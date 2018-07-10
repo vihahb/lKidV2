@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,11 +18,17 @@ import android.widget.TextView;
 
 import com.sproject.ikidz.R;
 import com.sproject.ikidz.model.RESP.RESP_DataNews;
+import com.sproject.ikidz.model.RESP.RESP_like;
+import com.sproject.ikidz.model.entity.AlbumEntity;
+import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.model.entity.NewsEntity;
 import com.sproject.ikidz.model.entity.viewObject.Feature;
 import com.sproject.ikidz.presenter.news.NewsPresenter;
 import com.sproject.ikidz.sdk.Commons.Constants;
 import com.sproject.ikidz.sdk.Utils.SharedUtils;
+import com.sproject.ikidz.sdk.callback.ImageItemClick;
+import com.sproject.ikidz.view.activity.news.all.NewsAllActivity;
+import com.sproject.ikidz.view.base.BaseFragment;
 import com.sproject.ikidz.view.fragment.news.main_feature.AdapterMainFeature;
 import com.sproject.ikidz.view.fragment.news.showImage.ShowImageActivity;
 
@@ -33,7 +38,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsfeedFragment extends Fragment implements NewsInf {
+public class NewsfeedFragment extends BaseFragment implements NewsInf {
     NewsAdapter adapterNews;
     AdapterMainFeature adapterMainFeature;
     List<Feature> featureList;
@@ -71,13 +76,27 @@ public class NewsfeedFragment extends Fragment implements NewsInf {
         verticalLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 
         adapterMainFeature = new AdapterMainFeature(featureList, getActivity());
-        adapterNews = new NewsAdapter(newsList, getContext(), (data, position) -> {
-            Intent imgIntent = new Intent(getContext(), ShowImageActivity.class);
-            imgIntent.putExtra(Constants.IMAGE_POSITION, position);
-            imgIntent.putExtra(Constants.LIST_ALBUM, (Serializable) data);
-            startActivity(imgIntent);
-            if (getActivity() != null)
-                getActivity().overridePendingTransition(R.anim.slide_from_right, R.anim.slide_2_left);
+        adapterNews = new NewsAdapter(newsList, getContext(), new ImageItemClick() {
+            @Override
+            public void onClickItem(List<AlbumEntity> data, int position) {
+                Intent imgIntent = new Intent(getContext(), ShowImageActivity.class);
+                imgIntent.putExtra(Constants.IMAGE_POSITION, position);
+                imgIntent.putExtra(Constants.LIST_ALBUM, (Serializable) data);
+                startActivity(imgIntent);
+                if (getActivity() != null)
+                    getActivity().overridePendingTransition(R.anim.slide_from_right, R.anim.slide_2_left);
+            }
+        }, (type, pos, data) -> {
+            switch (type){
+                case Constants.LIKE_POST:
+                    presenter.likePost(pos, data.getId());
+                    break;
+                case Constants.COMMENT_POST:
+                    Intent intent = new Intent(getActivity(), NewsAllActivity.class);
+                    intent.putExtra(Constants.OBJECT, data);
+                    startActivity(intent);
+                    break;
+            }
         });
     }
 
@@ -236,5 +255,26 @@ public class NewsfeedFragment extends Fragment implements NewsInf {
     public void GetNewsError(@NotNull String s) {
         tv_message.setVisibility(View.VISIBLE);
         tv_message.setText(s);
+    }
+
+    @Override
+    public void likeSuccess(RESP_like data, int pos) {
+        if (data != null) {
+            if (data.getData().getIs_like_post() == 1){
+                newsList.get(pos).setIsLikePost(1);
+                newsList.get(pos).setCountLike((Integer.parseInt(newsList.get(pos).getCountLike()) + 1) + "");
+                showLongToast("Đã thích bài viết này.");
+            } else {
+                newsList.get(pos).setIsLikePost(0);
+                newsList.get(pos).setCountLike((Integer.parseInt(newsList.get(pos).getCountLike()) - 1) + "");
+                showLongToast("Đã hủy thích bài viết này.");
+            }
+            adapterNews.notifyItemChanged(pos);
+        }
+    }
+
+    @Override
+    public void likeError(@org.jetbrains.annotations.Nullable ErrorEntity s) {
+        showLongToast("Thích bài viết không thành công!");
     }
 }

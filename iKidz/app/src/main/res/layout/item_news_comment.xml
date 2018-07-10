@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/size_4"
+    android:paddingBottom="@dimen/size_4"
+    android:background="?attr/selectableItemBackground">
+    <LinearLayout
+        android:paddingRight="@dimen/size_16"
+        android:paddingLeft="@dimen/size_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <com.sproject.ikidz.sdk.Utils.RoundImage
+            android:id="@+id/img_avatar"
+            android:src="@mipmap/ic_student_user"
+            android:layout_width="@dimen/size_36"
+            android:layout_height="@dimen/size_36"
+            android:layout_marginRight="@dimen/size_8"/>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+           <TextView
+               android:id="@+id/tv_name_time"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textSize="@dimen/font_11"/>
+
+           <TextView
+               android:id="@+id/tv_comment"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:textColor="@color/black_75"
+               android:textSize="@dimen/font_12"/>
+       </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

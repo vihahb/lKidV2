@@ -49,6 +49,8 @@ class LoginActivity : BaseActivity(), ILogin {
     override fun onLoginSuccess(login: RESP_Login) {
         SharedUtils.getInstance().putStringValue(Constants.CURRENT_TOKEN, login.data.token)
         SharedUtils.getInstance().putStringValue(Constants.LINK_API, link_api)
+        SharedUtils.getInstance().putStringValue(Constants.AVATAR_USER, login.data.user.avatar)
+        SharedUtils.getInstance().putStringValue(Constants.FIREBASE_TOKEN, login.data.user.tokenFirebase)
         presenter.saveUserInfo(login.data)
 //        if (rememberLogin) {
 //            SharedUtils.getInstance().putStringValue(Constants.CURRENT_TOKEN, login.data.token)

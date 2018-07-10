@@ -60,12 +60,12 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight=".8">
+                    android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/img_like"
-                        android:layout_width="@dimen/size_24"
-                        android:layout_height="@dimen/size_24"
+                        android:layout_width="@dimen/size_20"
+                        android:layout_height="@dimen/size_20"
                         android:src="@mipmap/ic_like" />
 
                     <TextView
@@ -74,19 +74,19 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/size_8"
                         android:gravity="center_vertical"
-                        android:textSize="@dimen/font_11" />
+                        android:textSize="@dimen/font_10" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1.2"
+                    android:layout_weight="1"
                     android:gravity="right">
 
                     <ImageView
                         android:id="@+id/img_comment"
-                        android:layout_width="@dimen/size_24"
-                        android:layout_height="@dimen/size_24"
+                        android:layout_width="@dimen/size_20"
+                        android:layout_height="@dimen/size_20"
                         android:src="@mipmap/ic_comment" />
 
                     <TextView
@@ -95,7 +95,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/size_8"
                         android:gravity="center_vertical|right"
-                        android:textSize="@dimen/font_11" />
+                        android:textSize="@dimen/font_10" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

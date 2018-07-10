@@ -1,25 +1,49 @@
 package com.sproject.ikidz.view.activity.school.info
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.text.Html
 import android.view.MenuItem
 import android.view.View
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.sproject.ikidz.R
 import com.sproject.ikidz.iKidApplications
-import com.sproject.ikidz.model.entity.DataUser
-import com.sproject.ikidz.model.entity.NewsEntity
-import com.sproject.ikidz.model.entity.NewsInfo
+import com.sproject.ikidz.model.entity.*
 import com.sproject.ikidz.sdk.Commons.Constants
 import com.sproject.ikidz.sdk.Utils.TextUtils
 import com.sproject.ikidz.sdk.Utils.WidgetUtils
+import com.sproject.ikidz.view.activity.news.all.AdapterAllNews
 import com.sproject.ikidz.view.base.BaseActivity
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_schools_news_info.*
+import java.util.ArrayList
 
 class SchoolsNewsInfo : BaseActivity(), ISchoolNewsInfo {
+    override fun GetCommentSuccess(data: List<CommentEntity>) {
+        if (list.isNotEmpty())
+        {
+            list.clear()
+        }
+        list.addAll(data)
+        adapter.notifyDataSetChanged()
+    }
+
+    override fun GetCommentError(s: ErrorEntity?) {
+        showLongToast("Có lỗi khi lấy dữ liệu bình luận!")
+    }
+
+    override fun commentSuccess(data: RespondCommentEntity?) {
+        edt_comment.setText("")
+        presenter.getComment(news.id, 1)
+    }
+
+    override fun commentError() {
+        showLongToast("Bình luận không thành công!")
+    }
+
     override fun getProfileSuccess(dataUser: DataUser) {
         info_user_avatar = dataUser.user.avatar
         if (!TextUtils.isEmpty(info_user_avatar)) {
@@ -34,7 +58,7 @@ class SchoolsNewsInfo : BaseActivity(), ISchoolNewsInfo {
             tv_title.text = data.title
 
         if (!TextUtils.isEmpty(data.content)) {
-            webview.loadData(data.content, "text/html", "UTF-8")
+            webview.loadDataWithBaseURL("file:///android_asset/",data.content.replace("<img ", "<img style=\"width: 100% !important; height:auto; max-height: 250px; margin: 0 auto !important;\""), "text/html; charset=utf-8", "utf-8", null)
         }
 
         info_user = "<font color=\'#25ADC2\'>Người đăng</font>"
@@ -80,6 +104,11 @@ class SchoolsNewsInfo : BaseActivity(), ISchoolNewsInfo {
     var info_user_avatar = ""
     lateinit var presenter: SchoolsNewsPresenter
     lateinit var news: NewsEntity
+    lateinit var webSettings: WebSettings
+    var page = 1
+    lateinit var adapter: AdapterAllNews
+    lateinit var list: ArrayList<CommentEntity>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,19 +116,43 @@ class SchoolsNewsInfo : BaseActivity(), ISchoolNewsInfo {
         initToolbar("NHÀ TRƯỜNG", true)
         presenter = SchoolsNewsPresenter(this)
         news = NewsEntity()
+        initView()
         getData()
+    }
+
+    private fun initView() {
+        list = ArrayList()
+        adapter = AdapterAllNews(list, this)
+        rcl_comment.layoutManager = LinearLayoutManager(this)
+        rcl_comment.adapter = adapter
+
+        btnComment.setOnClickListener {
+            if (valid()){
+                presenter.sendComment(news.id, edt_comment.text.toString())
+            }
+        }
+    }
+
+    private fun valid(): Boolean {
+        if (edt_comment.text.isNullOrEmpty()) {
+            showLongToast("Vui lòng nhập nội dung bình luận!")
+            return false
+        }
+        return true
     }
 
     private fun getData() {
         news = intent.getSerializableExtra(Constants.OBJECT) as NewsEntity
         presenter.getInfoNews(news.id)
-
+        presenter.getComment(news.id, page)
         webview.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(viewx: WebView, urlx: String): Boolean {
                 viewx.loadUrl(urlx)
                 return true
             }
         }
+        webSettings = webview.settings
+        webSettings.defaultTextEncodingName = "utf-8"
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
