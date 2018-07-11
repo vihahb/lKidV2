@@ -26,7 +26,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1" />
 
-            <com.snq.teacher.sdk.Utils.BottomNavigationViewEx
+            <com.snq.ikidz.teacher.sdk.Utils.BottomNavigationViewEx
                 android:id="@+id/tablayoutMain"
                 android:layout_width="match_parent"
                 android:layout_height="57dp"

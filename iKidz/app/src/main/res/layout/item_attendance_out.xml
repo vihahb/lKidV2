@@ -16,7 +16,7 @@
         android:textSize="@dimen/font_14"
         android:textStyle="bold" />
 
-    <com.snq.teacher.sdk.Utils.RoundImage
+    <com.snq.ikidz.teacher.sdk.Utils.RoundImage
         android:id="@+id/img_avatar"
         android:layout_width="@dimen/size_48"
         android:layout_height="@dimen/size_48"

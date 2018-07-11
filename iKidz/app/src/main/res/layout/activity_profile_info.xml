@@ -31,7 +31,7 @@
                     android:layout_width="@dimen/size_64"
                     android:layout_height="@dimen/size_80">
 
-                    <com.snq.teacher.sdk.Utils.RoundImage
+                    <com.snq.ikidz.teacher.sdk.Utils.RoundImage
                         android:id="@+id/img_avatar"
                         android:layout_width="@dimen/size_64"
                         android:layout_height="@dimen/size_64"

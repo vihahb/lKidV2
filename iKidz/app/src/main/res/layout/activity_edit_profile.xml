@@ -41,7 +41,7 @@
                     android:layout_height="@dimen/size_110"
                     android:layout_gravity="center">
 
-                    <com.snq.teacher.sdk.Utils.RoundImage
+                    <com.snq.ikidz.teacher.sdk.Utils.RoundImage
                         android:id="@+id/img_user_ava"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
