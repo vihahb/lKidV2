@@ -24,7 +24,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
 
-                <com.sproject.ikidz.sdk.Utils.RoundImage
+                <com.snq.teacher.sdk.Utils.RoundImage
                     android:id="@+id/img_avatar"
                     android:layout_width="@dimen/size_56"
                     android:layout_height="@dimen/size_56"

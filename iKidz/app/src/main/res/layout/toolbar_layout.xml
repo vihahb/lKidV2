@@ -8,7 +8,7 @@
     app:elevation="0dp"
     tools:showIn="@layout/activity_home">
 
-    <com.sproject.ikidz.sdk.Utils.CenteredToolbar
+    <com.snq.teacher.sdk.Utils.CenteredToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="57dp"

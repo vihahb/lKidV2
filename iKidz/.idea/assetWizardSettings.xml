@@ -34,34 +34,18 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/alert/ic_error_outline_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_check_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
                                         </value>
                                       </entry>
-                                    </map>
-                                  </option>
-                                  <option name="values">
-                                    <map>
-                                      <entry key="outputName" value="ic_load_image_error" />
-                                      <entry key="theme" value="HOLO_DARK" />
-                                    </map>
-                                  </option>
-                                </PersistentState>
-                              </value>
-                            </entry>
-                            <entry key="launcherLegacy">
-                              <value>
-                                <PersistentState>
-                                  <option name="children">
-                                    <map>
                                       <entry key="image">
                                         <value>
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="paddingPercent" value="20" />
+                                                <entry key="paddingPercent" value="50" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -72,9 +56,24 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
+                                      <entry key="imageAsset" value="C:\Users\vivhp\Desktop\login\elippse_gray.png" />
+                                      <entry key="outputName" value="ic_check_save" />
+                                      <entry key="theme" value="HOLO_DARK" />
+                                      <entry key="themeColor" value="898989" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                            <entry key="launcherLegacy">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="C:\Users\vivhp\Desktop\iKid Resource\new icon\school.png" />
-                                      <entry key="outputName" value="ic_nav_school" />
+                                      <entry key="imageAsset" value="C:\Users\vivhp\Desktop\login\ic_like_active.png" />
+                                      <entry key="outputName" value="ic_like_active" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -84,7 +83,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputIconType" value="ACTIONBAR" />
+                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
                           </map>
                         </option>
                       </PersistentState>

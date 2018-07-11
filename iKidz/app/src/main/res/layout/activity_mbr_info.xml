@@ -46,7 +46,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <com.sproject.ikidz.sdk.Utils.RoundImage
+                    <com.snq.teacher.sdk.Utils.RoundImage
                         android:id="@+id/img_avatar"
                         android:layout_width="@dimen/size_80"
                         android:layout_height="@dimen/size_80"
