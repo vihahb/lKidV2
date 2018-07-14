@@ -3,6 +3,7 @@
     package="com.sproject.ikidz">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -49,6 +50,10 @@
         <activity android:name=".view.activity.schoolProfile.info.ProfileInfoActivity" />
         <activity android:name=".view.activity.message.MessageDetailActivity" />
 
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id"/>
+
         <receiver
             android:name=".view.activity.message.broadcast.ChatBroadcast"
             android:exported="true">
@@ -57,6 +62,21 @@
                 <action android:name="com.sproject.added_room" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name=".sdk.fcm.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <!-- Firebase -->
+        <!-- [START firebase_service] -->
+        <service android:name=".sdk.fcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
         <activity android:name=".view.activity.mbr.MbrListActivity" />
         <activity android:name=".view.activity.eatActivity.EatActivity" />

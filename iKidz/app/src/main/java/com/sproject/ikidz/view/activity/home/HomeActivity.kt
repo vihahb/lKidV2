@@ -82,7 +82,9 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
 
     var viewpagerAdapter: ViewPagerMainAdapter? = null
     lateinit var adapterDrawer: AdapterDrawer
-    private val permissions = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    private val permissions = arrayOf(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE)
+
+    private var has_login = SharedUtils.getInstance().getIntValue(Constants.HAS_LOGIN)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -138,6 +140,11 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
     private fun checkPermission() {
         if (!PermissionHelper.checkPermission(permissions, this, 505)) {
             showLongToast(getString(R.string.message_permission_needed))
+        } else{
+            if (has_login == 1){
+                has_login = 0
+                presenter.initCheckDevices()
+            }
         }
     }
 
@@ -263,6 +270,11 @@ class HomeActivity : IHomeView, BaseActivity(), NavigationView.OnNavigationItemS
         if (requestCode == 505) {
             if (!PermissionHelper.checkResult(grantResults)) {
                 showLongToast(getString(R.string.message_permission_needed))
+            } else{
+                if (has_login == 1){
+                    has_login = 0
+                    presenter.initCheckDevices()
+                }
             }
         }
     }

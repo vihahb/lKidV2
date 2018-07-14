@@ -57,16 +57,16 @@ class LoginPresenter(private val view: ILogin) {
         }
         view.showProgressBar(false, true, view.activity.getString(R.string.mesage_loading_data))
         object : DistrictModel(codeProvince) {
-            override fun onSuccess(province: RESP_Province?) {
+            override fun onSuccess(province: RESP_Province?) {view.closeProgressBar()
                 iKidApplications.log(TAG, JsonHelper.toJson(province!!))
                 view.getDistrictSuccess(province.data)
-                view.closeProgressBar()
+
             }
 
-            override fun onErrror(err: ErrorEntity) {
+            override fun onErrror(err: ErrorEntity) {view.closeProgressBar()
                 iKidApplications.log(TAG, err.errorMessage)
                 view.getDistrictError()
-                view.closeProgressBar()
+
             }
         }
     }
@@ -79,15 +79,16 @@ class LoginPresenter(private val view: ILogin) {
         view.showProgressBar(false, true, view.activity.getString(R.string.mesage_loading_data))
         object : GetSchoolByDistrictModel(distrcId) {
             override fun onSuccess(schools: RESP_GetSchoolByDistrict) {
+                view.closeProgressBar()
                 iKidApplications.log(TAG, JsonHelper.toJson(schools))
                 view.getSchoolByDistrictSuccess(schools)
-                view.closeProgressBar()
+
             }
 
             override fun onErrror(err: ErrorEntity) {
+                view.closeProgressBar()
                 iKidApplications.log(TAG, err.errorMessage)
                 view.getSchoolsError(err.errorMessage)
-                view.closeProgressBar()
             }
 
         }
@@ -102,15 +103,15 @@ class LoginPresenter(private val view: ILogin) {
         var login = UserLogin(username, pass)
         object : LoginModel(login, link_api) {
             override fun onSuccess(login: RESP_Login) {
+                view.closeProgressBar()
                 iKidApplications.log(TAG, JsonHelper.toJson(login))
                 view.onLoginSuccess(login)
-                view.closeProgressBar()
             }
 
             override fun onError(error: ErrorEntity) {
+                view.closeProgressBar()
                 iKidApplications.log(TAG, error.errorMessage)
                 view.onLoginError(error.errorMessage)
-                view.closeProgressBar()
             }
         }
     }

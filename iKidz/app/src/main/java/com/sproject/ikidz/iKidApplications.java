@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.google.firebase.FirebaseApp;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -33,6 +34,9 @@ public class iKidApplications extends Application {
     public void onCreate() {
         super.onCreate();
         context = this;
+
+        FirebaseApp.initializeApp(this);
+
         initRealm();
 
         // Create global configuration and initialize ImageLoader with this configuration

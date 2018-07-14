@@ -25,7 +25,7 @@ class MessageFragment : BaseFragment(), IMessageView {
     override fun getUsserSuccess(user: DataUser) {
         data = user
         userId = schoolCode + "_" + `data`.user.id
-        getRoomKeyJoined(userId)
+//        getRoomKeyJoined(userId)
     }
 
     var TAG = "MessageFragment"

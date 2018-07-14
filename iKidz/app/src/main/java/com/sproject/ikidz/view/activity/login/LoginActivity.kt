@@ -33,6 +33,7 @@ class LoginActivity : BaseActivity(), ILogin {
 
 
     override fun onSaveUserSuccess() {
+        SharedUtils.getInstance().putIntValue(Constants.HAS_LOGIN, 1)
         showLongToast(resources.getString(R.string.message_login_success))
         startActivityAndFinish(HomeActivity::class.java)
     }
@@ -47,6 +48,7 @@ class LoginActivity : BaseActivity(), ILogin {
     }
 
     override fun onLoginSuccess(login: RESP_Login) {
+        SharedUtils.getInstance().putStringValue(Constants.FCM_TOKEN, login.data.user.tokenFirebase)
         SharedUtils.getInstance().putStringValue(Constants.CURRENT_TOKEN, login.data.token)
         SharedUtils.getInstance().putStringValue(Constants.LINK_API, link_api)
         SharedUtils.getInstance().putStringValue(Constants.AVATAR_USER, login.data.user.avatar)

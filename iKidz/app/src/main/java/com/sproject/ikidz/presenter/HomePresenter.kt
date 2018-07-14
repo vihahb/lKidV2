@@ -1,15 +1,15 @@
 package com.sproject.ikidz.presenter
 
+import android.util.Log
 import com.sproject.ikidz.R
 import com.sproject.ikidz.iKidApplications
+import com.sproject.ikidz.model.RESP.RESP_CheckDevices
 import com.sproject.ikidz.model.RESP.RESP_CountNotify
 import com.sproject.ikidz.model.RESP.RESP_CurrentClassTeacher
 import com.sproject.ikidz.model.database.GetObjectByKeyModel
 import com.sproject.ikidz.model.database.SaveObjectModel
-import com.sproject.ikidz.model.entity.ClassCurrentTeacher
-import com.sproject.ikidz.model.entity.DataUser
-import com.sproject.ikidz.model.entity.ErrorEntity
-import com.sproject.ikidz.model.entity.ItemDrawer
+import com.sproject.ikidz.model.entity.*
+import com.sproject.ikidz.model.server.CheckDevices
 import com.sproject.ikidz.model.server.GetClassCurrentOfTeacher
 import com.sproject.ikidz.model.server.GetCountNotify
 import com.sproject.ikidz.sdk.Commons.Constants
@@ -33,6 +33,25 @@ class HomePresenter(private val view: IHomeView) {
     init {
         if (SharedUtils.getInstance().getBooleanValue(Constants.TEACHER)) {
             getCurrentClassTeacher()
+        }
+    }
+
+    fun initCheckDevices() {
+        if (!NetworkUtils.isConnected(view.activity)) {
+            Log.e(TAG, "initCheckDevices: " + view.activity.resources.getString(R.string.error_network))
+            return
+        }
+        var fcmToken = SharedUtils.getInstance().getStringValue(Constants.FCM_TOKEN)
+        var devices = DeviceInfo(fcmToken)
+        object : CheckDevices(devices) {
+            override fun onSucces(data: RESP_CheckDevices?) {
+                Log.e(TAG, "Check devices onSucces: " + JsonHelper.toJson(data!!.data))
+            }
+
+            override fun onError(s: ErrorEntity?) {
+                Log.e(TAG, "Check devices onError: " + JsonHelper.toJson(s))
+            }
+
         }
     }
 

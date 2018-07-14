@@ -1,10 +1,7 @@
 package com.sproject.ikidz.model.server;
 
 import com.sproject.ikidz.model.BasicModel;
-import com.sproject.ikidz.model.RESP.RESPCheckDevices;
 import com.sproject.ikidz.model.RESP.RESP_CheckDevices;
-import com.sproject.ikidz.model.RESP.RESP_Status;
-import com.sproject.ikidz.model.entity.DataProfilePostEntify;
 import com.sproject.ikidz.model.entity.DeviceInfo;
 import com.sproject.ikidz.model.entity.ErrorEntity;
 import com.sproject.ikidz.sdk.Commons.Constants;
@@ -13,11 +10,11 @@ import com.sproject.ikidz.sdk.Utils.SharedUtils;
 import com.sproject.ikidz.sdk.callback.AbsICmd;
 import com.sproject.ikidz.sdk.callback.ResponseHandle;
 
-public abstract class UpdateProfile extends AbsICmd {
+public abstract class CheckDevices extends AbsICmd {
     BasicModel basicModel = new BasicModel();
-    DataProfilePostEntify data;
+    DeviceInfo data;
 
-    public UpdateProfile(DataProfilePostEntify data) {
+    public CheckDevices(DeviceInfo data) {
         this.data = data;
         run();
     }
@@ -26,18 +23,17 @@ public abstract class UpdateProfile extends AbsICmd {
     @Override
     protected void invoke() {
         String token = SharedUtils.getInstance().getStringValue(Constants.CURRENT_TOKEN);
-        String link_api = SharedUtils.getInstance().getStringValue(Constants.BASE_URL);
-        String url = link_api + "/api/v1/add-shool-report/year";
-
-        basicModel.requestServer.postApi(url, JsonHelper.toJson(data), token, new ResponseHandle<RESP_Status>(RESP_Status.class) {
+        String url = "http://v3.ikidz.edu.vn/api/v3/check-device";
+        String json = JsonHelper.toJson(data);
+        basicModel.requestServer.postApi(url, json, token, new ResponseHandle<RESP_CheckDevices>(RESP_CheckDevices.class) {
             @Override
-            protected void onSuccess(RESP_Status obj) {
-                UpdateProfile.this.onSucces(obj);
+            protected void onSuccess(RESP_CheckDevices obj) {
+                CheckDevices.this.onSucces(obj);
             }
 
             @Override
             protected void onError(ErrorEntity error) {
-                UpdateProfile.this.onError(error);
+                CheckDevices.this.onError(error);
             }
         });
     }
@@ -47,7 +43,7 @@ public abstract class UpdateProfile extends AbsICmd {
         onError(message);
     }
 
-    protected abstract void onSucces(RESP_Status news);
+    protected abstract void onSucces(RESP_CheckDevices data);
 
     protected abstract void onError(ErrorEntity s);
 }

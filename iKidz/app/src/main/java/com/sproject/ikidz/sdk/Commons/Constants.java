@@ -1,5 +1,7 @@
 package com.sproject.ikidz.sdk.Commons;
 
+import org.jetbrains.annotations.Nullable;
+
 /**
  * Created by User: Vi-PC
  * Author: Vũ Hà Vi
@@ -35,10 +37,13 @@ public class Constants {
     public static final String SCHOOL_CODE = "school_code";
     public static final String AVATAR_USER = "AVATAR_USER";
     public static final String FIREBASE_TOKEN = "FIREBASE_TOKEN";
+    public static final String FCM_TOKEN = "FCM_TOKEN";
     public static int TYPE_VIEW = 1;
     public static int TYPE_EDIT = 2;
     public static int TYPE_ADD = 1;
     public static final int LIKE_POST = 1;
     public static final int COMMENT_POST = 2;
     public static final int TYPE_POST_NEWS = 1;
+    @Nullable
+    public static final String HAS_LOGIN = "HAS_LOGIN";
 }

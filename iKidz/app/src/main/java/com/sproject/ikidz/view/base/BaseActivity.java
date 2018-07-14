@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sproject.ikidz.R;
+import com.sproject.ikidz.iKidApplications;
 import com.sproject.ikidz.sdk.Utils.CenteredToolbar;
 import com.sproject.ikidz.sdk.Utils.TextUtils;
 import com.sproject.ikidz.sdk.callback.DialogClickListener;
@@ -63,7 +64,7 @@ public abstract class BaseActivity extends AppCompatActivity implements IBasicAc
                 progressDialog = null;
             }
 
-            progressDialog = new Dialog(this, R.style.Theme_Transparent);
+            progressDialog = new Dialog(iKidApplications.context, R.style.Theme_Transparent);
             progressDialog.setContentView(R.layout.dialog_progressbar);
             Objects.requireNonNull(progressDialog.getWindow()).getAttributes().windowAnimations = R.style.DialogAnim;
             //noinspection ConstantConditions
