@@ -28,7 +28,7 @@
             android:layout_height="@dimen/size_72"
             android:layout_marginLeft="@dimen/size_4">
 
-            <com.sproject.ikidz.sdk.Utils.RoundImage
+            <com.snq.ikidz.teacher.sdk.Utils.RoundImage
                 android:id="@+id/img_avatar"
                 android:layout_width="@dimen/size_48"
                 android:layout_height="@dimen/size_48"

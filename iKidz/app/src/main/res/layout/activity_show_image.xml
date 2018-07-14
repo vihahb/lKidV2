@@ -73,7 +73,7 @@
         </FrameLayout>
     </FrameLayout>
 
-    <com.sproject.ikidz.sdk.Utils.RecyclerTabLayout
+    <com.snq.ikidz.teacher.sdk.Utils.RecyclerTabLayout
         android:id="@+id/rcl_thumbl"
         style="@style/rtl_RecyclerTabLayout"
         android:layout_width="match_parent"

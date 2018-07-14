@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sproject.ikidz">
+    package="com.snq.ikidz.teacher">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -58,8 +58,8 @@
             android:name=".view.activity.message.broadcast.ChatBroadcast"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.sproject.added_message" />
-                <action android:name="com.sproject.added_room" />
+                <action android:name="com.snq.added_message" />
+                <action android:name="com.snq.added_room" />
             </intent-filter>
         </receiver>
 

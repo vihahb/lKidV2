@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <com.sproject.ikidz.sdk.Utils.RoundImage
+        <com.snq.ikidz.teacher.sdk.Utils.RoundImage
             android:id="@+id/img_avatar"
             android:src="@mipmap/ic_student_user"
             android:layout_width="@dimen/size_36"
